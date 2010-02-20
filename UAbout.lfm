@@ -1,0 +1,34 @@
+object AboutForm: TAboutForm
+  Left = 397
+  Height = 195
+  Top = 134
+  Width = 360
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'About Heat Wizard'
+  ClientHeight = 195
+  ClientWidth = 360
+  OnCreate = FormCreate
+  LCLVersion = '0.9.28.2'
+  object DoneButton: TButton
+    Left = 152
+    Height = 20
+    Top = 128
+    Width = 75
+    Caption = 'Done'
+    Font.Color = 3168345
+    Font.Height = -12
+    OnClick = DoneButtonClick
+    ParentFont = False
+    TabOrder = 0
+  end
+  object AboutText: TStaticText
+    Left = 40
+    Height = 96
+    Top = 16
+    Width = 304
+    Alignment = taCenter
+    Caption = 'About Heat Wizard'
+    TabOrder = 1
+  end
+end

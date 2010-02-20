@@ -1,0 +1,45 @@
+#: Form1:VoltageEdit
+msgid "Voltage"
+msgstr "Jännite"
+
+#: Form1:TemperatureCelsiusEdit
+msgid "Temperature"
+msgstr "Lämpötila"
+
+#: Form1:ReferenceCelsiusEdit
+msgid "Reference Temperature"
+msgstr "Vertailulämpötila"
+
+#: Form1:QuitButton
+msgid "Quit"
+msgstr "Lopeta"
+
+#: Form1:TypeBox.Text
+msgid "Type K"
+msgstr "Tyyppi K"
+
+#: Form1:Warning
+msgid "illegal input try again"
+msgstr "Ei sallittu\nmerkki!\nYritä\nuudelleen!"
+
+#: AboutForm:AboutText
+msgid "About Text"
+msgstr "Heat Wizard\nVersio: Placeholder\nHeat Wizard muuntaa termoelementin jännitteen lämpötilaksi ja päinvastoin.\nTekijä: K.-M. Schindler\nLisenssi: GPL"
+
+#: PreferencesForm:AboutText
+msgid "Language:"
+msgstr "Kieli:"
+
+#: DoneButton
+msgid "Done"
+msgstr "OK"
+
+#: Languages
+msgid "English"
+msgstr "englanti"
+
+msgid "German"
+msgstr "saksa"
+
+msgid "Finnish"
+msgstr "suomi"
