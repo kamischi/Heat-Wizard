@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="/sw/bin/fpc" Date="1264340819"/>
+  <Params Value=" -MObjFPC -Si -CirotR -O1 -g -gl -gv  -k-framework -kCarbon -k-framework -kOpenGL -k'-dylib_file' -k'/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib' -WG -vewnhil -Se5 -Fu/sw/share/lazarus/lcl/units/i386-darwin/ -Fu/sw/share/lazarus/lcl/units/i386-darwin/carbon/ -Fu/Users/michael/Developer/heatwizard/trunk/languages/ -Fu/sw/share/lazarus/packager/units/i386-darwin/ -Fu/Users/michael/Developer/heatwizard/trunk/ -Fu. &quot;-oHeat Wizard&quot; -gw -XR/Developer/SDKs/MacOSX10.4u.sdk/ -dLCL -dLCLcarbon HeatWizard.lpr"/>
+</CONFIG>

@@ -1,0 +1,87 @@
+object MainForm: TMainForm
+  Left = 16
+  Height = 187
+  Top = 370
+  Width = 1272
+  Caption = 'Main'
+  ClientHeight = 187
+  ClientWidth = 1272
+  LCLVersion = '0.9.26.2'
+  object MainBundleButton: TButton
+    Left = 37
+    Height = 25
+    Top = 29
+    Width = 99
+    Caption = 'MainBundle'
+    ModalResult = 1
+    OnClick = MainBundleButtonClick
+    TabOrder = 0
+  end
+  object ResourceDirButton: TButton
+    Left = 37
+    Height = 25
+    Top = 72
+    Width = 99
+    Caption = 'ResourceDir'
+    OnClick = ResourceDirButtonClick
+    TabOrder = 1
+  end
+  object ResourceFileButton1: TButton
+    Left = 37
+    Height = 25
+    Top = 120
+    Width = 99
+    Caption = 'ResourceFile1'
+    OnClick = ResourceFileButton1Click
+    TabOrder = 2
+  end
+  object MainBundlePathStaticText: TStaticText
+    Left = 168
+    Height = 17
+    Top = 33
+    Width = 1080
+    Caption = 'MainBundlePath'
+    Font.Height = -10
+    ParentFont = False
+    TabOrder = 3
+  end
+  object ResourceDirPathStaticText: TStaticText
+    Left = 168
+    Height = 17
+    Top = 72
+    Width = 1080
+    Caption = 'ResourceDirPath'
+    Font.Height = -10
+    ParentFont = False
+    TabOrder = 4
+  end
+  object ResourceFilePath1StaticText: TStaticText
+    Left = 168
+    Height = 17
+    Top = 120
+    Width = 1080
+    Caption = 'ResourceFilePath1'
+    Font.Height = -10
+    ParentFont = False
+    TabOrder = 5
+  end
+  object ResourceFileButton2: TButton
+    Left = 37
+    Height = 25
+    Top = 152
+    Width = 99
+    Caption = 'ResourceFile2'
+    OnClick = ResourceFileButton2Click
+    TabOrder = 6
+  end
+  object ResourceFilePath2StaticText: TStaticText
+    Left = 168
+    Height = 17
+    Top = 152
+    Width = 1080
+    Caption = 'ResourceFilePath2'
+    Font.Height = -10
+    ParentFont = False
+    TabOrder = 7
+  end
+end

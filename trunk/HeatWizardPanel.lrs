@@ -1,0 +1,71 @@
+{ Das ist eine automatisch erzeugte Lazarus-Ressourcendatei }
+
+LazarusResources.Add('TMainForm','FORMDATA',[
+  'TPF0'#9'TMainForm'#8'MainForm'#4'Left'#3#141#1#6'Height'#3#195#0#3'Top'#3#134
+  +#0#5'Width'#3'h'#1#18'HorzScrollBar.Page'#3'g'#1#19'HorzScrollBar.Range'#3'0'
+  +#1#18'VertScrollBar.Page'#3#194#0#19'VertScrollBar.Range'#3#167#0#13'ActiveC'
+  +'ontrol'#7#11'VoltageEdit'#11'BorderIcons'#11#12'biSystemMenu'#0#11'BorderSt'
+  +'yle'#7#8'bsDialog'#7'Caption'#6#11'Heat Wizard'#12'ClientHeight'#3#195#0#11
+  +'ClientWidth'#3'h'#1#5'Color'#7#6'clNone'#21'Constraints.MaxHeight'#3#195#0
+  +#20'Constraints.MaxWidth'#3'h'#1#21'Constraints.MinHeight'#3#195#0#20'Constr'
+  +'aints.MinWidth'#3'h'#1#10'Font.Color'#4#236#234#161#0#8'OnCreate'#7#10'Form'
+  +'Create'#11'OnMouseMove'#7#13'FormMouseMove'#7'OnPaint'#7#9'FormPaint'#10'LC'
+  +'LVersion'#6#8'0.9.28.2'#0#6'TShape'#16'PreferenceCircle'#4'Left'#3'T'#1#6'H'
+  +'eight'#2#16#3'Top'#3#176#0#5'Width'#2#16#11'Brush.Color'#4#209']_'#0#11'Bru'
+  +'sh.Style'#7#7'bsClear'#9'Pen.Color'#7#6'clNone'#9'Pen.Style'#7#7'psClear'#11
+  +'OnMouseMove'#7#25'PreferenceCircleMouseMove'#5'Shape'#7#8'stCircle'#0#0#6'T'
+  +'Shape'#10'InfoCircle'#4'Left'#3'S'#1#6'Height'#2#16#3'Top'#2#6#5'Width'#2#16
+  +#11'Brush.Color'#4#209']_'#0#11'Brush.Style'#7#7'bsClear'#9'Pen.Color'#7#6'c'
+  +'lNone'#9'Pen.Style'#7#7'psClear'#11'OnMouseMove'#7#19'InfoCircleMouseMove'#5
+  +'Shape'#7#8'stCircle'#0#0#6'TLabel'#6'Label1'#4'Left'#2'p'#6'Height'#2#18#3
+  +'Top'#2#31#5'Width'#2#22#7'Caption'#6#2'mV'#11'ParentColor'#8#0#0#6'TLabel'#6
+  +'Label2'#4'Left'#2'p'#6'Height'#2#18#3'Top'#2'Y'#5'Width'#2#14#7'Caption'#6#3
+  +#194#176'C'#11'ParentColor'#8#0#0#6'TLabel'#6'Label3'#4'Left'#2'p'#6'Height'
+  +#2#18#3'Top'#3#151#0#5'Width'#2#14#7'Caption'#6#3#194#176'C'#11'ParentColor'
+  +#8#0#0#6'TLabel'#6'Label4'#4'Left'#3#236#0#6'Height'#2#18#3'Top'#2'Y'#5'Widt'
+  +'h'#2#10#7'Caption'#6#1'K'#11'ParentColor'#8#0#0#6'TLabel'#6'Label5'#4'Left'
+  +#3#236#0#6'Height'#2#18#3'Top'#3#151#0#5'Width'#2#10#7'Caption'#6#1'K'#11'Pa'
+  +'rentColor'#8#0#0#6'TLabel'#10'InfoButton'#4'Left'#3'X'#1#6'Height'#2#14#3'T'
+  +'op'#2#6#5'Width'#2#15#8'AutoSize'#8#7'Caption'#6#1'i'#10'Font.Color'#4#236
+  +#234#161#0#10'Font.Style'#11#8'fsItalic'#0#11'ParentColor'#8#10'ParentFont'#8
+  +#7'OnClick'#7#15'InfoButtonClick'#11'OnMouseMove'#7#19'InfoCircleMouseMove'#0
+  +#0#6'TLabel'#16'PreferenceButton'#4'Left'#3'X'#1#6'Height'#2#18#3'Top'#3#174
+  +#0#5'Width'#2#9#7'Caption'#6#1'p'#10'Font.Color'#4#236#234#161#0#10'Font.Sty'
+  +'le'#11#8'fsItalic'#0#10'ParentFont'#8#7'OnClick'#7#21'PreferenceButtonClick'
+  +#11'OnMouseMove'#7#25'PreferenceCircleMouseMove'#0#0#6'TLabel'#7'Warning'#4
+  +'Left'#3#9#1#6'Height'#2'P'#3'Top'#2#30#5'Width'#2'K'#8'AutoSize'#8#7'Captio'
+  +'n'#6#26'illegal input! try again! '#11'ParentColor'#8#7'Visible'#8#0#0#5'TE'
+  +'dit'#21'TemperatureKelvinEdit'#4'Left'#3#152#0#6'Height'#2#22#3'Top'#2'X'#5
+  +'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKeyDown'#7#28
+  +'TemperatureKelvinEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#3#4'Text'#6#6
+  +'298.15'#0#0#5'TEdit'#19'ReferenceKelvinEdit'#4'Left'#3#152#0#6'Height'#2#22
+  +#3'Top'#3#150#0#5'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9
+  +'OnKeyDown'#7#26'ReferenceKelvinEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#4
+  +#4'Text'#6#6'298.15'#0#0#12'TLabeledEdit'#11'VoltageEdit'#4'Left'#2#24#6'Hei'
+  +'ght'#2#22#3'Top'#2#30#5'Width'#2'H'#5'Color'#7#6'clNone EditLabel.AnchorSid'
+  +'eLeft.Control'#7#11'VoltageEdit"EditLabel.AnchorSideBottom.Control'#7#11'Vo'
+  +'ltageEdit'#14'EditLabel.Left'#2#24#16'EditLabel.Height'#2#18#13'EditLabel.T'
+  +'op'#2#9#15'EditLabel.Width'#2'2'#17'EditLabel.Caption'#6#7'Voltage'#21'Edit'
+  +'Label.ParentColor'#8#10'Font.Color'#4'YX0'#0#10'ParentFont'#8#8'TabOrder'#2
+  +#0#4'Text'#6#5'0.000'#9'OnKeyDown'#7#18'VoltageEditKeyDown'#0#0#12'TLabeledE'
+  +'dit'#22'TemperatureCelsiusEdit'#4'Left'#2#24#6'Height'#2#22#3'Top'#2'X'#5'W'
+  +'idth'#2'H'#5'Color'#7#6'clNone EditLabel.AnchorSideLeft.Control'#7#22'Tempe'
+  +'ratureCelsiusEdit"EditLabel.AnchorSideBottom.Control'#7#22'TemperatureCelsi'
+  +'usEdit'#14'EditLabel.Left'#2#24#16'EditLabel.Height'#2#18#13'EditLabel.Top'
+  +#2'C'#15'EditLabel.Width'#2'R'#17'EditLabel.Caption'#6#11'Temperature'#21'Ed'
+  +'itLabel.ParentColor'#8#10'Font.Color'#4'YX0'#0#10'ParentFont'#8#8'TabOrder'
+  +#2#1#4'Text'#6#5'25.00'#9'OnKeyDown'#7#29'TemperatureCelsiusEditKeyDown'#0#0
+  +#12'TLabeledEdit'#20'ReferenceCelsiusEdit'#4'Left'#2#24#6'Height'#2#22#3'Top'
+  +#3#150#0#5'Width'#2'H'#5'Color'#7#6'clNone EditLabel.AnchorSideLeft.Control'
+  +#7#20'ReferenceCelsiusEdit"EditLabel.AnchorSideBottom.Control'#7#20'Referenc'
+  +'eCelsiusEdit'#14'EditLabel.Left'#2#24#16'EditLabel.Height'#2#18#13'EditLabe'
+  +'l.Top'#3#129#0#15'EditLabel.Width'#3#149#0#17'EditLabel.Caption'#6#21'Refer'
+  +'ence Temperature'#21'EditLabel.ParentColor'#8#10'Font.Color'#4'YX0'#0#10'Pa'
+  +'rentFont'#8#8'TabOrder'#2#2#4'Text'#6#5'25.00'#9'OnKeyDown'#7#27'ReferenceC'
+  +'elsiusEditKeyDown'#0#0#9'TComboBox'#7'TypeBox'#4'Left'#3#152#0#6'Height'#2
+  +#21#3'Top'#2#30#5'Width'#2'X'#10'Font.Color'#4'YX0'#0#10'ItemHeight'#2#0#9'M'
+  +'axLength'#4#255#255#0#0#10'ParentFont'#8#8'TabOrder'#2#5#4'Text'#6#6'Type K'
+  ,#0#0#7'TButton'#10'QuitButton'#4'Left'#3#9#1#6'Height'#2#20#3'Top'#3#152#0#5
+  +'Width'#2'K'#7'Caption'#6#4'Quit'#10'Font.Color'#4'YX0'#0#7'OnClick'#7#15'Qu'
+  +'itButtonClick'#10'ParentFont'#8#8'TabOrder'#2#6#0#0#0
+]);

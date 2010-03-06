@@ -1,0 +1,4 @@
+#: Form1:VoltageEdit
+msgid "Voltage"
+msgstr "Spannung"
+
