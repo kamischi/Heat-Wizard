@@ -31,37 +31,89 @@ program heatwizard;
 uses
   UCommandlineHandler,
   UConverter,
-  UResultHandler;
+  UResultHandler,
+  SysUtils;
 
+type
+  TEvaluate = (Ttemperature, Treference, Tvoltage);
 var
   CommandlineHandler: TCommandlineHandler;
   Converter:          TConverter;
-  ResultHandler:      TResultHandler;
+  temperature, reference, voltage: real;
+  tempUnit, coupleType: char;
+  Evaluate: Set of TEvaluate;
 
 begin
   CommandlineHandler := TCommandlineHandler.Create;
-  CommandlineHandler.Debug := true;
+  CommandlineHandler.Debug := false;
   CommandlineHandler.AddOption('-h', '');
-  CommandlineHandler.AddOption('-t', '298');
-  CommandlineHandler.AddOption('-r', '273');
-  CommandlineHandler.AddOption('-v', '0');
-  CommandlineHandler.AddOption('-T', 'K');
+  CommandlineHandler.AddOption('-t', '');
+  CommandlineHandler.AddOption('-r', '');
+  CommandlineHandler.AddOption('-u', '');
+  CommandlineHandler.AddOption('-v', '');
+  CommandlineHandler.AddOption('-T', '');
   CommandlineHandler.Tokenize;
   CommandlineHandler.Parse;
-  writeln ('-h is set to: ', CommandlineHandler.GetOptionIsSet('-h'));
-  writeln ('-t is set to: ', CommandlineHandler.GetOptionIsSet('-t'));
-  writeln ('-r is set to: ', CommandlineHandler.GetOptionIsSet('-r'));
-  writeln ('-v is set to: ', CommandlineHandler.GetOptionIsSet('-v'));
-  writeln ('-T is set to: ', CommandlineHandler.GetOptionIsSet('-T'));
-  writeln ('Value of -h is: ', CommandlineHandler.GetOptionValue('-h'));
-  writeln ('Value of -t is: ', CommandlineHandler.GetOptionValue('-t'));
-  writeln ('Value of -r is: ', CommandlineHandler.GetOptionValue('-r'));
-  writeln ('Value of -v is: ', CommandlineHandler.GetOptionValue('-v'));
-  writeln ('Value of -T is: ', CommandlineHandler.GetOptionValue('-T'));
+  writeln ('Option -h is set to : ', CommandlineHandler.GetOptionIsSet('-h'));
+  temperature := 25.0;
+  reference   :=  0.0;
+  tempUnit    :=  'C';
+  voltage     :=  0.0;
+  coupleType  :=  'K';
+  Evaluate := [Ttemperature, Treference, Tvoltage];
+  if CommandlineHandler.GetOptionIsSet('-t') then
+  begin
+    temperature := strToFloat(CommandlineHandler.GetOptionValue('-t'));
+    Evaluate    := Evaluate - [Ttemperature];
+  end;
+  if CommandlineHandler.GetOptionIsSet('-r') then
+  begin
+    reference   := strToFloat(CommandlineHandler.GetOptionValue('-r'));
+    Evaluate    := Evaluate - [Treference];
+  end;
+  if CommandlineHandler.GetOptionIsSet('-u') then
+  begin
+    tempUnit    :=            CommandlineHandler.GetOptionValue('-u')[1];
+  end;
+  if CommandlineHandler.GetOptionIsSet('-v') then
+  begin
+    voltage     := strToFloat(CommandlineHandler.GetOptionValue('-v'));
+    Evaluate    := Evaluate - [Tvoltage];
+  end;
+  if CommandlineHandler.GetOptionIsSet('-T') then
+  begin
+    coupleType  :=            CommandlineHandler.GetOptionValue('-T')[1];
+  end;
   CommandlineHandler.Destroy;
+  writeln ('Value of -t is: ', temperature);
+  writeln ('Value of -r is: ', reference);
+  writeln ('Value of -u is: ', tempUnit);
+  writeln ('Value of -v is: ', voltage);
+  writeln ('Value of -T is: ', coupleType);
   Converter := TConverter.Create;
+  if Ttemperature in Evaluate then
+  begin
+    writeln ('calculate temperature dummy');
+    writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
+    writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnit);
+  end
+  else if Tvoltage in Evaluate then
+  begin
+    writeln ('calculate voltage dummy'); 
+    writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
+    writeln ('VOLTAGE: ', voltage:8:3, ' mV');
+  end
+  else if Treference in Evaluate then
+  begin
+    writeln ('calculate reference dummy');
+    writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
+    writeln ('REFERENCE: ', reference:8:3, ' ', tempUnit);
+  end
+  else
+  begin
+     
+  end;
   Converter.Destroy;
-  ResultHandler := TResultHandler.Create;
-  ResultHandler.Destroy;
+
 end.
 
