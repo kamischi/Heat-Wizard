@@ -31,7 +31,6 @@ program heatwizard;
 uses
   UCommandlineHandler,
   UConverter,
-  UResultHandler,
   SysUtils;
 
 type
@@ -39,7 +38,7 @@ type
 var
   CommandlineHandler: TCommandlineHandler;
   Converter:          TConverter;
-  temperature, reference, voltage: real;
+  temperature, reference, voltage: double;
   tempUnit, coupleType: char;
   Evaluate: Set of TEvaluate;
 
@@ -56,7 +55,7 @@ begin
   CommandlineHandler.Parse;
   writeln ('Option -h is set to : ', CommandlineHandler.GetOptionIsSet('-h'));
   temperature := 25.0;
-  reference   :=  0.0;
+  reference   := 25.0;
   tempUnit    :=  'C';
   voltage     :=  0.0;
   coupleType  :=  'K';
@@ -93,19 +92,19 @@ begin
   Converter := TConverter.Create;
   if Ttemperature in Evaluate then
   begin
-    writeln ('calculate temperature dummy');
+    Temperature := Converter.GetTemperature(Voltage, Reference, coupleType, tempUnit);
     writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
     writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnit);
   end
   else if Tvoltage in Evaluate then
   begin
-    writeln ('calculate voltage dummy'); 
+    Voltage := Converter.GetVoltage(Temperature, Reference, coupleType, tempUnit);
     writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
     writeln ('VOLTAGE: ', voltage:8:3, ' mV');
   end
   else if Treference in Evaluate then
   begin
-    writeln ('calculate reference dummy');
+    Reference := Converter.GetReference(Temperature, Voltage, coupleType, tempUnit);
     writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
     writeln ('REFERENCE: ', reference:8:3, ' ', tempUnit);
   end
