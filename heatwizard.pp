@@ -45,12 +45,12 @@ var
 begin
   CommandlineHandler := TCommandlineHandler.Create;
   CommandlineHandler.Debug := false;
-  CommandlineHandler.AddOption('-h', '');
-  CommandlineHandler.AddOption('-t', '');
-  CommandlineHandler.AddOption('-r', '');
-  CommandlineHandler.AddOption('-u', '');
-  CommandlineHandler.AddOption('-v', '');
-  CommandlineHandler.AddOption('-T', '');
+  CommandlineHandler.AddOption('-h', '', TNone);
+  CommandlineHandler.AddOption('-t', '', TReal);
+  CommandlineHandler.AddOption('-r', '', TReal);
+  CommandlineHandler.AddOption('-u', '', TChar);
+  CommandlineHandler.AddOption('-v', '', TReal);
+  CommandlineHandler.AddOption('-T', '', TChar);
   CommandlineHandler.Tokenize;
   CommandlineHandler.Parse;
   writeln ('Option -h is set to : ', CommandlineHandler.GetOptionIsSet('-h'));

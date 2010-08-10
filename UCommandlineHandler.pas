@@ -34,11 +34,13 @@ uses
   Classes;
 
 type
+  TValueType = (TNone, TReal, TChar);
+
   TCommandlineHandler = class
   public
     Debug: boolean;
     constructor Create;
-    procedure AddOption(NewShortOption: string; NewDefaultValue: string);
+    procedure AddOption(NewShortOption: string; NewDefaultValue: string; NewValueType: TValueType);
     procedure Tokenize;
     procedure Parse;
     function GetOptionIsSet(query: string): boolean;
@@ -55,7 +57,10 @@ type
 implementation
 
 uses
-  StrUtils;
+  SysUtils;
+
+const
+  RealRegEx = '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
 
 constructor TCommandlineHandler.Create;
 begin
@@ -68,7 +73,7 @@ begin
   ShortOption.CaseSensitive := true;
 end;
 
-procedure TCommandlineHandler.AddOption(NewShortOption: string; NewDefaultValue: string);
+procedure TCommandlineHandler.AddOption(NewShortOption: string; NewDefaultValue: string; NewValueType: TValueType);
 begin
   ShortOption.Add(NewShortOption);
   DefaultValue.Add(NewDefaultValue);
@@ -110,6 +115,7 @@ var
   index, position, lastOption: integer;
   acceptOptionValue: boolean;
   inputString: string;
+  realNumber: double;
 
 begin
    // the first token with index 0 is the command
@@ -152,7 +158,7 @@ begin
     end
     else
     begin
-      if acceptOptionValue and (Token[index][1] <> '-') then
+      if acceptOptionValue and ((Token[index][1] in ['a'..'z', 'A'..'Z']) or TryStrToFloat(Token[index], realNumber)) then
       begin
         Value[lastOption] := Token[index];
 	acceptOptionValue := false;
