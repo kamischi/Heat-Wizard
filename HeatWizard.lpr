@@ -43,12 +43,15 @@ uses
   UPath,
   UPreferences,
   UPreferenceData,
-  UPlatform, UThermoCouple;
+  UPlatform,
+  UThermoCouple;
 
 {$IFDEF WINDOWS}
 {$R HeatWizard.rc}
 {$R Icon.rc}
 {$ENDIF}
+
+{$R HeatWizard.res}
 
 begin
   Application.Title:='Heat Wizard';

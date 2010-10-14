@@ -1,7 +1,7 @@
 PREFIX ?= /usr/local/bin
 LANGUAGES = en de fi
 
-.PHONY: all clean install uninstall release
+.PHONY: cli gui all clean install uninstall release
 
 LAZARUS_OPTIONS=
 
@@ -11,7 +11,14 @@ ifeq ($(ThisSystem), Linux)
   LAZARUS_OPTIONS=--ws=gtk2
 endif
 
-all: HeatWizard.lpr *.pas version.inc *.lfm *.lrs *.lrt
+all: cli gui
+
+cli: heatwizard.pp UCommandlineHandler.pas UConverter.pas
+	fpc -O3 -CX -XX -OWall -FWheatwizard.wpo heatwizard.pp
+	fpc -O3 -CX -XX -Owall -Fwheatwizard.wpo heatwizard.pp
+	strip heatwizard
+
+gui: HeatWizard.lpr *.pas version.inc *.lfm *.lrs *.lrt
 ifneq "`which lazbuild`" ""
 ifeq ($(ThisSystem), Darwin)
 	lazbuild $(LAZARUS_OPTIONS) HeatWizard-MacOSX.lpi
@@ -28,7 +35,7 @@ else
 endif
 
 clean:
-	rm -f *.ppu *.o *.exe *.rc HeatWizard HeatWizard.compiled
+	rm -f *.ppu *.o *.exe *.rc *.wpo HeatWizard HeatWizard.compiled
 
 install:
 	install -m 755 heatwizard $(PREFIX)

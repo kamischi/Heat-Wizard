@@ -31,13 +31,14 @@ unit UThermoCouple;
 interface
 
 uses
-  Classes, SysUtils; 
+  Classes,
+  SysUtils;
 
 type
   TThermoelementType = (B, E, J, K, N, R, S, T);
   TThermoCouple = class
     TemperatureRangeLimits: array of double;
-    TemperatureRangeLimitsV2T: array of double;
+    VoltageRangeLimits: array of double;
     aT2V: array of double;
     bT2V: array of double;
     cT2V: array of double;
@@ -74,9 +75,9 @@ begin
   setlength (cT2V, length(cT));
   for i := low(cT) to high(cT) do
     cT2V[i] := cT[i];
-  setlength (TemperatureRangeLimits, length(VT));
+  setlength (VoltageRangeLimits, length(VT));
   for i := low(VT) to high(VT) do
-    TemperatureRangeLimits[i] := VT[i];
+    VoltageRangeLimits[i] := VT[i];
   setlength (aV2T, length(aV));
   for i := low(aV) to high(aV) do
     aV2T[i] := aV[i];

@@ -34,186 +34,152 @@ uses
   Classes;
 
 type
-  TValueType = (TNone, TReal, TChar);
+  TValueType = (TNone,
+                TRealOptional, TIntegerOptional, TCharOptional,
+                TRealMust,     TIntegerMust,     TCharMust
+               );
 
   TCommandlineHandler = class
   public
     Debug: boolean;
     constructor Create;
-    procedure AddOption(NewShortOption: string; NewDefaultValue: string; NewValueType: TValueType);
-    procedure Tokenize;
-    procedure Parse;
-    function GetOptionIsSet(query: string): boolean;
-    function GetOptionValue(query: string): string;
+    destructor Destroy;
+    procedure AddOption(const NewShortOption: string);
+    procedure AddOption(const NewShortOption: string; const NewValueType: TValueType);
+    procedure AddOption(const NewShortOption: string; const NewLongOption: string);
+    procedure AddOption(const NewShortOption: string; const NewLongOption: string; const NewValueType: TValueType);
+    procedure AddOption(const NewShortOption: string; const NewLongOption: string; const NewDefaultValue: string; const NewValueType: TValueType);
+    function GetOptionIsSet(const query: string): boolean;
+    function GetOptionIsSet(const queryChar: char; const queryString: string): boolean;
+    function GetOptionValue(const query: string): string;
+    function GetOptionValue(const queryChar: char; const queryString: string): string;
+    function CheckOptions: string;
   private
-    NumberOfTokens: integer;
-    Token:        TStringList;
-    ShortOption:  TStringList;
+    ShortOption:  string;
+    LongOption:   TStringList;
     DefaultValue: TStringList;
     Value:        TStringList;
+    ValueType:    array of TValueType;
     OptionIsSet:  array of boolean;
   end;
 
 implementation
 
 uses
-  SysUtils;
+  CustApp, StrUtils, SysUtils;
 
-const
-  RealRegEx = '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
+var
+  HeatWizardApplication: TCustomApplication;
 
 constructor TCommandlineHandler.Create;
 begin
   Inherited;
   Debug := false;
-  Token        := TStringList.Create;
-  ShortOption  := TStringList.Create;
+  LongOption   := TStringList.Create;
   DefaultValue := TStringList.Create;
   Value        := TStringList.Create;
-  ShortOption.CaseSensitive := true;
+  HeatWizardApplication := TCustomApplication.Create(Nil);
 end;
 
-procedure TCommandlineHandler.AddOption(NewShortOption: string; NewDefaultValue: string; NewValueType: TValueType);
+destructor TCommandlineHandler.Destroy;
 begin
-  ShortOption.Add(NewShortOption);
+  Inherited;
+  HeatWizardApplication.Destroy;
+end;
+
+function TCommandlineHandler.GetOptionIsSet(const query: string): boolean;
+begin
+  Result := HeatWizardApplication.HasOption(query);
+end;
+
+function TCommandlineHandler.GetOptionIsSet(const queryChar: char; const queryString: string): boolean;
+begin
+  Result := HeatWizardApplication.HasOption(queryChar, queryString);
+end;
+
+function TCommandlineHandler.GetOptionValue(const query: string): string;
+begin
+  Result := HeatWizardApplication.GetOptionValue(query);
+end;
+
+function TCommandlineHandler.GetOptionValue(const queryChar: char; const queryString: string): string;
+begin
+  Result := HeatWizardApplication.GetOptionValue(queryChar, queryString);
+end;
+
+function TCommandlineHandler.CheckOptions: string;
+var
+  index: integer;
+  valueString: string;
+  integerTest: integer;
+  realTest: real;
+begin
+  Result := HeatWizardApplication.CheckOptions(ShortOption, LongOption);
+  if Result = '' then
+    for index := 0 to LongOption.Count - 1 do
+    begin
+      write (DelChars(ShortOption, ':')[index+1], ', ');
+      writeln (LongOption[index]);
+      writeln (HeatWizardApplication.GetOptionValue(DelChars(ShortOption, ':')[index+1], Copy2Symb(LongOption[index], ':')));
+      valueString := HeatWizardApplication.GetOptionValue(DelChars(ShortOption, ':')[index+1], Copy2Symb(LongOption[index], ':'));
+      if valueString <> '' then
+      begin
+        case valueType[index] of
+         TRealOptional, TRealMust: if not (TryStrToFloat(valueString, realTest)) then Result := 'Error: "' + valuestring + '" could not be converted to a real number.'
+              ;
+         TIntegerOptional, TIntegerMust : if not (TryStrToInt(valueString, integerTest)) then Result := 'Error: "' + valuestring + '" could not be converted to an integer number.'
+              ;
+        end;
+      end;
+    end;
+end;
+
+procedure TCommandlineHandler.AddOption(const NewShortOption: string);
+begin
+  AddOption(NewShortOption, '', '', TNone);
+end;
+
+procedure TCommandlineHandler.AddOption(const NewShortOption: string; const NewValueType: TValueType);
+begin
+  AddOption(NewShortOption, '', '', NewValueType);
+end;
+
+procedure TCommandlineHandler.AddOption(const NewShortOption: string; const NewLongOption: string);
+begin
+  AddOption(NewShortOption, NewLongOption, '', TNone);
+end;
+
+procedure TCommandlineHandler.AddOption(const NewShortOption: string; const NewLongOption: string; const  NewValueType: TValueType);
+begin
+  AddOption(NewShortOption, NewLongOption, '', NewValueType);
+end;
+
+procedure TCommandlineHandler.AddOption(const NewShortOption: string; const NewLongOption: string; const NewDefaultValue: string;const NewValueType: TValueType);
+begin
+  case NewValueType of
+    TRealMust, TIntegerMust, TCharMust:
+    begin
+      ShortOption := ShortOption + NewShortOption[2] + ':';
+      LongOption.Add(copy(NewLongOption,3,Length(NewLongOption)-2) + ':');
+    end;
+    TRealOptional, TIntegerOptional, TCharOptional:
+    begin
+      ShortOption := ShortOption + NewShortOption[2] + '::';
+      LongOption.Add(copy(NewLongOption,3,Length(NewLongOption)-2) + '::');
+    end;
+    else
+    begin
+      ShortOption := ShortOption + NewShortOption[2];
+      LongOption.Add(copy(NewLongOption,3,Length(NewLongOption)-2));
+    end;
+  end;
   DefaultValue.Add(NewDefaultValue);
   Value.Add(NewDefaultValue);
+  SetLength(ValueType, Length(ValueType) + 1);
+  ValueType[high(ValueType)] := NewValueType;
   SetLength(OptionIsSet, Length(OptionIsSet) + 1);
   if NewDefaultValue <> '' then
     OptionIsSet[high(OptionIsSet)] := true;
-end;
-
-procedure TCommandlineHandler.Tokenize;
-var
-  index, position: integer;
-
-begin
-  NumberOfTokens := Paramcount;
-  if Debug then
-    writeln ('Number of command-line parameters: ', NumberOfTokens);
-  for index := 0 to NumberOfTokens do
-  begin
-    if Debug then
-      writeln ('Parameter ', index, ': ', ParamStr(index));
-    Token.Add(ParamStr(index));
-    // check for '=' in the option and separate the value to a new token
-    position := Pos('=', Token[index]);
-    if position > 0 then
-    begin
-      Token.Add(copy(Token[index], position+1, length(Token[index])));
-      if Debug then
-        writeln ('Option value in new token:', Token[index+1]);
-      Token[index] := copy(Token[index], 1, position-1);
-      if Debug then
-        writeln ('Option name only in shortened token:', Token[index]);
-    end;
-  end;
-end;
-
-procedure TCommandlineHandler.Parse;
-var
-  index, position, lastOption: integer;
-  acceptOptionValue: boolean;
-  inputString: string;
-  realNumber: double;
-
-begin
-   // the first token with index 0 is the command
-   // so, start with token index 1
-  if Debug then
-  begin
-    writeln ('Start parsing. Number of tokens: ', Token.Count);
-    for index := 0 to Token.Count-1 do
-      writeln ('Token[', index, ']: ', Token[index]);
-  end;
-{
-  index := 1;
-  while index < Token.Count do
-  begin
-    if Length(Token[index]) > 2 then
-    begin
-      writeln ('Error: Option name', index, ' (', Token[index], ') ', 'should have only one character.');
-      writeln ('Enter replacement for (', Token[index], ') :');
-      readln (inputString);
-      Token[index] := inputString;
-    end;
-    index := index + 1;
-  end;
-}
-  acceptOptionValue := false;
-  for index := 1 to Token.Count-1 do
-  begin
-    if Debug then
-      writeln ('Checking token ', index, ' Tokenstring: ', Token[index]);
-    position := ShortOption.IndexOf(Token[index]);
-    if position <> -1 then
-    begin
-      if Debug then
-        writeln ('Match with option ', position, ' (', ShortOption[position],') found for token[', index, '] (', Token[index],').');
-      OptionIsSet[position] := true;
-      lastOption := position;
-      acceptOptionValue := true;
-      if Debug then
-        writeln ('Option ', ShortOption[position], ' ', position, ' set');
-    end
-    else
-    begin
-      if acceptOptionValue and ((Token[index][1] in ['a'..'z', 'A'..'Z']) or TryStrToFloat(Token[index], realNumber)) then
-      begin
-        Value[lastOption] := Token[index];
-	acceptOptionValue := false;
-      end
-      else
-      begin
-        if Debug then
-          writeln ('No match with any option found for token[', index, '] (', Token[index],').');
-      end;
-    end;
-  end;
-  if Debug then
-  begin
-    writeln ('index option isSet Value');
-    for index := 0 to ShortOption.Count-1 do
-    begin
-      write (index:3);
-      write (ShortOption[index]:6);
-      write (OptionIsSet[index]:9);
-      write (' ', Value[index]);
-      writeln;
-    end;
-  end;
-end;
-
-function TCommandlineHandler.GetOptionIsSet(query: string): boolean;
-var
-  position: integer;
-  
-begin
-  position := ShortOption.IndexOf(query);
-  if Debug then
-    writeln ('Found option #', position);
-  if position <> -1 then
-    Result := OptionIsSet[position]
-  else
-    Result := false;
-end;
-
-function TCommandlineHandler.GetOptionValue(query: string): string;
-var
-  position: integer;
-  
-begin
-  Result := '';
-  position :=  ShortOption.IndexOf(query);
-  if position <> -1 then
-  begin
-    Result := Value[position];
-    if Debug then
-      writeln ('Found value for option ', query, ': ', Result);
-  end
-  else
-    if Debug then
-      writeln ('No value found for option "', query, '". Position: ', position, ' Length of ShortOptionsList: ', ShortOption.Count);
 end;
 
 end.

@@ -2,10 +2,11 @@ Heat Wizard README
 -------------------
 
 Heat Wizard is a small program for the conversion of thermocouple voltages
-to temperature and back. It comes with a graphical user interface (GUI)
-and runs on Windows, Mac OS X and Linux.
+to temperature and back. It comes as 2 programs, one is a simple commandline 
+tool, the other has a graphical user interface (GUI).
+Both run on Windows, Mac OS X and Linux.
 
-Installation:
+Installation of :
 
 Windows:
 Double click the installer.
@@ -19,8 +20,12 @@ You need Lazarus and gettext for building the application from the
 source tarball.
 Build and install Heat Wizard as usual. Type:
 
-  make
+  make all
   make install
+
+To build the commandline tool or the GUI program only, type
+
+  make cli     or      make gui
 
 Have fun.
 ---
