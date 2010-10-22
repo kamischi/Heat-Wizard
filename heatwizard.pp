@@ -127,7 +127,7 @@ begin
   end
   else
   begin
-    writeln ('heatwizard: Convert a themocouple voltage to a temperature and vice versa.');
+    writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
     writeln ('Usage: heatwizard [-htruvT] [--help] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
   end;
 end.
