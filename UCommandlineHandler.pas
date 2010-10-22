@@ -118,9 +118,9 @@ begin
   if Result = '' then
     for index := 0 to LongOption.Count - 1 do
     begin
-      write (DelChars(ShortOption, ':')[index+1], ', ');
-      writeln (LongOption[index]);
-      writeln (HeatWizardApplication.GetOptionValue(DelChars(ShortOption, ':')[index+1], Copy2Symb(LongOption[index], ':')));
+      //write (DelChars(ShortOption, ':')[index+1], ', ');
+      //writeln (LongOption[index]);
+      //writeln (HeatWizardApplication.GetOptionValue(DelChars(ShortOption, ':')[index+1], Copy2Symb(LongOption[index], ':')));
       valueString := HeatWizardApplication.GetOptionValue(DelChars(ShortOption, ':')[index+1], Copy2Symb(LongOption[index], ':'));
       if valueString <> '' then
       begin

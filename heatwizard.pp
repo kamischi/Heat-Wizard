@@ -39,6 +39,7 @@ var
   CommandlineHandler: TCommandlineHandler;
   Converter:          TConverter;
   temperature, reference, voltage: double;
+  tempUnitString: string;
   tempUnit, coupleType: char;
   Evaluate: set of TEvaluate;
 
@@ -46,21 +47,25 @@ begin
   CommandlineHandler := TCommandlineHandler.Create;
   CommandlineHandler.Debug := false;
   CommandlineHandler.AddOption('-h', '--help', TNone);
+  CommandlineHandler.AddOption('-?', TNone);
   CommandlineHandler.AddOption('-t', '--temperature', '', TRealOptional);
   CommandlineHandler.AddOption('-r', '--reference',   '', TRealOptional);
   CommandlineHandler.AddOption('-u', '--unit',        '', TCharOptional);
   CommandlineHandler.AddOption('-v', '--voltage',     '', TRealOptional);
   CommandlineHandler.AddOption('-T', '--type',        '', TCharOptional);
-  writeln ('Option -h is set?: ', CommandlineHandler.GetOptionIsSet('h'));
-  writeln ('Option --help is set?: ', CommandlineHandler.GetOptionIsSet('help'));
-  writeln ('Option --help or -h is set?: ', CommandlineHandler.GetOptionIsSet('h', 'help'));
+//  writeln ('Option -h is set?: ', CommandlineHandler.GetOptionIsSet('h'));
+//  writeln ('Option --help is set?: ', CommandlineHandler.GetOptionIsSet('help'));
+//  writeln ('Option --help or -h is set?: ', CommandlineHandler.GetOptionIsSet('h', 'help'));
   temperature := 25.0;
   reference   := 25.0;
   tempUnit    :=  'C';
+  tempUnitString := '°C';
   voltage     :=  0.0;
   coupleType  :=  'K';
-  writeln (CommandlineHandler.CheckOptions);
-  if CommandlineHandler.CheckOptions = '' then
+//  writeln (CommandlineHandler.CheckOptions);
+  if ( CommandlineHandler.CheckOptions = '' )
+     and not ( CommandlineHandler.GetOptionIsSet('h', 'help') )
+     and not ( CommandlineHandler.GetOptionIsSet('?') ) then
   begin
     Evaluate := [Ttemperature, Treference, Tvoltage];
     if CommandlineHandler.GetOptionIsSet('t', 'temperature') then
@@ -75,7 +80,11 @@ begin
     end;
     if CommandlineHandler.GetOptionIsSet('u', 'unit') then
     begin
-      tempUnit    :=            CommandlineHandler.GetOptionValue('u', 'unit')[1];
+      tempUnit :=  CommandlineHandler.GetOptionValue('u', 'unit')[1];
+      case tempUnit of
+        'K' : tempUnitString:= 'K';
+        'C' : tempUnitString:= '°C';
+      end;
     end;
     if CommandlineHandler.GetOptionIsSet('v', 'voltage') then
     begin
@@ -87,36 +96,39 @@ begin
       coupleType  :=            CommandlineHandler.GetOptionValue('T', 'type')[1];
     end;
     CommandlineHandler.Destroy;
+{
     writeln ('Value of -t is: ', temperature);
     writeln ('Value of -r is: ', reference);
     writeln ('Value of -u is: ', tempUnit);
     writeln ('Value of -v is: ', voltage);
     writeln ('Value of -T is: ', coupleType);
+}
     Converter := TConverter.Create;
     if Ttemperature in Evaluate then
     begin
       Temperature := Converter.GetTemperature(Voltage, Reference, coupleType, tempUnit);
-      writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
-      writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnit);
+      writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
+      writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnitString);
     end
     else if Tvoltage in Evaluate then
     begin
       Voltage := Converter.GetVoltage(Temperature, Reference, coupleType, tempUnit);
-      writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Reference: ', reference:8:3, ' ', tempUnit, ', Type: ', coupleType);
+      writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
       writeln ('VOLTAGE: ', voltage:8:3, ' mV');
     end
     else if Treference in Evaluate then
     begin
       Reference := Converter.GetReference(Temperature, Voltage, coupleType, tempUnit);
-      writeln ('Temperature: ', temperature:8:3, ' ', tempUnit, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
-      writeln ('REFERENCE: ', reference:8:3, ' ', tempUnit);
-    end
-    else
-    begin
-
+      writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
+      writeln ('REFERENCE: ', reference:8:3, ' ', tempUnitString);
     end;
 
     Converter.Destroy;
+  end
+  else
+  begin
+    writeln ('heatwizard: Convert a themocouple voltage to a temperature and vice versa.');
+    writeln ('Usage: heatwizard [-htruvT] [--help] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
   end;
 end.
 
