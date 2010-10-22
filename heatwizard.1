@@ -8,7 +8,6 @@
 .SH "DESCRIPTION"
 .LP 
 \fBheatwizard\fR is a tool to convert the voltage from a thermocouple to the temperature and vice versa.
-The conversion functions are taken from NIST.
 .SH "OPTIONS"
 .LP 
 .TP 
@@ -19,7 +18,7 @@ display the usage text.
 the temperature of the thermocouple.
 .TP 
 \fB\-r -\-reference\fR
-the temperature of the reference point.
+the temperature of the reference junction.
 .TP 
 \fB\-u -\-unit\fR
 the unit of the temperature (K or C).
@@ -28,17 +27,22 @@ the unit of the temperature (K or C).
 the voltage in mV.
 .TP 
 \fB\-T -\-type\fR
-the type of the thermocouple. Only type K at the moment.
+the type of the thermocouple. Currently, type K only.
 .SH "EXAMPLES"
 .LP 
 To convert the voltage to a temperature type:
 .LP 
-     heatwizard --reference 21 --voltage 23.5 --unit C
+     heatwizard --reference=298 --voltage=-6.82 --unit=K
 .LP 
 To obtain the voltage for a given temperature type (with short options):
 .LP 
      heatwizard -t 550 -r 21
-.SH "AUTHORS"
+.SH "NOTES"
+.LP 
+The conversion functions are taken from NIST.
+.SH "AUTHOR"
 .LP 
 Karl\-Michael Schindler <karl\-michael.schindler AT web DOT de>>
-
+.SH "COPYRIGHT"
+.LP 
+GPLv3
