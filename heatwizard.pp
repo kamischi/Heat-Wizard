@@ -46,7 +46,7 @@ var
 procedure writeUsage;
 begin
   writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
-  writeln ('Usage: heatwizard [-htruvT] [--help] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
+  writeln ('Usage: heatwizard [-htrsuvT] [--help] [--short] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
 end;
 
 begin

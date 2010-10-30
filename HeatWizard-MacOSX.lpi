@@ -9,7 +9,7 @@
       <MainUnit Value="0"/>
       <TargetFileExt Value=""/>
       <Title Value="Heat Wizard"/>
-      <ActiveEditorIndexAtStart Value="3"/>
+      <ActiveEditorIndexAtStart Value="6"/>
     </General>
     <i18n>
       <OutDir Value="languages"/>
@@ -153,14 +153,14 @@
         <UnitName Value="UXMLPreferenceData"/>
         <CursorPos X="77" Y="5"/>
         <TopLine Value="1"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="107"/>
       </Unit11>
       <Unit12>
         <Filename Value="../../../../sw/share/fpcsrc/packages/fcl-xml/src/dom.pp"/>
         <UnitName Value="DOM"/>
         <CursorPos X="74" Y="608"/>
         <TopLine Value="601"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit12>
       <Unit13>
         <Filename Value="HeatWizardPanel.lfm"/>
@@ -185,37 +185,37 @@
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="177"/>
+        <UsageCount Value="184"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="heatwizard.pp"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="heatwizard"/>
-        <CursorPos X="33" Y="40"/>
-        <TopLine Value="28"/>
-        <EditorIndex Value="7"/>
-        <UsageCount Value="167"/>
+        <CursorPos X="90" Y="130"/>
+        <TopLine Value="110"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="174"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="UCommandlineHandler.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCommandlineHandler"/>
-        <CursorPos X="1" Y="12"/>
-        <TopLine Value="12"/>
-        <EditorIndex Value="8"/>
-        <UsageCount Value="167"/>
+        <CursorPos X="1" Y="124"/>
+        <TopLine Value="148"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="174"/>
         <Loaded Value="True"/>
       </Unit17>
       <Unit18>
         <Filename Value="UConverter.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UConverter"/>
-        <CursorPos X="80" Y="175"/>
-        <TopLine Value="40"/>
+        <CursorPos X="98" Y="159"/>
+        <TopLine Value="151"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="167"/>
+        <UsageCount Value="174"/>
         <Loaded Value="True"/>
       </Unit18>
       <Unit19>
@@ -223,23 +223,23 @@
         <UnitName Value="Forms"/>
         <CursorPos X="49" Y="1692"/>
         <TopLine Value="1689"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
       </Unit19>
       <Unit20>
         <Filename Value="../../../../../sw/share/fpcsrc/packages/fcl-base/src/custapp.pp"/>
         <UnitName Value="CustApp"/>
         <CursorPos X="3" Y="26"/>
         <TopLine Value="14"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
       </Unit20>
       <Unit21>
         <Filename Value="../../../../../sw/share/fpcsrc/rtl/objpas/classes/classesh.inc"/>
         <CursorPos X="3" Y="353"/>
         <TopLine Value="341"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="9"/>
       </Unit21>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="18" HistoryIndex="17">
       <Position1>
         <Filename Value="UCommandlineHandler.pas"/>
         <Caret Line="62" Column="22" TopLine="58"/>
@@ -288,6 +288,30 @@
         <Filename Value="heatwizard.pp"/>
         <Caret Line="40" Column="33" TopLine="28"/>
       </Position12>
+      <Position13>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="20" Column="51" TopLine="1"/>
+      </Position13>
+      <Position14>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="34" Column="13" TopLine="22"/>
+      </Position14>
+      <Position15>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="40" Column="33" TopLine="22"/>
+      </Position15>
+      <Position16>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="6" Column="87" TopLine="1"/>
+      </Position16>
+      <Position17>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="42" Column="11" TopLine="30"/>
+      </Position17>
+      <Position18>
+        <Filename Value="heatwizard.pp"/>
+        <Caret Line="61" Column="22" TopLine="49"/>
+      </Position18>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
