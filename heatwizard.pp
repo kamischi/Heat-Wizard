@@ -39,14 +39,14 @@ var
   CommandlineHandler: TCommandlineHandler;
   Converter:          TConverter;
   temperature, reference, voltage: double;
-  tempUnitString: string;
+  tempUnitString, optionValueString: string;
   tempUnit, coupleType: char;
   Evaluate: set of TEvaluate;
 
 procedure writeUsage;
 begin
   writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
-  writeln ('Usage: heatwizard [-htrsuvT] [--help] [--short] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
+  writeln ('Usage: heatwizard [-hstruvT] [--help] [--short] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
 end;
 
 begin
@@ -88,7 +88,9 @@ begin
     end;
     if CommandlineHandler.GetOptionIsSet('u', 'unit') then
     begin
-      tempUnit :=  CommandlineHandler.GetOptionValue('u', 'unit')[1];
+      optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
+      if length (optionValueString) >= 2 then
+        tempUnit :=  optionValueString[1];
       case tempUnit of
         'K' : tempUnitString:= 'K';
         'C' : tempUnitString:= '°C';
@@ -101,7 +103,9 @@ begin
     end;
     if CommandlineHandler.GetOptionIsSet('T', 'type') then
     begin
-      coupleType  :=            CommandlineHandler.GetOptionValue('T', 'type')[1];
+      optionValueString :=  CommandlineHandler.GetOptionValue('T', 'type');
+      if length (optionValueString) >= 2 then
+        coupleType :=  optionValueString[1];
     end;
 {
     writeln ('Value of -t is: ', temperature);

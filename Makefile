@@ -13,7 +13,7 @@ endif
 
 all: cli gui
 
-cli: heatwizard.pp UCommandlineHandler.pas UConverter.pas
+cli: heatwizard.pp
 	fpc -O3 -CX -XX -OWall -FWheatwizard.wpo heatwizard.pp
 	fpc -O3 -CX -XX -Owall -Fwheatwizard.wpo heatwizard.pp
 	strip heatwizard
@@ -35,7 +35,7 @@ else
 endif
 
 clean:
-	rm -f *.ppu *.o *.exe *.rc *.wpo HeatWizard HeatWizard.compiled
+	rm -f *.ppu *.o *.exe *.rc *.wpo HeatWizard heatwizard HeatWizard.compiled
 
 install:
 	install -m 755 heatwizard $(PREFIX)
