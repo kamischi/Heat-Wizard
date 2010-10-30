@@ -43,6 +43,12 @@ var
   tempUnit, coupleType: char;
   Evaluate: set of TEvaluate;
 
+procedure writeUsage;
+begin
+  writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
+  writeln ('Usage: heatwizard [-htruvT] [--help] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
+end;
+
 begin
   CommandlineHandler := TCommandlineHandler.Create;
   CommandlineHandler.Debug := false;
@@ -53,6 +59,7 @@ begin
   CommandlineHandler.AddOption('-u', '--unit',        '', TCharOptional);
   CommandlineHandler.AddOption('-v', '--voltage',     '', TRealOptional);
   CommandlineHandler.AddOption('-T', '--type',        '', TCharOptional);
+  CommandlineHandler.AddOption('-s', '--short', TNone);
 //  writeln ('Option -h is set?: ', CommandlineHandler.GetOptionIsSet('h'));
 //  writeln ('Option --help is set?: ', CommandlineHandler.GetOptionIsSet('help'));
 //  writeln ('Option --help or -h is set?: ', CommandlineHandler.GetOptionIsSet('h', 'help'));
@@ -63,6 +70,7 @@ begin
   voltage     :=  0.0;
   coupleType  :=  'K';
 //  writeln (CommandlineHandler.CheckOptions);
+  if ParamCount > 0 then
   if ( CommandlineHandler.CheckOptions = '' )
      and not ( CommandlineHandler.GetOptionIsSet('h', 'help') )
      and not ( CommandlineHandler.GetOptionIsSet('?') ) then
@@ -95,7 +103,6 @@ begin
     begin
       coupleType  :=            CommandlineHandler.GetOptionValue('T', 'type')[1];
     end;
-    CommandlineHandler.Destroy;
 {
     writeln ('Value of -t is: ', temperature);
     writeln ('Value of -r is: ', reference);
@@ -107,28 +114,43 @@ begin
     if Ttemperature in Evaluate then
     begin
       Temperature := Converter.GetTemperature(Voltage, Reference, coupleType, tempUnit);
-      writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
-      writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnitString);
+      if CommandlineHandler.GetOptionIsSet('s', 'short') then
+        writeln (temperature:8:3)
+      else
+      begin
+        writeln ('Voltage: ', voltage:8:3, ' mV, ', 'Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
+        writeln ('TEMPERATURE: ', temperature:8:3, ' ', tempUnitString);
+      end;
     end
     else if Tvoltage in Evaluate then
     begin
       Voltage := Converter.GetVoltage(Temperature, Reference, coupleType, tempUnit);
-      writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
-      writeln ('VOLTAGE: ', voltage:8:3, ' mV');
+      if CommandlineHandler.GetOptionIsSet('s', 'short') then
+        writeln (voltage:8:3)
+      else
+      begin
+        writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Reference: ', reference:8:3, ' ', tempUnitString, ', Type: ', coupleType);
+        writeln ('VOLTAGE: ', voltage:8:3, ' mV');
+      end;
     end
     else if Treference in Evaluate then
     begin
       Reference := Converter.GetReference(Temperature, Voltage, coupleType, tempUnit);
-      writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
-      writeln ('REFERENCE: ', reference:8:3, ' ', tempUnitString);
+      if CommandlineHandler.GetOptionIsSet('s', 'short') then
+        writeln (reference:8:3)
+      else
+      begin
+        writeln ('Temperature: ', temperature:8:3, ' ', tempUnitString, ', Voltage: ', voltage:8:3, ' mV', ', Type: ', coupleType);
+        writeln ('REFERENCE: ', reference:8:3, ' ', tempUnitString);
+      end;
     end;
 
+    CommandlineHandler.Destroy;
     Converter.Destroy;
   end
   else
-  begin
-    writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
-    writeln ('Usage: heatwizard [-htruvT] [--help] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
-  end;
+  writeUsage
+  else
+  writeUsage;
 end.
 
