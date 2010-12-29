@@ -49,6 +49,32 @@ type
 
 implementation
 
+type
+  TThermoelementType = (B, E);
+  TThermoCouple = record
+    TemperatureRangeLimits: array of double;
+  end;
+
+var
+  ThermoCouple: array [TThermoelementType] of TThermoCouple;
+
+procedure Limit_assign(const coef: array of single);
+var
+  i: integer;
+begin
+  setlength (ThermoCouple[B].TemperatureRangeLimits, length(coef));
+  for i := low(coef) to high(coef) do
+    ThermoCouple[B].TemperatureRangeLimits[i] := coef[i];
+end;
+
+procedure Init;
+begin
+  Limit_assign(
+   [0.000, 630.615, 1820.000]
+    );
+  readln;
+end;
+
 function TypK_Temp2Volt (Temp: double) : double;
 
 const

@@ -125,10 +125,10 @@ begin
       if valueString <> '' then
       begin
         case valueType[index] of
-         TRealOptional, TRealMust: if not (TryStrToFloat(valueString, realTest)) then Result := 'Error: "' + valuestring + '" could not be converted to a real number.'
-              ;
-         TIntegerOptional, TIntegerMust : if not (TryStrToInt(valueString, integerTest)) then Result := 'Error: "' + valuestring + '" could not be converted to an integer number.'
-              ;
+         TRealOptional, TRealMust: if not (TryStrToFloat(valueString, realTest)) then
+                                     Result := 'Error: "' + valuestring + '" could not be converted to a real number.';
+         TIntegerOptional, TIntegerMust : if not (TryStrToInt(valueString, integerTest)) then
+                                            Result := 'Error: "' + valuestring + '" could not be converted to an integer number.';
         end;
       end;
     end;
