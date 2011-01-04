@@ -89,7 +89,7 @@ begin
     if CommandlineHandler.GetOptionIsSet('u', 'unit') then
     begin
       optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
-      if length (optionValueString) >= 2 then
+      if length (optionValueString) >= 1 then
         tempUnit :=  optionValueString[1];
       case tempUnit of
         'K' : tempUnitString:= 'K';
@@ -104,16 +104,10 @@ begin
     if CommandlineHandler.GetOptionIsSet('T', 'type') then
     begin
       optionValueString :=  CommandlineHandler.GetOptionValue('T', 'type');
-      if length (optionValueString) >= 2 then
+      if length (optionValueString) >= 1 then
         coupleType :=  optionValueString[1];
     end;
-{
-    writeln ('Value of -t is: ', temperature);
-    writeln ('Value of -r is: ', reference);
-    writeln ('Value of -u is: ', tempUnit);
-    writeln ('Value of -v is: ', voltage);
-    writeln ('Value of -T is: ', coupleType);
-}
+
     Converter := TConverter.Create;
     if Ttemperature in Evaluate then
     begin
