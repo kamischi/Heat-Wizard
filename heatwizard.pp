@@ -33,6 +33,8 @@ uses
   UCommandlineHandler,
   UConverter;
 
+const
+  version = '0.3.0';
 type
   TEvaluate = (Ttemperature, Treference, Tvoltage);
 var
@@ -46,8 +48,10 @@ var
 procedure writeUsage;
 begin
   writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
-  writeln ('Usage: heatwizard [-hrstuvT]');
+  writeln ('Version: ', version);
+  writeln ('Usage: heatwizard [-hrstuvTV]');
   writeln ('         [--help]');
+  writeln ('         [--version]');
   writeln ('         [--short]');
   writeln ('         [--temperature=<temperature>]');
   writeln ('         [--reference=<reference temperature>]');
@@ -67,9 +71,7 @@ begin
   CommandlineHandler.AddOption('-v', '--voltage',     '', TRealOptional);
   CommandlineHandler.AddOption('-T', '--type',        '', TCharOptional);
   CommandlineHandler.AddOption('-s', '--short', TNone);
-//  writeln ('Option -h is set?: ', CommandlineHandler.GetOptionIsSet('h'));
-//  writeln ('Option --help is set?: ', CommandlineHandler.GetOptionIsSet('help'));
-//  writeln ('Option --help or -h is set?: ', CommandlineHandler.GetOptionIsSet('h', 'help'));
+  CommandlineHandler.AddOption('-V', '--version', TNone);
   temperature := 25.0;
   reference   := 25.0;
   tempUnit    :=  'C';
@@ -83,6 +85,11 @@ begin
      and not ( CommandlineHandler.GetOptionIsSet('?') ) then
   begin
     Evaluate := [Ttemperature, Treference, Tvoltage];
+    if CommandlineHandler.GetOptionIsSet('V', 'version') then
+    begin
+      writeln ('Version: ', version);
+      exit;
+    end;
     if CommandlineHandler.GetOptionIsSet('u', 'unit') then
     begin
       optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
