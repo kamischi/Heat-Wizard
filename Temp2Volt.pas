@@ -1,12 +1,12 @@
        if Temp < TemperatureRangeLimits[0] then
        begin
          ThermoElementError := ValueTooLow;
-         exit (NaN);
+         exit (0);
        end;
        if Temp > TemperatureRangeLimits[high(TemperatureRangeLimits)] then
        begin
          ThermoElementError := ValueTooHigh;
-         exit (NaN);
+         exit (0);
        end;
 
        range := 0;

@@ -1,18 +1,18 @@
-{ Das ist eine automatisch erzeugte Lazarus-Ressourcendatei }
+{ This is an automatically generated lazarus resource file }
 
 LazarusResources.Add('TPreferencesForm','FORMDATA',[
   'TPF0'#16'TPreferencesForm'#15'PreferencesForm'#4'Left'#3#141#1#6'Height'#3
-  +#195#0#3'Top'#3#134#0#5'Width'#3'h'#1#11'BorderIcons'#11#12'biSystemMenu'#0
+  +#195#0#3'Top'#3#134#0#5'Width'#3#224#1#11'BorderIcons'#11#12'biSystemMenu'#0
   +#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#23'Heat Wizard Preferences'#12'C'
-  +'lientHeight'#3#195#0#11'ClientWidth'#3'h'#1#8'OnCreate'#7#10'FormCreate'#10
-  +'LCLVersion'#6#8'0.9.28.2'#0#7'TButton'#10'DoneButton'#4'Left'#3#144#0#6'Hei'
-  +'ght'#2#20#3'Top'#3#144#0#5'Width'#2'K'#7'Caption'#6#4'Done'#10'Font.Color'#4
-  +'YX0'#0#11'Font.Height'#2#244#7'OnClick'#7#15'DoneButtonClick'#10'ParentFont'
-  +#8#8'TabOrder'#2#0#0#0#11'TStaticText'#18'LanguageStaticText'#4'Left'#2#16#6
-  +'Height'#2#20#3'Top'#2#16#5'Width'#2'O'#7'Caption'#6#10'Language: '#10'Font.'
-  +'Color'#4'YX0'#0#10'ParentFont'#8#8'TabOrder'#2#1#0#0#9'TComboBox'#16'Langua'
-  +'geComboBox'#4'Left'#2'X'#6'Height'#2#20#3'Top'#2#14#5'Width'#2'w'#10'Font.C'
-  +'olor'#4'YX0'#0#10'ItemHeight'#2#0#13'Items.Strings'#1#6#1' '#6#1' '#6#1' '#0
-  +#9'MaxLength'#4#255#255#0#0#8'OnSelect'#7#22'LanguageComboBoxSelect'#10'Pare'
-  +'ntFont'#8#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#2#0#0#0
+  +'lientHeight'#3#195#0#11'ClientWidth'#3#224#1#8'OnCreate'#7#10'FormCreate'#10
+  +'LCLVersion'#6#6'0.9.31'#7'Visible'#9#0#7'TButton'#10'DoneButton'#4'Left'#3
+  +#144#0#6'Height'#2#20#3'Top'#3#144#0#5'Width'#2'K'#7'Caption'#6#4'Done'#10'F'
+  +'ont.Color'#4'YX0'#0#11'Font.Height'#2#244#7'OnClick'#7#15'DoneButtonClick'
+  +#10'ParentFont'#8#8'TabOrder'#2#0#0#0#11'TStaticText'#18'LanguageStaticText'
+  +#4'Left'#2#16#6'Height'#2#20#3'Top'#2#16#5'Width'#2'O'#7'Caption'#6#10'Langu'
+  +'age: '#10'Font.Color'#4'YX0'#0#10'ParentFont'#8#8'TabOrder'#2#1#0#0#9'TComb'
+  +'oBox'#16'LanguageComboBox'#4'Left'#2'X'#6'Height'#2#20#3'Top'#2#14#5'Width'
+  +#2'w'#10'Font.Color'#4'YX0'#0#10'ItemHeight'#2#0#13'Items.Strings'#1#6#1' '#6
+  +#1' '#6#1' '#0#9'MaxLength'#4#255#255#0#0#8'OnSelect'#7#22'LanguageComboBoxS'
+  +'elect'#10'ParentFont'#8#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#2#0#0#0
 ]);

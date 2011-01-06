@@ -44,6 +44,8 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
     InfoButton: TLabel;
     Warning: TLabel;
     PreferenceButton: TLabel;
@@ -54,23 +56,28 @@ type
     LayoutLine:      TMenuItem;
     PreferencesMenu: TMenuItem;
 {$IFEND}
-    TemperatureKelvinEdit:  TEdit;
-    ReferenceKelvinEdit:    TEdit;
-    VoltageEdit:            TLabeledEdit;
-    TemperatureCelsiusEdit: TLabeledEdit;
-    ReferenceCelsiusEdit:   TLabeledEdit;
-    TypeBox:                TComboBox;
-    QuitButton:             TButton;
-    InfoCircle:             TShape;
-    PreferenceCircle:       TShape;
+    TemperatureKelvinEdit:     TEdit;
+    ReferenceKelvinEdit:       TEdit;
+    VoltageEdit:               TLabeledEdit;
+    TemperatureCelsiusEdit:    TLabeledEdit;
+    ReferenceCelsiusEdit:      TLabeledEdit;
+    TemperatureFahrenheitEdit: TEdit;
+    ReferenceFahrenheitEdit:   TEdit;
+    TypeBox:                   TComboBox;
+    QuitButton:                TButton;
+    InfoCircle:                TShape;
+    PreferenceCircle:          TShape;
     procedure FormCreate(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
-    procedure InfoButtonMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure TemperatureFahrenheitEditDblClick(Sender: TObject);
+    procedure TemperatureFahrenheitEditEditingDone(Sender: TObject);
     procedure VoltageEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ReferenceCelsiusEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ReferenceKelvinEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ReferenceFahrenheitEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure TemperatureCelsiusEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure TemperatureKelvinEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure TemperatureFahrenheitEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure InfoClick(Sender: TObject);
     procedure InfoCircleMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure PreferenceButtonClick(Sender: TObject);
@@ -113,12 +120,14 @@ uses
   UPreferenceData;
 
 var
-  Voltage           : real = 0.000;
-  TemperatureCelsius: real = 25.00;
-  TemperatureKelvin : real = 298.15;
-  ReferenceCelsius  : real = 25.00;
-  ReferenceKelvin   : real = 298.15;
-  LastChange        : (VoltageChange, TemperatureChange);
+  Voltage              : double = 0.0;
+  TemperatureCelsius   : double = 25.00;
+  TemperatureKelvin    : double = 298.15;
+  TemperatureFahrenheit: double = 77.00;
+  ReferenceCelsius     : double = 25.00;
+  ReferenceKelvin      : double = 298.15;
+  ReferenceFahrenheit  : double = 77.00;
+  LastChange           : (VoltageChange, TemperatureChange);
 
 function TypK_Temp2Volt (Temp: real) : real;
 
@@ -260,7 +269,7 @@ begin
   MainMenu.Items.add(ApplicationMenu);
 
   AboutMenu := TMenuItem.Create(ApplicationMenu);
-  AboutMenu.Caption := 'About';
+  AboutMenu.Caption := 'About Heat Wizard';
   ApplicationMenu.add(AboutMenu);
 
   LayoutLine := TMenuItem.Create(ApplicationMenu);
@@ -278,11 +287,13 @@ end;
 
 procedure TMainForm.UpdateDisplay;
 begin
-  VoltageEdit.Text            := FormatFloat('0.000', Voltage);
-  TemperatureCelsiusEdit.Text := FormatFloat('0.00', TemperatureCelsius);
-  TemperatureKelvinEdit.Text  := FormatFloat('0.00', TemperatureKelvin);
-  ReferenceCelsiusEdit.Text   := FormatFloat('0.00', ReferenceCelsius);
-  ReferenceKelvinEdit.Text    := FormatFloat('0.00', ReferenceKelvin);
+  VoltageEdit.Text               := FormatFloat('0.000', Voltage);
+  TemperatureCelsiusEdit.Text    := FormatFloat('0.00', TemperatureCelsius);
+  TemperatureKelvinEdit.Text     := FormatFloat('0.00', TemperatureKelvin);
+  TemperatureFahrenheitEdit.Text := FormatFloat('0.00', TemperatureFahrenheit);
+  ReferenceCelsiusEdit.Text      := FormatFloat('0.00', ReferenceCelsius);
+  ReferenceKelvinEdit.Text       := FormatFloat('0.00', ReferenceKelvin);
+  ReferenceFahrenheitEdit.Text   := FormatFloat('0.00', ReferenceFahrenheit);
 end;
 
 procedure TMainForm.TranslateTexts(const locale: string);
@@ -382,14 +393,15 @@ begin
   begin
     if TryStrToFloat(VoltageEdit.Text, input) and (-10 <= input) and (input <= 60) then
     begin
-      Voltage            := input;
-      TemperatureCelsius := TypK_Volt2Temp(Voltage + TypK_Temp2Volt(ReferenceCelsius));
-      TemperatureKelvin  := TemperatureCelsius + 273.15;
-      LastChange         := VoltageChange;
-      Warning.Visible    := false;
+      Voltage               := input;
+      TemperatureCelsius    := TypK_Volt2Temp(Voltage + TypK_Temp2Volt(ReferenceCelsius));
+      TemperatureKelvin     := TemperatureCelsius + 273.15;
+      TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
+      LastChange            := VoltageChange;
+      Warning.Visible       := false;
     end
     else
-      Warning.Visible    := true;
+      Warning.Visible       := true;
     UpdateDisplay;
   end;
 end;
@@ -428,8 +440,12 @@ begin
   InfoCircle.Brush.Style := bsClear;
 end;
 
-procedure TMainForm.InfoButtonMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
+procedure TMainForm.TemperatureFahrenheitEditDblClick(Sender: TObject);
+begin
+
+end;
+
+procedure TMainForm.TemperatureFahrenheitEditEditingDone(Sender: TObject);
 begin
 
 end;
@@ -479,11 +495,13 @@ begin
     begin
       ReferenceCelsius := input;
       ReferenceKelvin  := ReferenceCelsius + 273.15;
+      ReferenceFahrenheit  := ReferenceCelsius * 1.8 + 32;
       case lastChange of
         VoltageChange:       // Since voltage was changed last, it makes sense to keep it and change the temperature
         begin
           TemperatureCelsius := TypK_Volt2Temp(Voltage + TypK_Temp2Volt(ReferenceCelsius));
           TemperatureKelvin  := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
         end;
         TemperatureChange:   // Since temperature was changed last, it makes sense to keep it and change the voltage
         Voltage := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
@@ -508,11 +526,44 @@ begin
     begin
       ReferenceKelvin  := input;
       ReferenceCelsius := ReferenceKelvin - 273.15;
+      ReferenceFahrenheit := ReferenceKelvin * 1.8 - 459.67;
       case lastChange of
         VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
         begin
           TemperatureCelsius := TypK_Volt2Temp(Voltage + TypK_Temp2Volt(ReferenceCelsius));
           TemperatureKelvin  := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
+        end;
+        TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
+        Voltage := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
+      end;
+      Warning.Visible := false;
+    end
+    else
+      Warning.Visible := true;
+    UpdateDisplay;
+  end;
+end;
+
+procedure TMainForm.ReferenceFahrenheitEditKeyDown(Sender:  TObject;
+                                               var Key: Word;
+                                               Shift:   TShiftState);
+var
+  input: real;
+begin
+  if (Key = 13) and (Shift = []) then
+  begin
+    if TryStrToFloat(ReferenceFahrenheitEdit.Text, input) and (0 <= input) and (input <= 1800) then
+    begin
+      ReferenceFahrenheit  := input;
+      ReferenceCelsius := (ReferenceFahrenheit - 32) / 1.8;
+      ReferenceKelvin  := (ReferenceFahrenheit + 459.67) / 1.8;
+      case lastChange of
+        VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
+        begin
+          TemperatureCelsius := TypK_Volt2Temp(Voltage + TypK_Temp2Volt(ReferenceCelsius));
+          TemperatureKelvin  := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
         end;
         TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
         Voltage := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
@@ -537,6 +588,7 @@ begin
     begin
       TemperatureCelsius := input;
       TemperatureKelvin  := TemperatureCelsius + 273.15;
+      TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
       Voltage            := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
       LastChange         := TemperatureChange;
       Warning.Visible    := false;
@@ -559,6 +611,30 @@ begin
     begin
       TemperatureKelvin  := input;
       TemperatureCelsius := TemperatureKelvin - 273.15;
+      TemperatureFahrenheit := TemperatureKelvin * 1.8 - 459.67;
+      Voltage            := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
+      LastChange         := TemperatureChange;
+      Warning.Visible    := false;
+    end
+    else
+      Warning.Visible    := true;
+    UpdateDisplay;
+  end;
+end;
+
+procedure TMainForm.TemperatureFahrenheitEditKeyDown(Sender:  TObject;
+                                                 var Key: Word;
+                                                 Shift:   TShiftState);
+var
+  input: real;
+begin
+  if (Key = 13) and (Shift = []) then
+  begin
+    if TryStrToFloat(TemperatureFahrenheitEdit.Text, input) and (0 <= input) and (input <= 1800) then
+    begin
+      TemperatureFahrenheit  := input;
+      TemperatureCelsius := (TemperatureFahrenheit - 32) / 1.8;
+      TemperatureKelvin  := (TemperatureFahrenheit + 459.67) /1.8;
       Voltage            := TypK_Temp2Volt(TemperatureCelsius) - TypK_Temp2Volt(ReferenceCelsius);
       LastChange         := TemperatureChange;
       Warning.Visible    := false;
