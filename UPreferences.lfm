@@ -12,7 +12,7 @@ object PreferencesForm: TPreferencesForm
   LCLVersion = '0.9.31'
   Visible = True
   object DoneButton: TButton
-    Left = 144
+    Left = 204
     Height = 20
     Top = 144
     Width = 75

@@ -6,7 +6,7 @@ LazarusResources.Add('TPreferencesForm','FORMDATA',[
   +#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#23'Heat Wizard Preferences'#12'C'
   +'lientHeight'#3#195#0#11'ClientWidth'#3#224#1#8'OnCreate'#7#10'FormCreate'#10
   +'LCLVersion'#6#6'0.9.31'#7'Visible'#9#0#7'TButton'#10'DoneButton'#4'Left'#3
-  +#144#0#6'Height'#2#20#3'Top'#3#144#0#5'Width'#2'K'#7'Caption'#6#4'Done'#10'F'
+  +#204#0#6'Height'#2#20#3'Top'#3#144#0#5'Width'#2'K'#7'Caption'#6#4'Done'#10'F'
   +'ont.Color'#4'YX0'#0#11'Font.Height'#2#244#7'OnClick'#7#15'DoneButtonClick'
   +#10'ParentFont'#8#8'TabOrder'#2#0#0#0#11'TStaticText'#18'LanguageStaticText'
   +#4'Left'#2#16#6'Height'#2#20#3'Top'#2#16#5'Width'#2'O'#7'Caption'#6#10'Langu'
