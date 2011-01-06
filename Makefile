@@ -1,4 +1,7 @@
-PREFIX ?= /usr/local/bin
+PREFIX ?= /usr/local
+BINDIR ?= $(PREFIX)/bin
+MANDIR ?= $(PREFIX)/share/man
+
 LANGUAGES = en de fi
 
 .PHONY: cli gui all clean install uninstall release
@@ -38,7 +41,9 @@ clean:
 	rm -f *.ppu *.o *.exe *.rc *.wpo HeatWizard heatwizard HeatWizard.compiled
 
 install:
-	install -m 755 heatwizard $(PREFIX)
+	install -m 755 heatwizard   $(BINDIR)
+	install -d                  $(MANDIR)/man1
+	install -m 644 heatwizard.1 $(MANDIR)/man1
 
 	@for language in $(LANGUAGES); do \
 	  install -d                                    ~/.heatwizard/languages/$$language/LC_MESSAGES               ; \
@@ -46,7 +51,8 @@ install:
 	done
 
 uninstall:
-	rm -rf $(PREFIX)/heatwizard
+	rm -rf $(BINDIR)/heatwizard
+	rm -rf $(MANDIR)/man1/heatwizard.1
 	rm -rf ~/.heatwizard
 
 release: release-linux release-macosx
