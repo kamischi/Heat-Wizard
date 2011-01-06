@@ -66,8 +66,8 @@ var
 begin
   val(ThermoelementType, ThermoCouple.ThermoElementType, code);
   case TemperatureUnit of
-    'C': Result :=                                ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(Reference         ));
-    'K': Result := double(273.15) +               ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(Reference - double(273.15)));
+    'C': Result :=                                ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt( Reference));
+    'K': Result := double(273.15) +               ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt( Reference - double(273.15)));
     'F': Result := double(32.0)   + double(1.8) * ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt((Reference - double(32.0)) / double(1.8)));
   end;
 end;
@@ -80,8 +80,8 @@ var
 begin
   val(ThermoelementType, ThermoCouple.ThermoElementType, code);
   case TemperatureUnit of
-    'C': Result := ThermoCouple.Temp2Volt(Temperature         ) - ThermoCouple.Temp2Volt(Reference         );
-    'K': Result := ThermoCouple.Temp2Volt(Temperature - double(273.15)) - ThermoCouple.Temp2Volt(Reference - double(273.15));
+    'C': Result := ThermoCouple.Temp2Volt( Temperature)                               - ThermoCouple.Temp2Volt( Reference);
+    'K': Result := ThermoCouple.Temp2Volt( Temperature - double(273.15))              - ThermoCouple.Temp2Volt( Reference - double(273.15));
     'F': Result := ThermoCouple.Temp2Volt((Temperature - double(32.0)) / double(1.8)) - ThermoCouple.Temp2Volt((Reference - double(32.0)) / double(1.8));
   end;
 end;
@@ -94,8 +94,8 @@ var
 begin
   val(ThermoelementType, ThermoCouple.ThermoElementType, code);
   case TemperatureUnit of
-    'C': Result :=                                ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(Temperature         ));
-    'K': Result := double(273.15) +               ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(Temperature - double(273.15)));
+    'C': Result :=                                ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt( Temperature));
+    'K': Result := double(273.15) +               ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt( Temperature - double(273.15)));
     'F': Result := double(32.0)   + double(1.8) * ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt((Temperature - double(32.0)) / double(1.8)));
   end;
 end;

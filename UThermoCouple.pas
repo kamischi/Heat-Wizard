@@ -38,6 +38,7 @@ type
   TThermoElementType = (B, E, J, K, N, R, S, T);
   TThermoElementError = (NoError, ValueTooLow, ValueTooHigh);
   TThermoCouple = class
+  public
     ThermoElementType: TThermoElementType;
     ThermoElementError: TThermoElementError;
     function Temp2Volt (Temp: double) : double;
