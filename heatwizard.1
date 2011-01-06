@@ -15,7 +15,7 @@
 display the usage text.
 .TP 
 \fB\-s -\-short\fR
-short version of result: Value only.
+short version of result: Value only without unit nor echo of input.
 .TP 
 \fB\-t -\-temperature\fR
 the temperature of the thermocouple.
@@ -30,14 +30,15 @@ the unit of the temperature (K or C).
 the voltage in mV.
 .TP 
 \fB\-T -\-type\fR
-the type of the thermocouple. Currently, type K only.
+the type of the thermocouple (B, E, J, K, N, R, S or T).
 .SH "EXAMPLES"
 .LP 
 To convert the voltage to a temperature type:
 .LP 
      heatwizard --reference=298 --voltage=-6.82 --unit=K
 .LP 
-To obtain the voltage for a given temperature type (with short options):
+To obtain the voltage for a given temperature type (short options work 
+with positive temperatures only.):
 .LP 
      heatwizard -t 550 -r 21
 .SH "NOTES"

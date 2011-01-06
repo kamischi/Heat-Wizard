@@ -46,7 +46,14 @@ var
 procedure writeUsage;
 begin
   writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
-  writeln ('Usage: heatwizard [-hstruvT] [--help] [--short] [--temperature <temperature>] [--reference <reference temperature>] [--unit <temperature unit (C, K)>] [--voltage <thermovoltage>] [--type <thermocouple type>]');
+  writeln ('Usage: heatwizard [-hrstuvT]');
+  writeln ('         [--help]');
+  writeln ('         [--short]');
+  writeln ('         [--temperature=<temperature>]');
+  writeln ('         [--reference=<reference temperature>]');
+  writeln ('         [--voltage=<thermovoltage>]');
+  writeln ('         [--unit=<temperature unit (C, K)>]');
+  writeln ('         [--type=<thermocouple type (B, E, J, K, N, R, S, T)>]');
 end;
 
 begin
@@ -76,6 +83,20 @@ begin
      and not ( CommandlineHandler.GetOptionIsSet('?') ) then
   begin
     Evaluate := [Ttemperature, Treference, Tvoltage];
+    if CommandlineHandler.GetOptionIsSet('u', 'unit') then
+    begin
+      optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
+      if length (optionValueString) >= 1 then
+        tempUnit :=  optionValueString[1];
+      case tempUnit of
+        'K' : begin
+               tempUnitString := 'K';
+               reference      := reference   + 273.15;
+               temperature    := temperature + 273.15;
+              end;
+        'C' : tempUnitString := '°C';
+      end;
+    end;
     if CommandlineHandler.GetOptionIsSet('t', 'temperature') then
     begin
       temperature := strToFloat(CommandlineHandler.GetOptionValue('t', 'temperature'));
@@ -85,16 +106,6 @@ begin
     begin
       reference   := strToFloat(CommandlineHandler.GetOptionValue('r', 'reference'));
       Evaluate    := Evaluate - [Treference];
-    end;
-    if CommandlineHandler.GetOptionIsSet('u', 'unit') then
-    begin
-      optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
-      if length (optionValueString) >= 1 then
-        tempUnit :=  optionValueString[1];
-      case tempUnit of
-        'K' : tempUnitString:= 'K';
-        'C' : tempUnitString:= '°C';
-      end;
     end;
     if CommandlineHandler.GetOptionIsSet('v', 'voltage') then
     begin
