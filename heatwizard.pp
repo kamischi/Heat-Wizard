@@ -52,7 +52,7 @@ begin
   writeln ('         [--temperature=<temperature>]');
   writeln ('         [--reference=<reference temperature>]');
   writeln ('         [--voltage=<thermovoltage>]');
-  writeln ('         [--unit=<temperature unit (C, K)>]');
+  writeln ('         [--unit=<temperature unit (C, K, F)>]');
   writeln ('         [--type=<thermocouple type (B, E, J, K, N, R, S, T)>]');
 end;
 
@@ -91,8 +91,13 @@ begin
       case tempUnit of
         'K' : begin
                tempUnitString := 'K';
-               reference      := reference   + 273.15;
-               temperature    := temperature + 273.15;
+               reference      := reference   + double(273.15);
+               temperature    := temperature + double(273.15);
+              end;
+        'F' : begin
+               tempUnitString := '°F';
+               reference      := reference   * double(1.8) + double(32.0);
+               temperature    := temperature * double(1.8) + double(32.0);
               end;
         'C' : tempUnitString := '°C';
       end;
