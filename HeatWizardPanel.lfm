@@ -134,7 +134,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnKeyDown = TemperatureKelvinEditKeyDown
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
     Text = '298.15'
   end
   object ReferenceKelvinEdit: TEdit
@@ -146,7 +146,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnKeyDown = ReferenceKelvinEditKeyDown
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 6
     Text = '298.15'
   end
   object VoltageEdit: TLabeledEdit
@@ -205,7 +205,7 @@ object MainForm: TMainForm
     EditLabel.ParentColor = False
     Font.Color = 3168345
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 4
     Text = '25.00'
     OnKeyDown = ReferenceCelsiusEditKeyDown
   end
@@ -228,7 +228,8 @@ object MainForm: TMainForm
     )
     MaxLength = 65535
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
+    TabStop = False
     Text = 'Type K'
   end
   object QuitButton: TButton
@@ -241,6 +242,7 @@ object MainForm: TMainForm
     OnClick = QuitButtonClick
     ParentFont = False
     TabOrder = 7
+    TabStop = False
   end
   object TemperatureFahrenheitEdit: TEdit
     Left = 272
@@ -251,7 +253,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnKeyDown = TemperatureFahrenheitEditKeyDown
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 3
     Text = '77.00'
   end
   object Label6: TLabel
@@ -271,7 +273,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnKeyDown = ReferenceFahrenheitEditKeyDown
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 8
     Text = '77.00'
   end
   object Label7: TLabel

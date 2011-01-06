@@ -93,11 +93,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="41"/>
-        <CursorPos X="12" Y="54"/>
+        <CursorPos X="44" Y="64"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -252,6 +251,7 @@
       <Unit22>
         <Filename Value="Temp2Volt.pas"/>
         <UnitName Value="Temp2Volt"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
