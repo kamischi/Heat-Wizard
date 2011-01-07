@@ -1,12 +1,17 @@
        if Temp < TemperatureRangeLimits[0] then
        begin
          ThermoElementError := ValueTooLow;
-         exit (0);
+         // with fpc > 2.4.2 this can probably be changed to $ieeeerrors
+         {$rangechecks off} {$overflowchecks off}
+         exit (NaN);
+         {$rangechecks on}  {$overflowchecks on}
        end;
        if Temp > TemperatureRangeLimits[high(TemperatureRangeLimits)] then
        begin
          ThermoElementError := ValueTooHigh;
-         exit (0);
+         {$rangechecks off} {$overflowchecks off}
+         exit (NaN);
+         {$rangechecks on}  {$overflowchecks on}
        end;
 
        range := 0;
