@@ -1,6 +1,7 @@
 unit UPlatform;
 
-{$mode objfpc}{$H+}
+{$mode objfpc}
+{$H+}
 
 interface
 
@@ -24,4 +25,3 @@ const
 implementation
 
 end.
-

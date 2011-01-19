@@ -41,7 +41,7 @@ LazarusResources.Add('TMainForm','FORMDATA',[
   +'entFont'#8#8'TabOrder'#2#2#4'Text'#6#6'298.15'#0#0#5'TEdit'#19'ReferenceKel'
   +'vinEdit'#4'Left'#3#152#0#6'Height'#2#22#3'Top'#3#150#0#5'Width'#2'H'#5'Colo'
   +'r'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKeyDown'#7#26'ReferenceKelvinEdi'
-  +'tKeyDown'#10'ParentFont'#8#8'TabOrder'#2#6#4'Text'#6#6'298.15'#0#0#12'TLabe'
+  +'tKeyDown'#10'ParentFont'#8#8'TabOrder'#2#7#4'Text'#6#6'298.15'#0#0#12'TLabe'
   +'ledEdit'#11'VoltageEdit'#4'Left'#2#24#6'Height'#2#22#3'Top'#2#30#5'Width'#2
   +'H'#5'Color'#7#6'clNone EditLabel.AnchorSideLeft.Control'#7#11'VoltageEdit"E'
   +'ditLabel.AnchorSideBottom.Control'#7#11'VoltageEdit'#14'EditLabel.Left'#2#24
@@ -63,21 +63,22 @@ LazarusResources.Add('TMainForm','FORMDATA',[
   +#17'EditLabel.Caption'#6#21'Reference Temperature'#21'EditLabel.ParentColor'
   +#8#10'Font.Color'#4'YX0'#0#10'ParentFont'#8#8'TabOrder'#2#4#4'Text'#6#5'25.0'
   +'0'#9'OnKeyDown'#7#27'ReferenceCelsiusEditKeyDown'#0#0#9'TComboBox'#7'TypeBo'
-  +'x'#4'Left'#3#152#0#6'Height'#2#21#3'Top'#2#30#5'Width'#2'X'#10'Font.Color'#4
-  +'YX0'#0#10'ItemHeight'#2#0#13'Items.Strings'#1#6#6'Type B'#6#6'Type E'#6#6'T'
-  ,'ype J'#6#6'Type K'#6#6'Type N'#6#6'Type R'#6#6'Type S'#6#6'Type T'#0#9'MaxL'
-  +'ength'#4#255#255#0#0#10'ParentFont'#8#8'TabOrder'#2#5#7'TabStop'#8#4'Text'#6
-  +#6'Type K'#0#0#7'TButton'#10'QuitButton'#4'Left'#3#129#1#6'Height'#2#20#3'To'
-  +'p'#3#152#0#5'Width'#2'K'#7'Caption'#6#4'Quit'#10'Font.Color'#4'YX0'#0#7'OnC'
-  +'lick'#7#15'QuitButtonClick'#10'ParentFont'#8#8'TabOrder'#2#7#7'TabStop'#8#0
-  +#0#5'TEdit'#25'TemperatureFahrenheitEdit'#4'Left'#3#16#1#6'Height'#2#22#3'To'
-  +'p'#2'X'#5'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKeyD'
-  +'own'#7' TemperatureFahrenheitEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#3#4
-  +'Text'#6#5'77.00'#0#0#6'TLabel'#6'Label6'#4'Left'#3'`'#1#6'Height'#2#17#3'To'
-  +'p'#2'Y'#5'Width'#2#14#7'Caption'#6#3#194#176'F'#11'ParentColor'#8#0#0#5'TEd'
-  +'it'#23'ReferenceFahrenheitEdit'#4'Left'#3#16#1#6'Height'#2#22#3'Top'#3#150#0
-  +#5'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKeyDown'#7#30
-  +'ReferenceFahrenheitEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#8#4'Text'#6#5
-  +'77.00'#0#0#6'TLabel'#6'Label7'#4'Left'#3'`'#1#6'Height'#2#17#3'Top'#3#152#0
-  +#5'Width'#2#14#7'Caption'#6#3#194#176'F'#11'ParentColor'#8#0#0#0
+  +'x'#4'Left'#3#152#0#6'Height'#2#20#3'Top'#2#30#5'Width'#2'X'#10'Font.Color'#4
+  +'YX0'#0#10'ItemHeight'#2#0#9'ItemIndex'#2#3#13'Items.Strings'#1#6#6'Type B'#6
+  ,#6'Type E'#6#6'Type J'#6#6'Type K'#6#6'Type N'#6#6'Type R'#6#6'Type S'#6#6'T'
+  +'ype T'#0#9'MaxLength'#4#255#255#0#0#8'OnChange'#7#13'TypeBoxChange'#10'Pare'
+  +'ntFont'#8#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#5#7'TabStop'#8#4'Text'
+  +#6#6'Type K'#0#0#7'TButton'#10'QuitButton'#4'Left'#3#129#1#6'Height'#2#20#3
+  +'Top'#3#152#0#5'Width'#2'K'#7'Caption'#6#4'Quit'#10'Font.Color'#4'YX0'#0#7'O'
+  +'nClick'#7#15'QuitButtonClick'#10'ParentFont'#8#8'TabOrder'#2#6#7'TabStop'#8
+  +#0#0#5'TEdit'#25'TemperatureFahrenheitEdit'#4'Left'#3#16#1#6'Height'#2#22#3
+  +'Top'#2'X'#5'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKe'
+  +'yDown'#7' TemperatureFahrenheitEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#3
+  +#4'Text'#6#5'77.00'#0#0#6'TLabel'#6'Label6'#4'Left'#3'`'#1#6'Height'#2#17#3
+  +'Top'#2'Y'#5'Width'#2#14#7'Caption'#6#3#194#176'F'#11'ParentColor'#8#0#0#5'T'
+  +'Edit'#23'ReferenceFahrenheitEdit'#4'Left'#3#16#1#6'Height'#2#22#3'Top'#3#150
+  +#0#5'Width'#2'H'#5'Color'#7#6'clNone'#10'Font.Color'#4'YX0'#0#9'OnKeyDown'#7
+  +#30'ReferenceFahrenheitEditKeyDown'#10'ParentFont'#8#8'TabOrder'#2#8#4'Text'
+  +#6#5'77.00'#0#0#6'TLabel'#6'Label7'#4'Left'#3'`'#1#6'Height'#2#17#3'Top'#3
+  +#152#0#5'Width'#2#14#7'Caption'#6#3#194#176'F'#11'ParentColor'#8#0#0#0
 ]);

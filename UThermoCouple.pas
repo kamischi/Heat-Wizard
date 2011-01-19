@@ -53,7 +53,7 @@ implementation
 uses
   math;
 
-{$INCLUDE Parametervariable.pas}
+{$INCLUDE Parametervariable.inc}
 
 function TThermoCouple.Temp2Volt (Temp: double) : double;
 var
@@ -65,37 +65,37 @@ begin
   case ThermoElementType of
   B: with Parameters_B do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   E: with Parameters_E do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   J: with Parameters_J do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   K: with Parameters_K do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
        if Temp > 0 then
          Temp2Volt := Temp2Volt +  a[0] * exp(a[1] * (Temp - a[2]) * (Temp - a[2]));
      end;
   N: with Parameters_N do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   R: with Parameters_R do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   S: with Parameters_S do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   T: with Parameters_T do
      begin
-       {$INCLUDE Temp2Volt.pas}
+       {$INCLUDE Temp2Volt.inc}
      end;
   end;
 end;
@@ -110,35 +110,35 @@ begin
   case ThermoElementType of
   B: with Parameters_B do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   E: with Parameters_E do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   J: with Parameters_J do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   K: with Parameters_K do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   N: with Parameters_N do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   R: with Parameters_R do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   S: with Parameters_S do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   T: with Parameters_T do
      begin
-       {$INCLUDE Volt2Temp.pas}
+       {$INCLUDE Volt2Temp.inc}
      end;
   end;
 end;

@@ -146,7 +146,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnKeyDown = ReferenceKelvinEditKeyDown
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 7
     Text = '298.15'
   end
   object VoltageEdit: TLabeledEdit
@@ -211,11 +211,12 @@ object MainForm: TMainForm
   end
   object TypeBox: TComboBox
     Left = 152
-    Height = 21
+    Height = 20
     Top = 30
     Width = 88
     Font.Color = 3168345
     ItemHeight = 0
+    ItemIndex = 3
     Items.Strings = (
       'Type B'
       'Type E'
@@ -227,7 +228,9 @@ object MainForm: TMainForm
       'Type T'
     )
     MaxLength = 65535
+    OnChange = TypeBoxChange
     ParentFont = False
+    Style = csDropDownList
     TabOrder = 5
     TabStop = False
     Text = 'Type K'
@@ -241,7 +244,7 @@ object MainForm: TMainForm
     Font.Color = 3168345
     OnClick = QuitButtonClick
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     TabStop = False
   end
   object TemperatureFahrenheitEdit: TEdit
