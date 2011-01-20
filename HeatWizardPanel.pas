@@ -329,6 +329,16 @@ end;
 procedure TMainForm.TypeBoxChange(Sender: TObject);
 begin
   ThermoCouple.ThermoElementType := TThermoElementType(TypeBox.ItemIndex);
+  case lastChange of
+    VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
+      begin
+        TemperatureCelsius := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
+        TemperatureKelvin  := TemperatureCelsius + 273.15;
+        TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
+      end;
+    TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
+        Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+  end;
   UpdateDisplay;
 end;
 
