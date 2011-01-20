@@ -70,8 +70,6 @@ type
     PreferenceCircle:          TShape;
     procedure FormCreate(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
-    procedure TemperatureFahrenheitEditDblClick(Sender: TObject);
-    procedure TemperatureFahrenheitEditEditingDone(Sender: TObject);
     procedure TypeBoxChange(Sender: TObject);
     procedure VoltageEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ReferenceCelsiusEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -328,19 +326,10 @@ begin
   InfoCircle.Brush.Style := bsClear;
 end;
 
-procedure TMainForm.TemperatureFahrenheitEditDblClick(Sender: TObject);
-begin
-
-end;
-
-procedure TMainForm.TemperatureFahrenheitEditEditingDone(Sender: TObject);
-begin
-
-end;
-
 procedure TMainForm.TypeBoxChange(Sender: TObject);
 begin
   ThermoCouple.ThermoElementType := TThermoElementType(TypeBox.ItemIndex);
+  UpdateDisplay;
 end;
 
 procedure TMainForm.InfoClick(Sender: TObject);
