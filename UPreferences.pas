@@ -93,6 +93,8 @@ procedure TPreferencesForm.DoneButtonClick(Sender: TObject);
 begin
   PreferenceData.Language := LanguageShortString[Language];
   PreferenceData.Save;
+  MainForm.Left           := PreferencesForm.Left;
+  MainForm.Top            := PreferencesForm.Top;
   MainForm.Visible        := true;
   PreferencesForm.Visible := false;
 end;

@@ -78,6 +78,8 @@ end;
 
 procedure TAboutForm.DoneButtonClick(Sender: TObject);
 begin
+  MainForm.Left     := AboutForm.Left;
+  MainForm.Top      := AboutForm.Top;
   MainForm.Visible  := true;
   AboutForm.Visible := false;
 end;

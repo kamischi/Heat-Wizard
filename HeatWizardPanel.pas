@@ -47,8 +47,8 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
-    InfoButton: TLabel;
-    Warning: TLabel;
+    InfoButton:       TLabel;
+    Warning:          TLabel;
     PreferenceButton: TLabel;
 {$IF Defined(DARWIN)}
     MainMenu:        TMainMenu;
@@ -314,6 +314,8 @@ end;
 procedure TMainForm.PreferenceButtonClick(Sender: TObject);
 begin
   MainForm.Visible             := false;
+  PreferencesForm.Left         := MainForm.Left;
+  PreferencesForm.Top          := MainForm.Top;
   PreferencesForm.Visible      := true;
   PreferenceCircle.Brush.Style := bsClear;
 end;
@@ -322,6 +324,8 @@ end;
 procedure TMainForm.InfoButtonClick(Sender: TObject);
 begin
   MainForm.Visible       := false;
+  AboutForm.Left         := MainForm.Left;
+  AboutForm.Top          := MainForm.Top;
   AboutForm.Visible      := true;
   InfoCircle.Brush.Style := bsClear;
 end;
@@ -331,13 +335,13 @@ begin
   ThermoCouple.ThermoElementType := TThermoElementType(TypeBox.ItemIndex);
   case lastChange of
     VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
-      begin
-        TemperatureCelsius := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
-        TemperatureKelvin  := TemperatureCelsius + 273.15;
-        TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
-      end;
+    begin
+      TemperatureCelsius    := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
+      TemperatureKelvin     := TemperatureCelsius + 273.15;
+      TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
+    end;
     TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
-        Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+      Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
   end;
   UpdateDisplay;
 end;
@@ -385,18 +389,18 @@ begin
   begin
     if TryStrToFloat(ReferenceCelsiusEdit.Text, input) and (-273.15 <= input) and (input <= 1500) then
     begin
-      ReferenceCelsius := input;
-      ReferenceKelvin  := ReferenceCelsius + 273.15;
-      ReferenceFahrenheit  := ReferenceCelsius * 1.8 + 32;
+      ReferenceCelsius    := input;
+      ReferenceKelvin     := ReferenceCelsius + 273.15;
+      ReferenceFahrenheit := ReferenceCelsius * 1.8 + 32;
       case lastChange of
         VoltageChange:       // Since voltage was changed last, it makes sense to keep it and change the temperature
         begin
-          TemperatureCelsius := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
-          TemperatureKelvin  := TemperatureCelsius + 273.15;
-          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
+          TemperatureCelsius    := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
+          TemperatureKelvin     := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
         end;
         TemperatureChange:   // Since temperature was changed last, it makes sense to keep it and change the voltage
-        Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+          Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
     end;
       Warning.Visible := false;
     end
@@ -416,18 +420,18 @@ begin
   begin
     if TryStrToFloat(ReferenceKelvinEdit.Text, input) and (0 <= input) and (input <= 1800) then
     begin
-      ReferenceKelvin  := input;
-      ReferenceCelsius := ReferenceKelvin - 273.15;
+      ReferenceKelvin     := input;
+      ReferenceCelsius    := ReferenceKelvin - 273.15;
       ReferenceFahrenheit := ReferenceKelvin * 1.8 - 459.67;
       case lastChange of
         VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
         begin
-          TemperatureCelsius := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
-          TemperatureKelvin  := TemperatureCelsius + 273.15;
-          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
+          TemperatureCelsius    := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
+          TemperatureKelvin     := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
         end;
         TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
-        Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+          Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
       end;
       Warning.Visible := false;
     end
@@ -447,18 +451,18 @@ begin
   begin
     if TryStrToFloat(ReferenceFahrenheitEdit.Text, input) and (0 <= input) and (input <= 1800) then
     begin
-      ReferenceFahrenheit  := input;
-      ReferenceCelsius := (ReferenceFahrenheit - 32) / 1.8;
-      ReferenceKelvin  := (ReferenceFahrenheit + 459.67) / 1.8;
+      ReferenceFahrenheit := input;
+      ReferenceCelsius    := (ReferenceFahrenheit - 32) / 1.8;
+      ReferenceKelvin     := (ReferenceFahrenheit + 459.67) / 1.8;
       case lastChange of
         VoltageChange:      // Since voltage was changed last, it makes sense to keep it and change the temperature
         begin
-          TemperatureCelsius := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
-          TemperatureKelvin  := TemperatureCelsius + 273.15;
-          TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
+          TemperatureCelsius    := ThermoCouple.Volt2Temp(Voltage + ThermoCouple.Temp2Volt(ReferenceCelsius));
+          TemperatureKelvin     := TemperatureCelsius + 273.15;
+          TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
         end;
         TemperatureChange:  // Since temperature was changed last, it makes sense to keep it and change the voltage
-        Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+          Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
       end;
       Warning.Visible := false;
     end
@@ -478,15 +482,15 @@ begin
   begin
     if TryStrToFloat(TemperatureCelsiusEdit.Text, input) and  (-273.15 <= input) and (input <= 1500)  then
     begin
-      TemperatureCelsius := input;
-      TemperatureKelvin  := TemperatureCelsius + 273.15;
-      TemperatureFahrenheit  := TemperatureCelsius * 1.8 + 32;
-      Voltage            := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
-      LastChange         := TemperatureChange;
-      Warning.Visible    := false;
+      TemperatureCelsius    := input;
+      TemperatureKelvin     := TemperatureCelsius + 273.15;
+      TemperatureFahrenheit := TemperatureCelsius * 1.8 + 32;
+      Voltage               := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+      LastChange            := TemperatureChange;
+      Warning.Visible       := false;
     end
     else
-      Warning.Visible    := true;
+      Warning.Visible       := true;
     UpdateDisplay;
   end;
 end;
@@ -501,15 +505,15 @@ begin
   begin
     if TryStrToFloat(TemperatureKelvinEdit.Text, input) and (0 <= input) and (input <= 1800) then
     begin
-      TemperatureKelvin  := input;
-      TemperatureCelsius := TemperatureKelvin - 273.15;
+      TemperatureKelvin     := input;
+      TemperatureCelsius    := TemperatureKelvin - 273.15;
       TemperatureFahrenheit := TemperatureKelvin * 1.8 - 459.67;
-      Voltage            := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
-      LastChange         := TemperatureChange;
-      Warning.Visible    := false;
+      Voltage               := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+      LastChange            := TemperatureChange;
+      Warning.Visible       := false;
     end
     else
-      Warning.Visible    := true;
+      Warning.Visible       := true;
     UpdateDisplay;
   end;
 end;
@@ -524,15 +528,15 @@ begin
   begin
     if TryStrToFloat(TemperatureFahrenheitEdit.Text, input) and (0 <= input) and (input <= 1800) then
     begin
-      TemperatureFahrenheit  := input;
-      TemperatureCelsius := (TemperatureFahrenheit - 32) / 1.8;
-      TemperatureKelvin  := (TemperatureFahrenheit + 459.67) /1.8;
-      Voltage            := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
-      LastChange         := TemperatureChange;
-      Warning.Visible    := false;
+      TemperatureFahrenheit := input;
+      TemperatureCelsius    := (TemperatureFahrenheit - 32) / 1.8;
+      TemperatureKelvin     := (TemperatureFahrenheit + 459.67) / 1.8;
+      Voltage               := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
+      LastChange            := TemperatureChange;
+      Warning.Visible       := false;
     end
     else
-      Warning.Visible    := true;
+      Warning.Visible       := true;
     UpdateDisplay;
   end;
 end;

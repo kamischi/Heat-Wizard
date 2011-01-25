@@ -10,7 +10,6 @@ object PreferencesForm: TPreferencesForm
   ClientWidth = 480
   OnCreate = FormCreate
   LCLVersion = '0.9.31'
-  Visible = True
   object DoneButton: TButton
     Left = 204
     Height = 20

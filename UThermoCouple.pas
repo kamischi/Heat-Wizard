@@ -39,7 +39,7 @@ type
   TThermoElementError = (NoError, ValueTooLow, ValueTooHigh);
   TThermoCouple = class
   public
-    ThermoElementType: TThermoElementType;
+    ThermoElementType:  TThermoElementType;
     ThermoElementError: TThermoElementError;
     function Temp2Volt (Temp: double) : double;
     function Volt2Temp (Volt: double) : double;
