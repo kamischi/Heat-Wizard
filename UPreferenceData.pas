@@ -253,7 +253,7 @@ begin
     FileVersion := FileVersionBuffer
   else
     FileVersion := '1.0.0';
-  if (not Error.NoLanguage) and AnsiMatchText(LanguageBuffer, ['en','de','fi']) then
+  if (not Error.NoLanguage) and AnsiMatchText(LanguageBuffer, ['en','de','fi', 'fr']) then
     Language := LanguageBuffer
   else
     Language := 'en';

@@ -95,13 +95,13 @@ type
   end; 
 
 type
-  TLanguage = (en, de, fi);
+  TLanguage = (en, de, fi, fr);
 
 var
   MainForm: TMainForm;
   Language: TLanguage;
-  LanguageLongString:  array[TLanguage] of string = ('English', 'German', 'Finnish');
-  LanguageShortString: array[TLanguage] of string = ('en', 'de', 'fi');
+  LanguageLongString:  array[TLanguage] of string = ('English', 'German', 'Finnish', 'French');
+  LanguageShortString: array[TLanguage] of string = ('en', 'de', 'fi', 'fr');
   ThermoCouple: TThermoCouple;
 
 implementation

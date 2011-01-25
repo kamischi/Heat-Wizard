@@ -183,6 +183,7 @@ begin
         LanguageComboBox.Items.Strings[0] := MOFile.translate('English');
         LanguageComboBox.Items.Strings[1] := MOFile.translate('German');
         LanguageComboBox.Items.Strings[2] := MOFile.translate('Finnish');
+        LanguageComboBox.Items.Strings[2] := MOFile.translate('French');
         DoneButton.Caption                := MOFile.translate('Done');
         MOFile.Destroy;
       end;
