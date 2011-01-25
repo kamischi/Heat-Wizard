@@ -69,6 +69,7 @@ type
     InfoCircle:                TShape;
     PreferenceCircle:          TShape;
     procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
     procedure TypeBoxChange(Sender: TObject);
     procedure VoltageEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -145,6 +146,8 @@ begin
     Language := CheckLanguage;
 
   QuitButton.Height := PF_ButtonHeight;
+  Top  := PreferenceData.FormsPosition.Top;
+  Left := PreferenceData.FormsPosition.Left;
 {$IF Defined(DARWIN)}
   MainMenu := TMainMenu.Create(MainForm);
 
@@ -169,6 +172,12 @@ begin
   TranslateTexts(LanguageShortString[Language]);
   ThermoCouple := TThermoCouple.Create;
   ThermoCouple.ThermoElementType := K;
+end;
+
+procedure TMainForm.FormResize(Sender: TObject);
+begin
+  PreferenceData.FormsPosition.Top  := Top;
+  PreferenceData.FormsPosition.Left := Left;
 end;
 
 procedure TMainForm.UpdateDisplay;
@@ -319,7 +328,6 @@ begin
   MainForm.Visible             := false;
   PreferenceCircle.Brush.Style := bsClear;
 end;
-
 
 procedure TMainForm.InfoButtonClick(Sender: TObject);
 begin

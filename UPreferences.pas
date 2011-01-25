@@ -43,6 +43,7 @@ type
     DoneButton:         TButton;
     LanguageStaticText: TStaticText;
     procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure LanguageComboBoxSelect(Sender: TObject);
     procedure DoneButtonClick(Sender: TObject);
     procedure TranslateTexts(const locale: string);
@@ -78,6 +79,12 @@ begin
   LanguageComboBox.ItemIndex := ord(Language);
   DoneButton.Height := PF_ButtonHeight;
   Logger.Output('UPreferences', 'started with: ' + LanguageShortString[Language]);
+end;
+
+procedure TPreferencesForm.FormResize(Sender: TObject);
+begin
+  PreferenceData.FormsPosition.Top  := Top;
+  PreferenceData.FormsPosition.Left := Left;
 end;
 
 procedure TPreferencesForm.LanguageComboBoxSelect(Sender: TObject);

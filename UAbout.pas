@@ -43,6 +43,7 @@ type
     AboutText:  TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure DoneButtonClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure TranslateTexts(const locale: string);
   private
     { private declarations }
@@ -65,7 +66,8 @@ uses
   HeatWizardPanel,
   ULog,
   UPath,
-  UPlatform;
+  UPlatform,
+  UPreferenceData;
 
 {$I version.inc}
 
@@ -82,6 +84,12 @@ begin
   MainForm.Top      := AboutForm.Top;
   MainForm.Visible  := true;
   AboutForm.Visible := false;
+end;
+
+procedure TAboutForm.FormResize(Sender: TObject);
+begin
+  PreferenceData.FormsPosition.Top  := Top;
+  PreferenceData.FormsPosition.Left := Left;
 end;
 
 procedure TAboutForm.TranslateTexts(const locale: string);

@@ -22,6 +22,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnMouseMove = FormMouseMove
   OnPaint = FormPaint
+  OnResize = FormResize
   LCLVersion = '0.9.31'
   Visible = True
   object PreferenceCircle: TShape

@@ -9,6 +9,7 @@ object AboutForm: TAboutForm
   ClientHeight = 195
   ClientWidth = 480
   OnCreate = FormCreate
+  OnResize = FormResize
   LCLVersion = '0.9.31'
   object DoneButton: TButton
     Left = 212

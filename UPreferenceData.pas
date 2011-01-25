@@ -38,6 +38,9 @@ type
   TPreferenceData = class
     FileVersion: string;
     Language:    string;
+    FormsPosition: record
+      Top, Left: integer
+    end;
     constructor Create;
     destructor Destroy;
     procedure Save;
@@ -91,15 +94,17 @@ end;
 procedure TPreferenceData.Read;
 var
   Error: record
-    NoFileversion: boolean;
-    NoLanguage:    boolean;
+    NoFileversion:   boolean;
+    NoLanguage:      boolean;
+    NoFormsPosition: boolean;
   end;
 {$IF Defined(DARWIN)}
 var
  StringConversionSuccess: boolean;
- DataString:        CFStringRef;
- FileVersionBuffer: str255;
- LanguageBuffer:    str255;
+ DataString:          CFStringRef;
+ FileVersionBuffer:   str255;
+ LanguageBuffer:      str255;
+ FormsPositionBuffer: str255;
 begin
   Logger.Output('UPreferenceData', 'Enter Read');
   DataString := CFPreferencesCopyAppValue(CFStr('FileVersion'), kCFPreferencesCurrentApplication);
@@ -152,11 +157,12 @@ begin
 
 {$ELSE}
 var
-  HeaderStream:      TStringStream;
-  FileVersionBuffer: string;
-  LanguageBuffer:    string;
-  i, ThisItem:       integer;
-  PreferenceList:    TStringlist;
+  HeaderStream:        TStringStream;
+  FileVersionBuffer:   string;
+  LanguageBuffer:      string;
+  FormsPositionBuffer: string;
+  i, ThisItem:         integer;
+  PreferenceList:      TStringlist;
 
 begin
   Logger.Output('UPreferenceData', 'Create PreferenceDoc');
@@ -184,6 +190,8 @@ begin
     HeaderStream.WriteString('<string>1.0.0</string>');
     HeaderStream.WriteString('<key>Language</key>');
     HeaderStream.WriteString('<string>en</string>');
+    HeaderStream.WriteString('<key>FormsPosition</key>');
+    HeaderStream.WriteString('<string>130,400</string>');
     HeaderStream.WriteString('</dict>');
     HeaderStream.WriteString('</plist>');
 
@@ -197,8 +205,10 @@ begin
 
     WriteXMLFile(PreferenceDoc, PreferenceFileName);
 
-    FileVersionBuffer := '1.0.0';
-    LanguageBuffer    := 'en';
+    FileVersionBuffer  := '1.0.0';
+    LanguageBuffer     := 'en';
+    FormsPosition.Top  := 130;
+    FormsPosition.Left := 400;
   end
   else
   begin
@@ -247,6 +257,8 @@ begin
     Language := LanguageBuffer
   else
     Language := 'en';
+  FormsPosition.Top  := 130;
+  FormsPosition.Left := 400;
   PreferenceData.Save;
   Logger.Output('UPreferenceData', 'Leaving Read. Fileversion: ' + Fileversion + ' Language: ' + Language);
 end;
@@ -256,10 +268,12 @@ procedure TPreferenceData.Save;
 var
   FileVersionData: CFPropertyListRef;
   LanguageData:    CFPropertyListRef;
+  PositionData:    CFPropertyListRef;
 begin
   Logger.Output('UPreferenceData', 'Enter Save');
   Logger.Output('UPreferenceData', 'Fileversion: ' + FileVersion);
   Logger.Output('UPreferenceData', 'Language: '    + Language);
+  Logger.Output('UPreferenceData', 'FormsPosition: Top: ' + intToStr(FormsPosition.Top) + ' Left: ' + intToStr(FormsPosition.Left));
   FileVersionData := CFStringCreateWithPascalString(kCFAllocatorDefault, FileVersion, kCFStringEncodingUTF8);
   CFPreferencesSetAppValue(CFStr('FileVersion'), FileVersionData, kCFPreferencesCurrentApplication);
 
@@ -282,6 +296,8 @@ begin
   HeaderStream.WriteString('<key>FileVersion</key>');
   HeaderStream.WriteString('<string>' + FileVersion + '</string>');
   HeaderStream.WriteString('<key>Language</key>');
+  HeaderStream.WriteString('<string>' + Language + '</string>');
+  HeaderStream.WriteString('<key>FormsPosition</key>');
   HeaderStream.WriteString('<string>' + Language + '</string>');
   HeaderStream.WriteString('</dict>');
   HeaderStream.WriteString('</plist>');
