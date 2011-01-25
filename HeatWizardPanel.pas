@@ -313,20 +313,20 @@ end;
 
 procedure TMainForm.PreferenceButtonClick(Sender: TObject);
 begin
-  MainForm.Visible             := false;
   PreferencesForm.Left         := MainForm.Left;
   PreferencesForm.Top          := MainForm.Top;
   PreferencesForm.Visible      := true;
+  MainForm.Visible             := false;
   PreferenceCircle.Brush.Style := bsClear;
 end;
 
 
 procedure TMainForm.InfoButtonClick(Sender: TObject);
 begin
-  MainForm.Visible       := false;
   AboutForm.Left         := MainForm.Left;
   AboutForm.Top          := MainForm.Top;
   AboutForm.Visible      := true;
+  MainForm.Visible       := false;
   InfoCircle.Brush.Style := bsClear;
 end;
 
