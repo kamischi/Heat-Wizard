@@ -101,10 +101,15 @@ var
 {$IF Defined(DARWIN)}
 var
  StringConversionSuccess: boolean;
- DataString:          CFStringRef;
+ DataString:          CFPropertyListRef;
  FileVersionBuffer:   str255;
  LanguageBuffer:      str255;
- FormsPositionBuffer: str255;
+ FormsPositionTopBuffer: str255;
+ FormsPositionLeftBuffer: str255;
+ TypeID: CFTypeID;
+// keys: array [1..2] of CFStringRef;
+// vals: array [1..2] of CFStringRef;
+  TopCFString, LeftCFString: CFStringRef;
 begin
   Logger.Output('UPreferenceData', 'Enter Read');
   DataString := CFPreferencesCopyAppValue(CFStr('FileVersion'), kCFPreferencesCurrentApplication);
@@ -155,12 +160,44 @@ begin
     Error.NoFileversion := true;
   end;
 
+  DataString := CFPreferencesCopyAppValue(CFStr('FormsPosition'), kCFPreferencesCurrentApplication);
+  if not (DataString = NIL) then
+  begin
+    TopCFString := CFDictionaryGetValue (DataString, CFStr('Top'));
+    StringConversionSuccess := CFStringGetPascalString(TopCFString,
+                                   @FormsPositionTopBuffer,
+                                   Length(FormsPositionTopBuffer),
+                                   kCFStringEncodingUTF8);
+    LeftCFString := CFDictionaryGetValue (DataString, CFStr('Left'));
+    StringConversionSuccess := CFStringGetPascalString(LeftCFString,
+                                   @FormsPositionLeftBuffer,
+                                   Length(FormsPositionLeftBuffer),
+                                   kCFStringEncodingUTF8);
+  if not StringConversionSuccess then
+  begin
+    Logger.Output('UPreferenceData', 'Error reading FormsPosition from file. Continue with Default');
+    Error.NoFormsPosition := true;
+  end
+  else
+  begin
+    Logger.Output('UPreferenceData', 'FormsPosition Buffer Top as read from file: ' + FormsPositionTopBuffer);
+    Logger.Output('UPreferenceData', 'FormsPosition Buffer Left as read from file: ' + FormsPositionLeftBuffer);
+    Error.NoFormsPosition := false;
+  end;
+  end
+  else
+  begin
+    Logger.Output('UPreferenceData', 'Error reading FormsPosition from file. Continue with Default');
+    Error.NoFormsPosition := true;
+  end;
+
 {$ELSE}
 var
   HeaderStream:        TStringStream;
   FileVersionBuffer:   string;
   LanguageBuffer:      string;
-  FormsPositionBuffer: string;
+  FormsPositionTopBuffer: string;
+  FormsPositionLeftBuffer: string;
   i, ThisItem:         integer;
   PreferenceList:      TStringlist;
 
@@ -186,12 +223,17 @@ begin
     HeaderStream.WriteString('<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">');
     HeaderStream.WriteString('<plist version="1.0">');
     HeaderStream.WriteString('<dict>');
-    HeaderStream.WriteString('<key>FileVersion</key>');
-    HeaderStream.WriteString('<string>1.0.0</string>');
-    HeaderStream.WriteString('<key>Language</key>');
-    HeaderStream.WriteString('<string>en</string>');
-    HeaderStream.WriteString('<key>FormsPosition</key>');
-    HeaderStream.WriteString('<string>130,400</string>');
+    HeaderStream.WriteString('  <key>FileVersion</key>');
+    HeaderStream.WriteString('  <string>' + FileVersion + '</string>');
+    HeaderStream.WriteString('  <key>Language</key>');
+    HeaderStream.WriteString('  <string>' + Language + '</string>');
+    HeaderStream.WriteString('  <key>FormsPosition</key>');
+    HeaderStream.WriteString('  <dict>');
+    HeaderStream.WriteString('    <key>Top</key>');
+    HeaderStream.WriteString('    <string>130</string>');
+    HeaderStream.WriteString('    <key>Left</key>');
+    HeaderStream.WriteString('    <string>400</string>');
+    HeaderStream.WriteString('  </dict>');
     HeaderStream.WriteString('</dict>');
     HeaderStream.WriteString('</plist>');
 
@@ -246,6 +288,11 @@ begin
     Error.NoLanguage := false;
     if LanguageBuffer = '' then
       Error.NoLanguage    := true;
+
+    FormsPositionBuffer := PreferenceList.Values['FormsPosition'];
+    Error.NoFormsPosition := false;
+    if FormsPositionBuffer = '' then
+      Error.FormsPosition    := true;
   end;
 {$IFEND}
   Logger.Output('UPreferenceData', 'Check: FileversionBuffer: ' + FileversionBuffer + ' LanguageBuffer: ' + LanguageBuffer);
@@ -257,8 +304,8 @@ begin
     Language := LanguageBuffer
   else
     Language := 'en';
-  FormsPosition.Top  := 130;
-  FormsPosition.Left := 400;
+  FormsPosition.Top  := StrToIntDef(FormsPositionTopBuffer, 130);
+  FormsPosition.Left := StrToIntDef(FormsPositionLeftBuffer, 400);;
   PreferenceData.Save;
   Logger.Output('UPreferenceData', 'Leaving Read. Fileversion: ' + Fileversion + ' Language: ' + Language);
 end;
@@ -269,16 +316,25 @@ var
   FileVersionData: CFPropertyListRef;
   LanguageData:    CFPropertyListRef;
   PositionData:    CFPropertyListRef;
+  keys: array [1..2] of CFStringRef;
+  vals: array [1..2] of CFStringRef;
 begin
   Logger.Output('UPreferenceData', 'Enter Save');
   Logger.Output('UPreferenceData', 'Fileversion: ' + FileVersion);
   Logger.Output('UPreferenceData', 'Language: '    + Language);
   Logger.Output('UPreferenceData', 'FormsPosition: Top: ' + intToStr(FormsPosition.Top) + ' Left: ' + intToStr(FormsPosition.Left));
   FileVersionData := CFStringCreateWithPascalString(kCFAllocatorDefault, FileVersion, kCFStringEncodingUTF8);
-  CFPreferencesSetAppValue(CFStr('FileVersion'), FileVersionData, kCFPreferencesCurrentApplication);
+  CFPreferencesSetAppValue(CFStr('FileVersion'),   FileVersionData, kCFPreferencesCurrentApplication);
 
   LanguageData    := CFStringCreateWithPascalString(kCFAllocatorDefault, Language,    kCFStringEncodingUTF8);
-  CFPreferencesSetAppValue(CFStr('Language'),    LanguageData,    kCFPreferencesCurrentApplication);
+  CFPreferencesSetAppValue(CFStr('Language'),      LanguageData,    kCFPreferencesCurrentApplication);
+
+  keys[1] := CFStr('Top');
+  vals[1] := CFStringCreateWithPascalString(kCFAllocatorDefault, intToStr(FormsPosition.Top),  kCFStringEncodingUTF8);
+  keys[2] := CFStr('Left');
+  vals[2] := CFStringCreateWithPascalString(kCFAllocatorDefault, intToStr(FormsPosition.Left), kCFStringEncodingUTF8);
+  PositionData := CFDictionaryCreate(kCFAllocatorDefault, @keys, @vals, 2, Nil, Nil);
+  CFPreferencesSetAppValue(CFStr('FormsPosition'), PositionData, kCFPreferencesCurrentApplication);
 
   CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
 {$ELSE}
@@ -293,12 +349,17 @@ begin
   HeaderStream.WriteString('<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">');
   HeaderStream.WriteString('<plist version="1.0">');
   HeaderStream.WriteString('<dict>');
-  HeaderStream.WriteString('<key>FileVersion</key>');
-  HeaderStream.WriteString('<string>' + FileVersion + '</string>');
-  HeaderStream.WriteString('<key>Language</key>');
-  HeaderStream.WriteString('<string>' + Language + '</string>');
-  HeaderStream.WriteString('<key>FormsPosition</key>');
-  HeaderStream.WriteString('<string>' + Language + '</string>');
+  HeaderStream.WriteString('  <key>FileVersion</key>');
+  HeaderStream.WriteString('  <string>' + FileVersion + '</string>');
+  HeaderStream.WriteString('  <key>Language</key>');
+  HeaderStream.WriteString('  <string>' + Language + '</string>');
+  HeaderStream.WriteString('  <key>FormsPosition</key>');
+  HeaderStream.WriteString('  <dict>');
+  HeaderStream.WriteString('    <key>Top</key>');
+  HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Top) + '</string>');
+  HeaderStream.WriteString('    <key>Left</key>');
+  HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Left) + '</string>');
+  HeaderStream.WriteString('  </dict>');
   HeaderStream.WriteString('</dict>');
   HeaderStream.WriteString('</plist>');
 

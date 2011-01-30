@@ -43,3 +43,15 @@ msgstr "Deutsch"
 
 msgid "Finnish"
 msgstr "Finnisch"
+
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Greek"
+msgstr "Griechisch"
+
+msgid "French"
+msgstr "Französisch"
