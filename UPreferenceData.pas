@@ -101,15 +101,13 @@ var
 {$IF Defined(DARWIN)}
 var
  StringConversionSuccess: boolean;
- DataString:          CFPropertyListRef;
- FileVersionBuffer:   str255;
- LanguageBuffer:      str255;
- FormsPositionTopBuffer: str255;
+ DataString:              CFPropertyListRef;
+ FileVersionBuffer:       str255;
+ LanguageBuffer:          str255;
+ FormsPositionTopBuffer:  str255;
  FormsPositionLeftBuffer: str255;
- TypeID: CFTypeID;
-// keys: array [1..2] of CFStringRef;
-// vals: array [1..2] of CFStringRef;
-  TopCFString, LeftCFString: CFStringRef;
+ TopCFString:             CFStringRef;
+ LeftCFString:            CFStringRef;
 begin
   Logger.Output('UPreferenceData', 'Enter Read');
   DataString := CFPreferencesCopyAppValue(CFStr('FileVersion'), kCFPreferencesCurrentApplication);
@@ -168,11 +166,14 @@ begin
                                    @FormsPositionTopBuffer,
                                    Length(FormsPositionTopBuffer),
                                    kCFStringEncodingUTF8);
+    if StringConversionSuccess then
+    begin
     LeftCFString := CFDictionaryGetValue (DataString, CFStr('Left'));
     StringConversionSuccess := CFStringGetPascalString(LeftCFString,
                                    @FormsPositionLeftBuffer,
                                    Length(FormsPositionLeftBuffer),
                                    kCFStringEncodingUTF8);
+    end;
   if not StringConversionSuccess then
   begin
     Logger.Output('UPreferenceData', 'Error reading FormsPosition from file. Continue with Default');
@@ -193,13 +194,13 @@ begin
 
 {$ELSE}
 var
-  HeaderStream:        TStringStream;
-  FileVersionBuffer:   string;
-  LanguageBuffer:      string;
-  FormsPositionTopBuffer: string;
+  HeaderStream:            TStringStream;
+  FileVersionBuffer:       string;
+  LanguageBuffer:          string;
+  FormsPositionTopBuffer:  string;
   FormsPositionLeftBuffer: string;
-  i, ThisItem:         integer;
-  PreferenceList:      TStringlist;
+  i, ThisItem:             integer;
+  PreferenceList:          TStringlist;
 
 begin
   Logger.Output('UPreferenceData', 'Create PreferenceDoc');
@@ -230,9 +231,9 @@ begin
     HeaderStream.WriteString('  <key>FormsPosition</key>');
     HeaderStream.WriteString('  <dict>');
     HeaderStream.WriteString('    <key>Top</key>');
-    HeaderStream.WriteString('    <string>130</string>');
+    HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Top) + '</string>');
     HeaderStream.WriteString('    <key>Left</key>');
-    HeaderStream.WriteString('    <string>400</string>');
+    HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Left) + '</string>');
     HeaderStream.WriteString('  </dict>');
     HeaderStream.WriteString('</dict>');
     HeaderStream.WriteString('</plist>');
@@ -256,7 +257,7 @@ begin
   begin
     ReadXMLFile(PreferenceDoc, PreferenceFileName);
 
-    PreferenceList := TStringlist.Create;
+    PreferenceList := TStringlist.Create;            // FOrmsPosition is not yet done
     ThisItem := -1;
     Logger.Output('UPreferenceData', 'PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count: ' + IntToStr(PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count));
     with PreferenceDoc.DocumentElement.FirstChild do
