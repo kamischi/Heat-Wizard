@@ -1,57 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Karl-Michael Schindler <karl-michael.schindler@web.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: Form1:VoltageEdit
+#, fuzzy
 msgid "Voltage"
-msgstr "Voltage"
+msgstr "Voltaggio"
 
 #: Form1:TemperatureCelsiusEdit
+#, fuzzy
 msgid "Temperature"
-msgstr "Temperature"
+msgstr "Temperatura:"
 
 #: Form1:ReferenceCelsiusEdit
+#, fuzzy
 msgid "Reference Temperature"
-msgstr "Reference Temperature"
+msgstr "Unità di _temperatura:"
 
 #: Form1:QuitButton
+#, fuzzy
 msgid "Quit"
-msgstr "Quit"
+msgstr "Chiudi"
 
 #: Form1:TypeBox.Text
+#, fuzzy
 msgid "Type K"
-msgstr "Type K"
+msgstr "Tipo:"
 
 #: Form1:Warning
+#, fuzzy
 msgid "illegal input try again"
-msgstr "illegal\ninput!\ntry again!"
+msgstr "Passphrase non valida; riprova"
 
 #: AboutForm:AboutText
+#, fuzzy
 msgid "About Text"
-msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages to temperatures and vice versa.\nAuthor: K.-M. Schindler\nLicence: GPL"
+msgstr "testo password"
 
 #: PreferencesForm:AboutText
+#, fuzzy
 msgid "Language:"
-msgstr "Language:"
+msgstr "Lingua:"
 
 #: DoneButton
+#, fuzzy
 msgid "Done"
-msgstr "Done"
+msgstr "fatto.   "
 
 #: Languages
+#, fuzzy
 msgid "English"
-msgstr "English"
+msgstr "Inglese"
 
+#, fuzzy
 msgid "German"
-msgstr "German"
+msgstr "Tedesco"
 
+#, fuzzy
 msgid "Finnish"
-msgstr "Finnish"
+msgstr "Finlandese"
 
+#, fuzzy
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Spagnolo"
 
+#, fuzzy
 msgid "Italian"
-msgstr "Italian"
+msgstr "Italiano"
 
+#, fuzzy
 msgid "Greek"
-msgstr "Greek"
+msgstr "Greco"
 
+#, fuzzy
 msgid "French"
-msgstr "French"
+msgstr "Francese"
+

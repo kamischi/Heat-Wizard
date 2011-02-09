@@ -41,7 +41,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="29">
+    <Units Count="23">
       <Unit0>
         <Filename Value="HeatWizard.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -162,8 +162,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="170"/>
-        <CursorPos X="105" Y="184"/>
+        <TopLine Value="364"/>
+        <CursorPos X="72" Y="282"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -172,16 +172,9 @@
         <UnitName Value="UXMLPreferenceData"/>
         <TopLine Value="1"/>
         <CursorPos X="77" Y="5"/>
-        <UsageCount Value="104"/>
+        <UsageCount Value="95"/>
       </Unit11>
       <Unit12>
-        <Filename Value="../../../../sw/share/fpcsrc/packages/fcl-xml/src/dom.pp"/>
-        <UnitName Value="DOM"/>
-        <TopLine Value="601"/>
-        <CursorPos X="74" Y="608"/>
-        <UsageCount Value="7"/>
-      </Unit12>
-      <Unit13>
         <Filename Value="HeatWizardPanel.lfm"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -189,8 +182,8 @@
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit13>
-      <Unit14>
+      </Unit12>
+      <Unit13>
         <Filename Value="UPlatform.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPlatform"/>
@@ -200,8 +193,8 @@
         <CursorPos X="62" Y="23"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
-      </Unit14>
-      <Unit15>
+      </Unit13>
+      <Unit14>
         <Filename Value="UThermoCouple.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UThermoCouple"/>
@@ -211,24 +204,24 @@
         <CursorPos X="46" Y="128"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
-      </Unit15>
-      <Unit16>
+      </Unit14>
+      <Unit15>
         <Filename Value="heatwizard.pp"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="heatwizard"/>
         <TopLine Value="106"/>
         <CursorPos X="90" Y="130"/>
         <UsageCount Value="212"/>
-      </Unit16>
-      <Unit17>
+      </Unit15>
+      <Unit16>
         <Filename Value="UCommandlineHandler.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UCommandlineHandler"/>
         <TopLine Value="124"/>
         <CursorPos X="1" Y="124"/>
         <UsageCount Value="212"/>
-      </Unit17>
-      <Unit18>
+      </Unit16>
+      <Unit17>
         <Filename Value="UConverter.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UConverter"/>
@@ -238,81 +231,45 @@
         <CursorPos X="64" Y="69"/>
         <UsageCount Value="212"/>
         <Loaded Value="True"/>
-      </Unit18>
-      <Unit19>
+      </Unit17>
+      <Unit18>
         <Filename Value="/sw/share/lazarus/lcl/forms.pp"/>
         <UnitName Value="Forms"/>
         <TopLine Value="1689"/>
         <CursorPos X="49" Y="1692"/>
-        <UsageCount Value="20"/>
-      </Unit19>
-      <Unit20>
+        <UsageCount Value="11"/>
+      </Unit18>
+      <Unit19>
         <Filename Value="/sw/share/fpcsrc/packages/fcl-base/src/custapp.pp"/>
         <UnitName Value="CustApp"/>
         <TopLine Value="14"/>
         <CursorPos X="3" Y="26"/>
-        <UsageCount Value="20"/>
-      </Unit20>
-      <Unit21>
-        <Filename Value="/sw/share/fpcsrc/rtl/objpas/classes/classesh.inc"/>
-        <TopLine Value="341"/>
-        <CursorPos X="3" Y="353"/>
-        <UsageCount Value="6"/>
-      </Unit21>
-      <Unit22>
+        <UsageCount Value="11"/>
+      </Unit19>
+      <Unit20>
         <Filename Value="Temp2Volt.pas"/>
         <UnitName Value="Temp2Volt"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="73" Y="4"/>
-        <UsageCount Value="14"/>
-      </Unit22>
-      <Unit23>
+        <UsageCount Value="5"/>
+      </Unit20>
+      <Unit21>
         <Filename Value="Volt2Temp.pas"/>
         <UnitName Value="Volt2Temp"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="17" Y="9"/>
-        <UsageCount Value="13"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="UAbout.lfm"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="7"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit24>
-      <Unit25>
-        <Filename Value="UAbout.lrs"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="7"/>
-      </Unit25>
-      <Unit26>
-        <Filename Value="../../fpc/lazarus/lcl/forms.pp"/>
-        <UnitName Value="Forms"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1455"/>
-        <CursorPos X="48" Y="1465"/>
-        <UsageCount Value="8"/>
-      </Unit26>
-      <Unit27>
-        <Filename Value="../../fpc/lazarus/lcl/include/application.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="70"/>
-        <CursorPos X="42" Y="139"/>
-        <UsageCount Value="8"/>
-      </Unit27>
-      <Unit28>
+        <UsageCount Value="4"/>
+      </Unit21>
+      <Unit22>
         <Filename Value="/sw/share/fpcsrc/packages/univint/src/CFPreferences.pas"/>
         <UnitName Value="CFPreferences"/>
         <WindowIndex Value="0"/>
         <TopLine Value="197"/>
         <CursorPos X="11" Y="210"/>
-        <UsageCount Value="9"/>
-      </Unit28>
+        <UsageCount Value="10"/>
+      </Unit22>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>

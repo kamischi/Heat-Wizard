@@ -201,6 +201,7 @@ var
   FormsPositionLeftBuffer: string;
   i, ThisItem:             integer;
   PreferenceList:          TStringlist;
+  HereNode:                TDOMNode;
 
 begin
   Logger.Output('UPreferenceData', 'Create PreferenceDoc');
@@ -270,6 +271,13 @@ begin
             inc(ThisItem);
             Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue + ' ' + ChildNodes.Item[i+1].FirstChild.NodeValue);
             PreferenceList.append(ChildNodes.Item[i].FirstChild.NodeValue + '=' + ChildNodes.Item[i+1].FirstChild.NodeValue)
+          end;
+          if ChildNodes.Item[i].NodeName = 'dict' then
+          begin
+            HereNode := ChildNodes.Item[i].FindNode('FormsPosition');
+            Logger.Output('UPreferenceData', 'HereNode: ' + HereNode.NodeValue);
+            HereNode := ChildNodes.Item[i].FindNode('Top');
+            Logger.Output('UPreferenceData', 'HereNode: ' + HereNode.NodeValue);
           end;
         end;
       except
