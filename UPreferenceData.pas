@@ -298,10 +298,10 @@ begin
     if LanguageBuffer = '' then
       Error.NoLanguage    := true;
 
-    FormsPositionBuffer := PreferenceList.Values['FormsPosition'];
+    FormsPositionTopBuffer := PreferenceList.Values['FormsPosition'];
     Error.NoFormsPosition := false;
-    if FormsPositionBuffer = '' then
-      Error.FormsPosition    := true;
+    if FormsPositionTopBuffer = '' then
+      Error.NoFormsPosition    := true;
   end;
 {$IFEND}
   Logger.Output('UPreferenceData', 'Check: FileversionBuffer: ' + FileversionBuffer + ' LanguageBuffer: ' + LanguageBuffer);
