@@ -19,11 +19,12 @@ object MainForm: TMainForm
   Constraints.MinHeight = 195
   Constraints.MinWidth = 480
   Font.Color = 10611436
+  OnChangeBounds = FormResize
   OnCreate = FormCreate
   OnMouseMove = FormMouseMove
   OnPaint = FormPaint
   OnResize = FormResize
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30'
   Visible = True
   object PreferenceCircle: TShape
     Left = 460

@@ -8,9 +8,11 @@ object PreferencesForm: TPreferencesForm
   Caption = 'Heat Wizard Preferences'
   ClientHeight = 195
   ClientWidth = 480
+  OnChangeBounds = FormResize
   OnCreate = FormCreate
   OnResize = FormResize
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30'
+  Visible = True
   object DoneButton: TButton
     Left = 204
     Height = 20

@@ -104,6 +104,7 @@ constructor TLogger.Create;
   var
     Intro: string;
   begin
+    Inherited;
     {$IF Defined(DARWIN)}
     LogFileDirName := GetPathToUserLibraryFolder + '/Logs/';
     LogFileName := 'Heat Wizard.log';
@@ -150,6 +151,7 @@ procedure TLogger.Output(const Position, Message: string);
 
 destructor TLogger.Destroy;
   begin
+    Inherited;
     Close(LogFile);
   end;
 

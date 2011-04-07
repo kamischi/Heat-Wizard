@@ -8,9 +8,11 @@ object AboutForm: TAboutForm
   Caption = 'About Heat Wizard'
   ClientHeight = 195
   ClientWidth = 480
+  OnChangeBounds = FormResize
   OnCreate = FormCreate
   OnResize = FormResize
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30'
+  Visible = True
   object DoneButton: TButton
     Left = 212
     Height = 20

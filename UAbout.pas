@@ -76,10 +76,12 @@ begin
   TranslateTexts(LanguageShortString[Language]);
   DoneButton.Height := PF_ButtonHeight;
   AboutText.Font.Size := PF_AboutTextFontSize;
+  Visible := false;
 end;
 
 procedure TAboutForm.DoneButtonClick(Sender: TObject);
 begin
+  PreferenceData.Save;
   MainForm.Left     := AboutForm.Left;
   MainForm.Top      := AboutForm.Top;
   MainForm.Visible  := true;
@@ -90,6 +92,7 @@ procedure TAboutForm.FormResize(Sender: TObject);
 begin
   PreferenceData.FormsPosition.Top  := Top;
   PreferenceData.FormsPosition.Left := Left;
+  PreferenceData.Save;
 end;
 
 procedure TAboutForm.TranslateTexts(const locale: string);

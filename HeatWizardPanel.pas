@@ -79,7 +79,6 @@ type
     procedure TemperatureCelsiusEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure TemperatureKelvinEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure TemperatureFahrenheitEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure InfoClick(Sender: TObject);
     procedure InfoCircleMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure PreferenceButtonClick(Sender: TObject);
     procedure PreferenceCircleMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
@@ -178,6 +177,7 @@ procedure TMainForm.FormResize(Sender: TObject);
 begin
   PreferenceData.FormsPosition.Top  := Top;
   PreferenceData.FormsPosition.Left := Left;
+  PreferenceData.Save;
 end;
 
 procedure TMainForm.UpdateDisplay;
@@ -303,6 +303,7 @@ end;
 
 procedure TMainForm.QuitButtonClick(Sender: TObject);
 begin
+  PreferenceData.Save;
   Application.Terminate;
 end;
 
@@ -352,13 +353,6 @@ begin
       Voltage := ThermoCouple.Temp2Volt(TemperatureCelsius) - ThermoCouple.Temp2Volt(ReferenceCelsius);
   end;
   UpdateDisplay;
-end;
-
-procedure TMainForm.InfoClick(Sender: TObject);
-begin
-  MainForm.Visible       := false;
-  AboutForm.Visible      := true;
-  InfoCircle.Brush.Style := bsClear;
 end;
 
 procedure TMainForm.FormMouseMove(Sender: TObject;

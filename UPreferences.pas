@@ -79,12 +79,14 @@ begin
   LanguageComboBox.ItemIndex := ord(Language);
   DoneButton.Height := PF_ButtonHeight;
   Logger.Output('UPreferences', 'started with: ' + LanguageShortString[Language]);
+  Visible := false;
 end;
 
 procedure TPreferencesForm.FormResize(Sender: TObject);
 begin
   PreferenceData.FormsPosition.Top  := Top;
   PreferenceData.FormsPosition.Left := Left;
+  PreferenceData.Save;
 end;
 
 procedure TPreferencesForm.LanguageComboBoxSelect(Sender: TObject);
