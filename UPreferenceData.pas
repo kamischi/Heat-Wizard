@@ -1,4 +1,4 @@
-{* Copyright (C) 2009 Karl-Michael Schindler
+{* Copyright (C) 2009-2011 Karl-Michael Schindler
  *
  * This file is part of Heat Wizard.
  *
@@ -71,6 +71,7 @@ var
 
 constructor TPreferenceData.Create;
 begin
+  Inherited;
   Logger.Output('UPreferenceData', 'Create');
 {$IF not Defined(DARWIN)}
   PreferenceDoc := TXMLDocument.Create;
@@ -79,8 +80,9 @@ end;
 
 destructor TPreferenceData.Destroy;
 begin
+  Inherited;
 {$IF not Defined(DARWIN)}
-    PreferenceDoc.Destroy;
+  PreferenceDoc.Destroy;
 {$IFEND}
 end;
 
