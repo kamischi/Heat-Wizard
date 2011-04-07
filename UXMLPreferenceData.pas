@@ -1,4 +1,4 @@
-{* Copyright (C) 2009 Karl-Michael Schindler
+{* Copyright (C) 2009-2011 Karl-Michael Schindler
  *
  * This file is part of Heat Wizard.
  *
