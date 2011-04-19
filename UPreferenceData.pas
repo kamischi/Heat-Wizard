@@ -276,6 +276,7 @@ begin
           end;
           if ChildNodes.Item[i].NodeName = 'dict' then
           begin
+            HereNode := TDOMNode.Create;
             HereNode := ChildNodes.Item[i].FindNode('FormsPosition');
             Logger.Output('UPreferenceData', 'HereNode: ' + HereNode.NodeValue);
             HereNode := ChildNodes.Item[i].FindNode('Top');
