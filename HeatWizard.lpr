@@ -51,8 +51,6 @@ uses
 {$R Icon.rc}
 {$ENDIF}
 
-{$R HeatWizard.res}
-
 begin
   Application.Title:='Heat Wizard';
   Logger := TLogger.Create;
