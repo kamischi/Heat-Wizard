@@ -42,7 +42,7 @@ msgstr "Passphrase non valida; riprova"
 #: AboutForm:AboutText
 #, fuzzy
 msgid "About Text"
-msgstr "testo password"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages a temperatures e vice versa.\nAuteur: K.-M. Schindler\nLicence: GPL"
 
 #: PreferencesForm:AboutText
 #, fuzzy
