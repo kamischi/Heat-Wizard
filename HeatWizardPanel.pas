@@ -170,6 +170,7 @@ begin
 
   TranslateTexts(LanguageShortString[Language]);
   ThermoCouple := TThermoCouple.Create;
+  TypeBox.ItemIndex := 3;
   ThermoCouple.ThermoElementType := K;
 end;
 
@@ -258,22 +259,22 @@ begin
     end
     else
     begin
-  try
-    MOFile := TMOFile.Create(LanguageFilePath);
-  except
-   on EMOFileError do
-     Logger.Output ('MainForm', 'Invalid .mo file header');
-  end;
-  if assigned(MOFile) then
-  begin
-    VoltageEdit.EditLabel.Caption            := MOFile.translate('Voltage');
-    TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
-    ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
-    QuitButton.Caption := MOFile.translate('Quit');
-    TypeBox.Text       := MOFile.translate('Type K');
-    Warning.Caption    := MOFile.translate('illegal input try again');
-    MOFile.Destroy;
-  end;
+      try
+        MOFile := TMOFile.Create(LanguageFilePath);
+      except
+       on EMOFileError do
+         Logger.Output ('MainForm', 'Invalid .mo file header');
+      end;
+      if assigned(MOFile) then
+      begin
+        VoltageEdit.EditLabel.Caption            := MOFile.translate('Voltage');
+        TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
+        ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
+        QuitButton.Caption := MOFile.translate('Quit');
+        TypeBox.Text       := MOFile.translate('Type K');
+        Warning.Caption    := MOFile.translate('illegal input try again');
+        MOFile.Destroy;
+      end;
     end;
   end;
 end;
