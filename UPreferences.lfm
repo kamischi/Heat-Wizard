@@ -43,9 +43,10 @@ object PreferencesForm: TPreferencesForm
     Font.Color = 3168345
     ItemHeight = 0
     Items.Strings = (
-      ' '
-      ' '
-      ' '
+      'English'
+      'German'
+      'Finnish'
+      'French'
     )
     MaxLength = 65535
     OnSelect = LanguageComboBoxSelect
