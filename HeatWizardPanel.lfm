@@ -218,7 +218,6 @@ object MainForm: TMainForm
     Width = 88
     Font.Color = 3168345
     ItemHeight = 0
-    ItemIndex = 3
     Items.Strings = (
       'Type B'
       'Type E'
@@ -235,7 +234,6 @@ object MainForm: TMainForm
     Style = csDropDownList
     TabOrder = 5
     TabStop = False
-    Text = 'Type K'
   end
   object QuitButton: TButton
     Left = 385
