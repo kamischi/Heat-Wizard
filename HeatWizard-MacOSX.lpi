@@ -39,8 +39,9 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="26"/>
+        <TopLine Value="1"/>
         <CursorPos X="1" Y="69"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -51,10 +52,12 @@
         <ComponentName Value="MainForm"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HeatWizardPanel"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="51"/>
-        <CursorPos X="1" Y="71"/>
+        <TopLine Value="298"/>
+        <CursorPos X="1" Y="317"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -68,7 +71,6 @@
         <Bookmarks Count="1">
           <Item0 X="20" Y="23" ID="7"/>
         </Bookmarks>
-        <DefaultSyntaxHighlighter Value="None"/>
       </Unit2>
       <Unit3>
         <Filename Value="languages/heatwizard.en.po"/>
@@ -76,7 +78,6 @@
         <TopLine Value="20"/>
         <CursorPos X="45" Y="35"/>
         <UsageCount Value="222"/>
-        <DefaultSyntaxHighlighter Value="None"/>
       </Unit3>
       <Unit4>
         <Filename Value="UAbout.pas"/>
@@ -87,8 +88,9 @@
         <UnitName Value="UAbout"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="54"/>
-        <CursorPos X="1" Y="73"/>
+        <TopLine Value="139"/>
+        <CursorPos X="1" Y="1"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -100,12 +102,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPreferences"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="25"/>
-        <CursorPos X="1" Y="84"/>
-        <FoldState Value=" TL00N T4W021 T7eLD T3iV083;"/>
+        <TopLine Value="171"/>
+        <CursorPos X="11" Y="181"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="242"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -139,14 +140,13 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="27" Y="1"/>
-        <FoldState Value=" TL00N T4W021%"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="231"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="version.inc"/>
         <IsPartOfProject Value="True"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="230"/>
@@ -157,9 +157,9 @@
         <UnitName Value="UPreferenceData"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="352"/>
+        <TopLine Value="1"/>
         <CursorPos X="1" Y="354"/>
-        <FoldState Value=" TL00N T7bKAR"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -177,7 +177,6 @@
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit12>
       <Unit13>
         <Filename Value="UPlatform.pas"/>
@@ -199,6 +198,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="1"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -206,7 +206,6 @@
         <Filename Value="heatwizard.pp"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="heatwizard"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="10"/>
         <CursorPos X="46" Y="130"/>
         <UsageCount Value="212"/>
@@ -234,7 +233,6 @@
       <Unit18>
         <Filename Value="Temp2Volt.pas"/>
         <UnitName Value="Temp2Volt"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="73" Y="4"/>
         <UsageCount Value="5"/>
@@ -242,7 +240,6 @@
       <Unit19>
         <Filename Value="Volt2Temp.pas"/>
         <UnitName Value="Volt2Temp"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="17" Y="9"/>
         <UsageCount Value="4"/>
@@ -250,7 +247,6 @@
       <Unit20>
         <Filename Value="/sw/share/lazarus/components/codetools/codetoolsstrconsts.pas"/>
         <UnitName Value="CodeToolsStrConsts"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="270"/>
         <CursorPos X="1" Y="296"/>
         <UsageCount Value="10"/>
@@ -259,123 +255,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="296" Column="1" TopLine="274"/>
+        <Caret Line="307" Column="65" TopLine="288"/>
       </Position1>
       <Position2>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="297" Column="1" TopLine="275"/>
+        <Caret Line="282" Column="72" TopLine="1"/>
       </Position2>
       <Position3>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="298" Column="1" TopLine="276"/>
+        <Caret Line="61" Column="3" TopLine="48"/>
       </Position3>
       <Position4>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="299" Column="1" TopLine="277"/>
+        <Filename Value="ULog.pas"/>
+        <Caret Line="152" Column="3" TopLine="28"/>
       </Position4>
       <Position5>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="300" Column="1" TopLine="278"/>
+        <Filename Value="UAbout.pas"/>
+        <Caret Line="74" Column="76" TopLine="60"/>
       </Position5>
       <Position6>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="63" Column="1" TopLine="43"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="45" Column="16" TopLine="32"/>
       </Position6>
       <Position7>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="64" Column="1" TopLine="43"/>
+        <Filename Value="ULog.pas"/>
+        <Caret Line="106" Column="47" TopLine="88"/>
       </Position7>
       <Position8>
         <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="65" Column="1" TopLine="43"/>
+        <Caret Line="57" Column="3" TopLine="43"/>
       </Position8>
       <Position9>
         <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="66" Column="1" TopLine="43"/>
+        <Caret Line="60" Column="49" TopLine="43"/>
       </Position9>
       <Position10>
         <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="67" Column="1" TopLine="43"/>
+        <Caret Line="66" Column="1" TopLine="43"/>
       </Position10>
       <Position11>
         <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="68" Column="1" TopLine="43"/>
+        <Caret Line="58" Column="70" TopLine="43"/>
       </Position11>
       <Position12>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="167" Column="47" TopLine="158"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="306" Column="18" TopLine="107"/>
       </Position12>
       <Position13>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="170" Column="40" TopLine="154"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="307" Column="1" TopLine="129"/>
       </Position13>
       <Position14>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="111" Column="38" TopLine="98"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="359" Column="1" TopLine="326"/>
       </Position14>
       <Position15>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="307" Column="65" TopLine="288"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="83" Column="1" TopLine="62"/>
       </Position15>
       <Position16>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="282" Column="72" TopLine="1"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="134" Column="1" TopLine="115"/>
       </Position16>
       <Position17>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="61" Column="3" TopLine="48"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="84" Column="1" TopLine="58"/>
       </Position17>
       <Position18>
-        <Filename Value="ULog.pas"/>
-        <Caret Line="152" Column="3" TopLine="28"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="172" Column="86" TopLine="150"/>
       </Position18>
       <Position19>
-        <Filename Value="UAbout.pas"/>
-        <Caret Line="74" Column="76" TopLine="60"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="71" Column="1" TopLine="51"/>
       </Position19>
       <Position20>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="45" Column="16" TopLine="32"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="102" Column="60" TopLine="80"/>
       </Position20>
       <Position21>
-        <Filename Value="ULog.pas"/>
-        <Caret Line="106" Column="47" TopLine="88"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="67" Column="12" TopLine="59"/>
       </Position21>
       <Position22>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="57" Column="3" TopLine="43"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="74" Column="22" TopLine="59"/>
       </Position22>
       <Position23>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="60" Column="49" TopLine="43"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="273" Column="12" TopLine="251"/>
       </Position23>
       <Position24>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="66" Column="1" TopLine="43"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="342" Column="28" TopLine="336"/>
       </Position24>
       <Position25>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="58" Column="70" TopLine="43"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="175" Column="15" TopLine="155"/>
       </Position25>
       <Position26>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="306" Column="18" TopLine="107"/>
+        <Caret Line="136" Column="1" TopLine="113"/>
       </Position26>
       <Position27>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="307" Column="1" TopLine="129"/>
+        <Caret Line="173" Column="25" TopLine="195"/>
       </Position27>
       <Position28>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="359" Column="1" TopLine="326"/>
+        <Filename Value="UAbout.pas"/>
+        <Caret Line="73" Column="1" TopLine="27"/>
       </Position28>
       <Position29>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="83" Column="1" TopLine="62"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="94" Column="24" TopLine="86"/>
       </Position29>
       <Position30>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="134" Column="1" TopLine="115"/>
+        <Caret Line="346" Column="18" TopLine="331"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
@@ -388,6 +384,11 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value="$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS);$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS)/$(LCLWidgetType);languages"/>
     </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <UseAnsiStrings Value="False"/>
+      </SyntaxOptions>
+    </Parsing>
     <CodeGeneration>
       <Checks>
         <IOChecks Value="True"/>
