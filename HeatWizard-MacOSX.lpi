@@ -41,7 +41,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="69"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -52,12 +51,10 @@
         <ComponentName Value="MainForm"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HeatWizardPanel"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="298"/>
+        <TopLine Value="192"/>
         <CursorPos X="1" Y="317"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -88,9 +85,8 @@
         <UnitName Value="UAbout"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="139"/>
+        <TopLine Value="83"/>
         <CursorPos X="1" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -102,11 +98,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPreferences"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="171"/>
-        <CursorPos X="11" Y="181"/>
-        <FoldState Value=" TL00Np"/>
+        <TopLine Value="21"/>
+        <CursorPos X="22" Y="34"/>
         <UsageCount Value="242"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -119,7 +115,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="27" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="234"/>
         <Loaded Value="True"/>
       </Unit6>
@@ -140,7 +135,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="27" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="231"/>
         <Loaded Value="True"/>
       </Unit8>
@@ -159,7 +153,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="354"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -186,7 +179,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
       </Unit13>
@@ -198,7 +190,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -226,7 +217,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="27" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="212"/>
         <Loaded Value="True"/>
       </Unit17>
@@ -358,20 +348,20 @@
         <Caret Line="136" Column="1" TopLine="113"/>
       </Position26>
       <Position27>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="173" Column="25" TopLine="195"/>
-      </Position27>
-      <Position28>
         <Filename Value="UAbout.pas"/>
         <Caret Line="73" Column="1" TopLine="27"/>
-      </Position28>
-      <Position29>
+      </Position27>
+      <Position28>
         <Filename Value="UPreferences.pas"/>
         <Caret Line="94" Column="24" TopLine="86"/>
-      </Position29>
-      <Position30>
+      </Position28>
+      <Position29>
         <Filename Value="HeatWizardPanel.pas"/>
         <Caret Line="346" Column="18" TopLine="331"/>
+      </Position29>
+      <Position30>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="181" Column="11" TopLine="173"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
@@ -382,7 +372,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS);$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS)/$(LCLWidgetType);languages"/>
+      <OtherUnitFiles Value="$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS)/$(LCLWidgetType);languages"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>
@@ -396,9 +386,14 @@
         <OverflowChecks Value="True"/>
         <StackChecks Value="True"/>
       </Checks>
+      <VerifyObjMethodCallValidity Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
     </CodeGeneration>
     <Linking>
       <Debugging>
+        <GenerateDebugInfo Value="True"/>
         <GenerateDwarf Value="True"/>
       </Debugging>
       <Options>
