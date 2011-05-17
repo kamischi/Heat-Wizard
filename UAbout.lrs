@@ -2,14 +2,14 @@
 
 LazarusResources.Add('TAboutForm','FORMDATA',[
   'TPF0'#10'TAboutForm'#9'AboutForm'#4'Left'#3#141#1#6'Height'#3#195#0#3'Top'#3
-  +#134#0#5'Width'#3#224#1#11'BorderIcons'#11#12'biSystemMenu'#0#11'BorderStyle'
+  +#134#0#5'Width'#3#164#1#11'BorderIcons'#11#12'biSystemMenu'#0#11'BorderStyle'
   +#7#8'bsDialog'#7'Caption'#6#17'About Heat Wizard'#12'ClientHeight'#3#195#0#11
-  +'ClientWidth'#3#224#1#14'OnChangeBounds'#7#10'FormResize'#8'OnCreate'#7#10'F'
+  +'ClientWidth'#3#164#1#14'OnChangeBounds'#7#10'FormResize'#8'OnCreate'#7#10'F'
   +'ormCreate'#8'OnResize'#7#10'FormResize'#10'LCLVersion'#6#6'0.9.30'#7'Visibl'
-  +'e'#9#0#7'TButton'#10'DoneButton'#4'Left'#3#212#0#6'Height'#2#20#3'Top'#3#128
+  +'e'#9#0#7'TButton'#10'DoneButton'#4'Left'#3#168#0#6'Height'#2#20#3'Top'#3#128
   +#0#5'Width'#2'K'#7'Caption'#6#4'Done'#10'Font.Color'#4'YX0'#0#11'Font.Height'
   +#2#244#7'OnClick'#7#15'DoneButtonClick'#10'ParentFont'#8#8'TabOrder'#2#0#0#0
-  +#11'TStaticText'#9'AboutText'#4'Left'#2'd'#6'Height'#2'`'#3'Top'#2#16#5'Widt'
+  +#11'TStaticText'#9'AboutText'#4'Left'#2'8'#6'Height'#2'`'#3'Top'#2#16#5'Widt'
   +'h'#3'0'#1#9'Alignment'#7#8'taCenter'#7'Caption'#6#17'About Heat Wizard'#8'T'
   +'abOrder'#2#1#0#0#0
 ]);

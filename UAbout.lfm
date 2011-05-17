@@ -2,19 +2,19 @@ object AboutForm: TAboutForm
   Left = 397
   Height = 195
   Top = 134
-  Width = 480
+  Width = 420
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'About Heat Wizard'
   ClientHeight = 195
-  ClientWidth = 480
+  ClientWidth = 420
   OnChangeBounds = FormResize
   OnCreate = FormCreate
   OnResize = FormResize
   LCLVersion = '0.9.30'
   Visible = True
   object DoneButton: TButton
-    Left = 212
+    Left = 168
     Height = 20
     Top = 128
     Width = 75
@@ -26,7 +26,7 @@ object AboutForm: TAboutForm
     TabOrder = 0
   end
   object AboutText: TStaticText
-    Left = 100
+    Left = 56
     Height = 96
     Top = 16
     Width = 304
