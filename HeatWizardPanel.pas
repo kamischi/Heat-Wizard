@@ -47,9 +47,10 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
-    InfoButton:       TLabel;
-    Warning:          TLabel;
-    PreferenceButton: TLabel;
+    InfoButton:        TLabel;
+    ThermocoupleLabel: TLabel;
+    Warning:           TLabel;
+    PreferenceButton:  TLabel;
 {$IF Defined(DARWIN)}
     MainMenu:        TMainMenu;
     ApplicationMenu: TMenuItem;
@@ -270,8 +271,9 @@ begin
         VoltageEdit.EditLabel.Caption            := MOFile.translate('Voltage');
         TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
         ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
+        ThermocoupleLabel.Caption                := MOFile.translate('Thermocouple');
         QuitButton.Caption := MOFile.translate('Quit');
-        TypeBox.Text       := MOFile.translate('Type K');
+        TypeBox.Text       := MOFile.translate('Type') + ' K';
         Warning.Caption    := MOFile.translate('illegal input try again');
         MOFile.Destroy;
       end;

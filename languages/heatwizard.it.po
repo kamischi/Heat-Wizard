@@ -8,19 +8,23 @@ msgstr "Temperatura:"
 
 #: Form1:ReferenceCelsiusEdit
 msgid "Reference Temperature"
-msgstr "Unit‡ di _temperatura:"
+msgstr "Unit√† di _temperatura:"
 
 #: Form1:QuitButton
 msgid "Quit"
 msgstr "Chiudi"
 
 #: Form1:TypeBox.Text
-msgid "Type K"
-msgstr "Tipo K"
+msgid "Type"
+msgstr "Tipo"
 
 #: Form1:Warning
 msgid "illegal input try again"
 msgstr "Passphrase non valida; riprova"
+
+#: Form1:Thermocouple
+msgid "Thermocouple"
+msgstr "Thermocouple"
 
 #: AboutForm:AboutText
 msgid "About Text"

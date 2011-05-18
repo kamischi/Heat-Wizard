@@ -2,19 +2,19 @@ object PreferencesForm: TPreferencesForm
   Left = 397
   Height = 195
   Top = 134
-  Width = 420
+  Width = 380
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Heat Wizard Preferences'
   ClientHeight = 195
-  ClientWidth = 420
+  ClientWidth = 380
   OnChangeBounds = FormResize
   OnCreate = FormCreate
   OnResize = FormResize
   LCLVersion = '0.9.30'
   Visible = True
   object DoneButton: TButton
-    Left = 168
+    Left = 152
     Height = 20
     Top = 144
     Width = 75

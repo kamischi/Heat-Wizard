@@ -15,12 +15,16 @@ msgid "Quit"
 msgstr "Lopeta"
 
 #: Form1:TypeBox.Text
-msgid "Type K"
-msgstr "Tyyppi K"
+msgid "Type"
+msgstr "Tyyppi"
 
 #: Form1:Warning
 msgid "illegal input try again"
 msgstr "Ei sallittu\nmerkki!\nYritä\nuudelleen!"
+
+#: Form1:Thermocouple
+msgid "Thermocouple"
+msgstr "Thermocouple"
 
 #: AboutForm:AboutText
 msgid "About Text"

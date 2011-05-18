@@ -15,12 +15,16 @@ msgid "Quit"
 msgstr "Finir"
 
 #: Form1:TypeBox.Text
-msgid "Type K"
-msgstr "Type K"
+msgid "Type"
+msgstr "Type"
 
 #: Form1:Warning
 msgid "illegal input try again"
 msgstr "adresse\nillégale!\nencore une fois!"
+
+#: Form1:Thermocouple
+msgid "Thermocouple"
+msgstr "Thermocouple"
 
 #: AboutForm:AboutText
 msgid "About Text"

@@ -73,10 +73,17 @@ uses
   UPreferenceData;
 
 procedure TPreferencesForm.FormCreate(Sender: TObject);
+var
+  index: integer;
 begin
   Logger.Output('TPreferencesForm.FormCreate','Language: ' + LanguageShortString[Language]);
-  TranslateTexts(LanguageShortString[Language]);
+  LanguageComboBox.Items.Clear;
+  for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
+  begin
+    LanguageComboBox.Items.Add(LanguageLongString[TLanguage(index)]);
+  end;
   LanguageComboBox.ItemIndex := ord(Language);
+  TranslateTexts(LanguageShortString[Language]);
   DoneButton.Height := PF_ButtonHeight;
   Logger.Output('UPreferences', 'started with: ' + LanguageShortString[Language]);
   Visible := false;
@@ -114,6 +121,7 @@ var
   LanguageFileDir:  string;
   LanguageFilePath: string;
   CurrentPath:      string;
+  index:            integer;
 {$IF Defined(DARWIN)}
 function getApplicationResourcesDirPath: string;
 const
@@ -182,10 +190,10 @@ begin
       if assigned(MOFile) then
       begin
         LanguageStaticText.Caption        := MOFile.translate('Language:');
-        LanguageComboBox.Items.Strings[0] := MOFile.translate('English');
-        LanguageComboBox.Items.Strings[1] := MOFile.translate('German');
-        LanguageComboBox.Items.Strings[2] := MOFile.translate('Finnish');
-        LanguageComboBox.Items.Strings[3] := MOFile.translate('French');
+        for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
+        begin
+          LanguageComboBox.Items.Strings[index] := MOFile.translate(LanguageLongString[TLanguage(index)]);
+        end;
         DoneButton.Caption                := MOFile.translate('Done');
         MOFile.Destroy;
       end;
