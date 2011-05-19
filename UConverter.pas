@@ -58,7 +58,7 @@ begin
   ThermoCouple := TThermoCouple.Create;
 end;
 
-function TConverter.GetTemperature(const Voltage, Reference: double; 
+function TConverter.GetTemperature(const Voltage, Reference: double;
                                    const ThermoelementType:  char;
                                    const TemperatureUnit:    char): double;
 var
@@ -72,7 +72,7 @@ begin
   end;
 end;
 
-function TConverter.GetVoltage(const Temperature, Reference: double; 
+function TConverter.GetVoltage(const Temperature, Reference: double;
                                const ThermoelementType:      char;
                                const TemperatureUnit:        char): double;
 var
@@ -86,7 +86,7 @@ begin
   end;
 end;
 
-function TConverter.GetReference(const Temperature, Voltage: double; 
+function TConverter.GetReference(const Temperature, Voltage: double;
                                  const ThermoelementType:    char;
                                  const TemperatureUnit:      char): double;
 var

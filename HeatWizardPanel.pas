@@ -48,7 +48,6 @@ type
     Label6: TLabel;
     Label7: TLabel;
     InfoButton:        TLabel;
-    ThermocoupleLabel: TLabel;
     Warning:           TLabel;
     PreferenceButton:  TLabel;
 {$IF Defined(DARWIN)}
@@ -65,6 +64,7 @@ type
     ReferenceCelsiusEdit:      TLabeledEdit;
     TemperatureFahrenheitEdit: TEdit;
     ReferenceFahrenheitEdit:   TEdit;
+    ThermocoupleLabel:         TLabel;
     TypeBox:                   TComboBox;
     QuitButton:                TButton;
     InfoCircle:                TShape;
@@ -134,6 +134,7 @@ var
 procedure TMainForm.FormCreate(Sender: TObject);
 var
   CheckLanguage: TLanguage;
+  index: integer;
 begin
   CheckLanguage := Low(TLanguage);
   while CheckLanguage < High(TLanguage) do
@@ -169,10 +170,15 @@ begin
   ApplicationMenu.add(PreferencesMenu);
 {$IFEND}
 
-  TranslateTexts(LanguageShortString[Language]);
   ThermoCouple := TThermoCouple.Create;
+
+  TypeBox.Clear;
+  for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
+    TypeBox.Items.Add('Type ' + intToStr(index));
   TypeBox.ItemIndex := 3;
   ThermoCouple.ThermoElementType := K;
+
+  TranslateTexts(LanguageShortString[Language]);
 end;
 
 procedure TMainForm.FormResize(Sender: TObject);
@@ -191,13 +197,16 @@ begin
   ReferenceCelsiusEdit.Text      := FormatFloat('0.00', ReferenceCelsius);
   ReferenceKelvinEdit.Text       := FormatFloat('0.00', ReferenceKelvin);
   ReferenceFahrenheitEdit.Text   := FormatFloat('0.00', ReferenceFahrenheit);
+  TypeBox.ItemIndex              := ord(ThermoCouple.ThermoElementType);
 end;
 
 procedure TMainForm.TranslateTexts(const locale: string);
 var
-  MOFile: TMOFile;
+  MOFile          : TMOFile;
   LanguageFileDir : string;
   LanguageFilePath: string;
+  index           : integer;
+
 {$IF Defined(DARWIN)}
 function getApplicationResourcesDirPath: string;
 const
@@ -273,7 +282,8 @@ begin
         ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
         ThermocoupleLabel.Caption                := MOFile.translate('Thermocouple');
         QuitButton.Caption := MOFile.translate('Quit');
-        TypeBox.Text       := MOFile.translate('Type') + ' K';
+        for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
+          TypeBox.Items.Strings[index] := MOFile.translate('Type') + ' ' + GetEnumName(TypeInfo(TThermoElementType), index);
         Warning.Caption    := MOFile.translate('illegal input try again');
         MOFile.Destroy;
       end;
@@ -524,8 +534,8 @@ begin
 end;
 
 procedure TMainForm.TemperatureFahrenheitEditKeyDown(Sender:  TObject;
-                                                 var Key: Word;
-                                                 Shift:   TShiftState);
+                                                     var Key: Word;
+                                                     Shift:   TShiftState);
 var
   input: real;
 begin

@@ -45,9 +45,6 @@ type
     function Volt2Temp (Volt: double) : double;
   end;
   
-var
-  ThermoCouple: TThermoCouple;
-
 implementation
 
 uses

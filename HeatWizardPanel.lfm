@@ -215,8 +215,7 @@ object MainForm: TMainForm
     Left = 152
     Height = 20
     Top = 30
-    Width = 88
-    Font.Color = 3168345
+    Width = 95
     ItemHeight = 0
     Items.Strings = (
       'Type B'
@@ -230,7 +229,6 @@ object MainForm: TMainForm
     )
     MaxLength = 65535
     OnChange = TypeBoxChange
-    ParentFont = False
     Style = csDropDownList
     TabOrder = 5
     TabStop = False
