@@ -96,9 +96,10 @@ end;
 procedure TPreferenceData.Read;
 var
   Error: record
-    NoFileversion:   boolean;
-    NoLanguage:      boolean;
-    NoFormsPosition: boolean;
+    NoFileversion:       boolean;
+    NoLanguage:          boolean;
+    NoFormsTopPosition:  boolean;
+    NoFormsLeftPosition: boolean;
   end;
 {$IF Defined(DARWIN)}
 var
@@ -179,19 +180,19 @@ begin
   if not StringConversionSuccess then
   begin
     Logger.Output('UPreferenceData', 'Error reading FormsPosition from file. Continue with Default');
-    Error.NoFormsPosition := true;
+    Error.NoFormsTopPosition := true;
   end
   else
   begin
     Logger.Output('UPreferenceData', 'FormsPosition Buffer Top as read from file: ' + FormsPositionTopBuffer);
     Logger.Output('UPreferenceData', 'FormsPosition Buffer Left as read from file: ' + FormsPositionLeftBuffer);
-    Error.NoFormsPosition := false;
+    Error.NoFormsTopPosition := false;
   end;
   end
   else
   begin
     Logger.Output('UPreferenceData', 'Error reading FormsPosition from file. Continue with Default');
-    Error.NoFormsPosition := true;
+    Error.NoFormsTopPosition := true;
   end;
 
 {$ELSE}
@@ -201,9 +202,10 @@ var
   LanguageBuffer:          string;
   FormsPositionTopBuffer:  string;
   FormsPositionLeftBuffer: string;
-  i, ThisItem:             integer;
+  ParentKeyName, KeyName:  string;
+  KeyValue:                string;
+  i, j:                    integer;
   PreferenceList:          TStringlist;
-  HereNode:                TDOMNode;
 
 begin
   Logger.Output('UPreferenceData', 'Create PreferenceDoc');
@@ -260,27 +262,51 @@ begin
   begin
     ReadXMLFile(PreferenceDoc, PreferenceFileName);
 
-    PreferenceList := TStringlist.Create;            // FOrmsPosition is not yet done
-    ThisItem := -1;
+    PreferenceList := TStringlist.Create;            // FormsPosition is not yet done
     Logger.Output('UPreferenceData', 'PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count: ' + IntToStr(PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count));
     with PreferenceDoc.DocumentElement.FirstChild do
       try
         for i := 0 to (ChildNodes.Count - 1) do
         begin
+          KeyName := '';
+          KeyValue := '';
           Logger.Output('UPreferenceData', ChildNodes.Item[i].NodeName + ' ' + ChildNodes.Item[i].FirstChild.NodeValue);
           if ChildNodes.Item[i].NodeName = 'key' then
           begin
-            inc(ThisItem);
-            Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue + ' ' + ChildNodes.Item[i+1].FirstChild.NodeValue);
-            PreferenceList.append(ChildNodes.Item[i].FirstChild.NodeValue + '=' + ChildNodes.Item[i+1].FirstChild.NodeValue)
+            Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue);
+            if (KeyName <> '') then
+              PreferenceList.append(KeyName + '=' +  KeyValue);
+            KeyName := ChildNodes.Item[i].FirstChild.NodeValue;
+          end;
+          if ChildNodes.Item[i].NodeName = 'string' then
+          begin
+            Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue);
+            KeyValue := ChildNodes.Item[i].FirstChild.NodeValue;
           end;
           if ChildNodes.Item[i].NodeName = 'dict' then
           begin
-            HereNode := TDOMNode.Create;
-            HereNode := ChildNodes.Item[i].FindNode('FormsPosition');
-            Logger.Output('UPreferenceData', 'HereNode: ' + HereNode.NodeValue);
-            HereNode := ChildNodes.Item[i].FindNode('Top');
-            Logger.Output('UPreferenceData', 'HereNode: ' + HereNode.NodeValue);
+            with ChildNodes.Item[i].FirstChild do
+            begin
+              ParentKeyName := KeyName + '.';
+              for j := 0 to (ChildNodes.Count - 1) do
+              begin
+                KeyName := '';
+                KeyValue := '';
+ //  kracht noch!             Logger.Output('UPreferenceData', ChildNodes.Item[j].NodeName + ' ' + ChildNodes.Item[j].FirstChild.NodeValue);
+                if ChildNodes.Item[j].NodeName = 'key' then
+                begin
+                  Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[j].FirstChild.NodeValue);
+                  if (KeyName <> '') then
+                    PreferenceList.append(ParentKeyName + KeyName + '=' +  KeyValue);
+                  KeyName := ChildNodes.Item[j].FirstChild.NodeValue;
+                end;
+                if ChildNodes.Item[j].NodeName = 'string' then
+                begin
+                  Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[j].FirstChild.NodeValue);
+                  KeyValue := ChildNodes.Item[j].FirstChild.NodeValue;
+                end;
+              end;
+            end;
           end;
         end;
       except
@@ -289,6 +315,8 @@ begin
         PreferenceList.Clear;
         PreferenceList.append('Fileversion=1.0.0');
         PreferenceList.append('Language=en');
+        PreferenceList.append('FormsPosition.Top=100');
+        PreferenceList.append('FormsPosition.Left=200');
       end;
 
     FileVersionBuffer := PreferenceList.Values['FileVersion'];
@@ -301,10 +329,15 @@ begin
     if LanguageBuffer = '' then
       Error.NoLanguage    := true;
 
-    FormsPositionTopBuffer := PreferenceList.Values['FormsPosition'];
-    Error.NoFormsPosition := false;
+    FormsPositionTopBuffer := PreferenceList.Values['FormsPosition.Top'];
+    Error.NoFormsTopPosition := false;
     if FormsPositionTopBuffer = '' then
-      Error.NoFormsPosition    := true;
+      Error.NoFormsTopPosition    := true;
+
+    FormsPositionLeftBuffer := PreferenceList.Values['FormsPosition.Left'];
+    Error.NoFormsLeftPosition := false;
+    if FormsPositionLeftBuffer = '' then
+      Error.NoFormsLeftPosition    := true;
   end;
 {$IFEND}
   Logger.Output('UPreferenceData', 'Check: FileversionBuffer: ' + FileversionBuffer + ' LanguageBuffer: ' + LanguageBuffer);

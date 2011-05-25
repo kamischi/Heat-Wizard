@@ -44,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="31">
+    <Units Count="32">
       <Unit0>
         <Filename Value="HeatWizard.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -205,8 +205,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="271"/>
-        <CursorPos X="36" Y="284"/>
+        <TopLine Value="198"/>
+        <CursorPos X="1" Y="209"/>
+        <FoldState Value=" TL00N T4W021 T3iS072 T6jI08 T0jV2F762w"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -313,131 +314,139 @@
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="23" Y="17"/>
-        <UsageCount Value="47"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
       </Unit30>
+      <Unit31>
+        <Filename Value="../../../../../Programme/lazarus/fpc/2.4.2/source/packages/fcl-xml/src/dom.pp"/>
+        <UnitName Value="DOM"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="209"/>
+        <CursorPos X="49" Y="222"/>
+        <UsageCount Value="10"/>
+      </Unit31>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="1" TopLine="277"/>
+        <Caret Line="427" Column="3" TopLine="425"/>
       </Position1>
       <Position2>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="1" TopLine="276"/>
+        <Caret Line="429" Column="3" TopLine="425"/>
       </Position2>
       <Position3>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="1" TopLine="276"/>
+        <Caret Line="439" Column="1" TopLine="439"/>
       </Position3>
       <Position4>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="1" TopLine="276"/>
+        <Caret Line="369" Column="12" TopLine="353"/>
       </Position4>
       <Position5>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="1" TopLine="276"/>
+        <Caret Line="393" Column="14" TopLine="374"/>
       </Position5>
       <Position6>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="1" TopLine="276"/>
+        <Caret Line="495" Column="14" TopLine="476"/>
       </Position6>
       <Position7>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="1" TopLine="276"/>
+        <Caret Line="524" Column="14" TopLine="505"/>
       </Position7>
       <Position8>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="1" TopLine="276"/>
+        <Caret Line="546" Column="14" TopLine="527"/>
       </Position8>
       <Position9>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="1" TopLine="276"/>
+        <Caret Line="568" Column="14" TopLine="544"/>
       </Position9>
       <Position10>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="278" Column="1" TopLine="276"/>
-      </Position10>
-      <Position11>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="284" Column="1" TopLine="273"/>
-      </Position11>
-      <Position12>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="60" Column="76" TopLine="20"/>
-      </Position12>
-      <Position13>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="429" Column="7" TopLine="405"/>
-      </Position13>
-      <Position14>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="427" Column="3" TopLine="425"/>
-      </Position14>
-      <Position15>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="428" Column="3" TopLine="425"/>
-      </Position15>
-      <Position16>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="427" Column="3" TopLine="425"/>
-      </Position16>
-      <Position17>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="428" Column="3" TopLine="425"/>
-      </Position17>
-      <Position18>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="427" Column="3" TopLine="425"/>
-      </Position18>
-      <Position19>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="429" Column="3" TopLine="425"/>
-      </Position19>
-      <Position20>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="439" Column="1" TopLine="439"/>
-      </Position20>
-      <Position21>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="369" Column="12" TopLine="353"/>
-      </Position21>
-      <Position22>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="393" Column="14" TopLine="374"/>
-      </Position22>
-      <Position23>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="495" Column="14" TopLine="476"/>
-      </Position23>
-      <Position24>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="524" Column="14" TopLine="505"/>
-      </Position24>
-      <Position25>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="546" Column="14" TopLine="527"/>
-      </Position25>
-      <Position26>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="568" Column="14" TopLine="544"/>
-      </Position26>
-      <Position27>
         <Filename Value="HeatWizard.lpr"/>
         <Caret Line="49" Column="13" TopLine="32"/>
-      </Position27>
-      <Position28>
+      </Position10>
+      <Position11>
         <Filename Value="HeatWizard.lpr"/>
         <Caret Line="68" Column="1" TopLine="51"/>
-      </Position28>
-      <Position29>
+      </Position11>
+      <Position12>
         <Filename Value="HeatWizard.lpr"/>
         <Caret Line="55" Column="1" TopLine="51"/>
-      </Position29>
-      <Position30>
+      </Position12>
+      <Position13>
         <Filename Value="HeatWizard.lpr"/>
         <Caret Line="54" Column="1" TopLine="49"/>
+      </Position13>
+      <Position14>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="284" Column="36" TopLine="271"/>
+      </Position14>
+      <Position15>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="280" Column="65" TopLine="270"/>
+      </Position15>
+      <Position16>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="281" Column="79" TopLine="211"/>
+      </Position16>
+      <Position17>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="277" Column="74" TopLine="272"/>
+      </Position17>
+      <Position18>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="221" Column="33" TopLine="210"/>
+      </Position18>
+      <Position19>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="279" Column="49" TopLine="269"/>
+      </Position19>
+      <Position20>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="279" Column="55" TopLine="270"/>
+      </Position20>
+      <Position21>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="284" Column="3" TopLine="271"/>
+      </Position21>
+      <Position22>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="195" Column="21" TopLine="318"/>
+      </Position22>
+      <Position23>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="289" Column="1" TopLine="225"/>
+      </Position23>
+      <Position24>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="283" Column="1" TopLine="274"/>
+      </Position24>
+      <Position25>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="290" Column="13" TopLine="285"/>
+      </Position25>
+      <Position26>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="321" Column="40" TopLine="273"/>
+      </Position26>
+      <Position27>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="297" Column="37" TopLine="287"/>
+      </Position27>
+      <Position28>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="296" Column="37" TopLine="287"/>
+      </Position28>
+      <Position29>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="320" Column="52" TopLine="311"/>
+      </Position29>
+      <Position30>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="296" Column="2" TopLine="272"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
@@ -496,7 +505,7 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <Watches Count="6">
+    <Watches Count="7">
       <Item1>
         <Expression Value="Language"/>
       </Item1>
@@ -515,6 +524,10 @@
       <Item6>
         <Expression Value="PreferenceData.Language"/>
       </Item6>
+      <Item7>
+        <Expression Value="HereNode"/>
+        <Enabled Value="False"/>
+      </Item7>
     </Watches>
     <Exceptions Count="2">
       <Item1>
