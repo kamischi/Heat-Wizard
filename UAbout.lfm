@@ -10,8 +10,10 @@ object AboutForm: TAboutForm
   ClientWidth = 380
   OnChangeBounds = FormResize
   OnCreate = FormCreate
+  OnPaint = FormPaint
   OnResize = FormResize
   LCLVersion = '0.9.30'
+  Visible = True
   object DoneButton: TButton
     Left = 148
     Height = 20
@@ -31,6 +33,8 @@ object AboutForm: TAboutForm
     Width = 304
     Alignment = taCenter
     Caption = 'About Heat Wizard'
+    Font.Color = 10611436
+    ParentFont = False
     TabOrder = 1
   end
 end
