@@ -8,7 +8,8 @@ New:
 * more thermocouple types
 * temperatures also in Fahrenheit (¡F)
 * commandline tool "heatwizard"
-* store window positions as preferences
+* store window position as preferences
 * French texts (incomplete, please help).
+* gradient background in about and preference forms
 
 Have fun - Karl-Michael Schindler
