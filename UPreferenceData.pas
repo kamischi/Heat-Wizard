@@ -73,13 +73,6 @@ begin
   Inherited;
 end;
 
-{$IF Defined(WINDOWS)}
-function SetApplicationName: string;
-begin
-  SetApplicationName := 'Heat Wizard';
-end;
-{$IFEND}
-
 procedure TPreferenceData.Read;
 var
   Error: record
@@ -281,12 +274,16 @@ begin
 var
   Preferences: TXMLConfig;
 begin
-  Logger.Output ('UPreferenceData',  'Enter Save');
-  Logger.Output ('UPreferenceData',  'Write FileVersionNode.NodeValue: ' + FileVersion);
-  Logger.Output ('UPreferenceData',  'Write LanguageNode.NodeValue: '    + Language);
+  Logger.Output('UPreferenceData', 'Enter Save');
+  Logger.Output('UPreferenceData', 'Fileversion: ' + FileVersion);
+  Logger.Output('UPreferenceData', 'Language: '    + Language);
+  Logger.Output('UPreferenceData', 'FormsPosition: Top: ' + intToStr(FormsPosition.Top) + ' Left: ' + intToStr(FormsPosition.Left));
 
   Preferences := TXMLConfig.Create(nil);
-  Preferences.Filename := PreferenceFileName;
+  Preferences.Filename   := PreferenceFileName;
+  Preferences.StartEmpty := true;
+  Preferences.Clear;
+  
   Preferences.SetValue('FileVersion', FileVersion);
   Preferences.SetValue('Language',    Language);
   Preferences.SetValue('FormsPosition/Top',  intToStr(FormsPosition.Top));
