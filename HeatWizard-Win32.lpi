@@ -64,8 +64,8 @@
         <UnitName Value="HeatWizardPanel"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="531"/>
-        <CursorPos X="53" Y="549"/>
+        <TopLine Value="243"/>
+        <CursorPos X="52" Y="255"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -130,8 +130,8 @@
         <UnitName Value="UAbout"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="65"/>
-        <CursorPos X="26" Y="76"/>
+        <TopLine Value="123"/>
+        <CursorPos X="42" Y="135"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -157,8 +157,8 @@
         <UnitName Value="UPath"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="23"/>
-        <CursorPos X="49" Y="42"/>
+        <TopLine Value="35"/>
+        <CursorPos X="37" Y="39"/>
         <UsageCount Value="234"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -205,9 +205,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="198"/>
-        <CursorPos X="1" Y="209"/>
-        <FoldState Value=" TL00N T4W021 T3iS072 T6jI08 T0jV2F762w"/>
+        <TopLine Value="1"/>
+        <CursorPos X="16" Y="282"/>
+        <FoldState Value=" TL00N T4W02 T3iX03 T6md05 T0jI2FC*"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -313,9 +313,10 @@
         <UnitName Value="UPlatform"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="34"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="54"/>
+        <FoldState Value=" TL00Np"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit30>
       <Unit31>
@@ -329,124 +330,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="427" Column="3" TopLine="425"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="222" Column="1" TopLine="213"/>
       </Position1>
       <Position2>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="429" Column="3" TopLine="425"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="220" Column="60" TopLine="186"/>
       </Position2>
       <Position3>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="439" Column="1" TopLine="439"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="199" Column="1" TopLine="186"/>
       </Position3>
       <Position4>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="369" Column="12" TopLine="353"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="203" Column="21" TopLine="186"/>
       </Position4>
       <Position5>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="393" Column="14" TopLine="374"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="202" Column="1" TopLine="186"/>
       </Position5>
       <Position6>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="495" Column="14" TopLine="476"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="206" Column="1" TopLine="190"/>
       </Position6>
       <Position7>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="524" Column="14" TopLine="505"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="211" Column="1" TopLine="202"/>
       </Position7>
       <Position8>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="546" Column="14" TopLine="527"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="212" Column="1" TopLine="202"/>
       </Position8>
       <Position9>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="568" Column="14" TopLine="544"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="222" Column="6" TopLine="213"/>
       </Position9>
       <Position10>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="49" Column="13" TopLine="32"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="223" Column="26" TopLine="207"/>
       </Position10>
       <Position11>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="68" Column="1" TopLine="51"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="199" Column="1" TopLine="190"/>
       </Position11>
       <Position12>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="55" Column="1" TopLine="51"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="201" Column="1" TopLine="190"/>
       </Position12>
       <Position13>
-        <Filename Value="HeatWizard.lpr"/>
-        <Caret Line="54" Column="1" TopLine="49"/>
+        <Filename Value="UPreferenceData.pas"/>
+        <Caret Line="202" Column="1" TopLine="190"/>
       </Position13>
       <Position14>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="284" Column="36" TopLine="271"/>
+        <Caret Line="206" Column="1" TopLine="190"/>
       </Position14>
       <Position15>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="280" Column="65" TopLine="270"/>
+        <Caret Line="211" Column="1" TopLine="202"/>
       </Position15>
       <Position16>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="281" Column="79" TopLine="211"/>
+        <Caret Line="212" Column="1" TopLine="202"/>
       </Position16>
       <Position17>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="277" Column="74" TopLine="272"/>
+        <Caret Line="222" Column="1" TopLine="213"/>
       </Position17>
       <Position18>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="221" Column="33" TopLine="210"/>
+        <Caret Line="211" Column="3" TopLine="201"/>
       </Position18>
       <Position19>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="279" Column="49" TopLine="269"/>
+        <Caret Line="228" Column="4" TopLine="214"/>
       </Position19>
       <Position20>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="279" Column="55" TopLine="270"/>
+        <Caret Line="61" Column="9" TopLine="52"/>
       </Position20>
       <Position21>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="284" Column="3" TopLine="271"/>
+        <Caret Line="38" Column="34" TopLine="1"/>
       </Position21>
       <Position22>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="195" Column="21" TopLine="318"/>
+        <Caret Line="67" Column="9" TopLine="51"/>
       </Position22>
       <Position23>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="289" Column="1" TopLine="225"/>
+        <Caret Line="221" Column="11" TopLine="205"/>
       </Position23>
       <Position24>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="283" Column="1" TopLine="274"/>
+        <Caret Line="222" Column="11" TopLine="206"/>
       </Position24>
       <Position25>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="290" Column="13" TopLine="285"/>
+        <Caret Line="301" Column="9" TopLine="285"/>
       </Position25>
       <Position26>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="321" Column="40" TopLine="273"/>
+        <Caret Line="222" Column="40" TopLine="213"/>
       </Position26>
       <Position27>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="297" Column="37" TopLine="287"/>
+        <Caret Line="225" Column="42" TopLine="213"/>
       </Position27>
       <Position28>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="296" Column="37" TopLine="287"/>
+        <Caret Line="218" Column="1" TopLine="213"/>
       </Position28>
       <Position29>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="320" Column="52" TopLine="311"/>
+        <Caret Line="67" Column="14" TopLine="58"/>
       </Position29>
       <Position30>
         <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="296" Column="2" TopLine="272"/>
+        <Caret Line="282" Column="3" TopLine="250"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
@@ -505,7 +506,7 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <Watches Count="7">
+    <Watches Count="11">
       <Item1>
         <Expression Value="Language"/>
       </Item1>
@@ -528,6 +529,18 @@
         <Expression Value="HereNode"/>
         <Enabled Value="False"/>
       </Item7>
+      <Item8>
+        <Expression Value="PreferenceFileName"/>
+      </Item8>
+      <Item9>
+        <Expression Value="PreferenceDirName"/>
+      </Item9>
+      <Item10>
+        <Expression Value="Preferences"/>
+      </Item10>
+      <Item11>
+        <Expression Value="Preferences.Filename "/>
+      </Item11>
     </Watches>
     <Exceptions Count="2">
       <Item1>
