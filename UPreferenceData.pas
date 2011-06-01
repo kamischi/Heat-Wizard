@@ -57,33 +57,20 @@ uses
   {$IF Defined(DARWIN)}
   MacOSAll,
   {$ELSE}
-  DOM,
-  XMLRead,
-  XMLWrite,
+  XMLConf,
   {$IFEND}
   Ulog,
   UPath;
-
-{$IF not Defined(DARWIN)}
-var
-  PreferenceDoc: TXMLDocument;
-{$IFEND}
 
 constructor TPreferenceData.Create;
 begin
   Inherited;
   Logger.Output('UPreferenceData', 'Create');
-{$IF not Defined(DARWIN)}
-  PreferenceDoc := TXMLDocument.Create;
-{$IFEND}
 end;
 
 destructor TPreferenceData.Destroy;
 begin
   Inherited;
-{$IF not Defined(DARWIN)}
-  PreferenceDoc.Destroy;
-{$IFEND}
 end;
 
 {$IF Defined(WINDOWS)}
@@ -197,62 +184,26 @@ begin
 
 {$ELSE}
 var
-  HeaderStream:            TStringStream;
   FileVersionBuffer:       string;
   LanguageBuffer:          string;
   FormsPositionTopBuffer:  string;
   FormsPositionLeftBuffer: string;
-  ParentKeyName, KeyName:  string;
-  KeyValue:                string;
-  i, j:                    integer;
-  PreferenceList:          TStringlist;
+  Preferences:             TXMLConfig;
 
 begin
   Logger.Output('UPreferenceData', 'Create PreferenceDoc');
-  {$IF defined(Windows)}
-  OnGetApplicationName := @SetApplicationName;
-  PreferenceDirName := GetAppConfigDir(false) + '\' + PreferenceDirName;
-  {$ELSE}
+  {$IF not defined(Windows)}
   PreferenceDirName := GetEnvironmentVariable('HOME') + PreferenceDirName;
-  {$IFEND}
   if not DirectoryExists(PreferenceDirName) then
   begin
     Logger.Output('UPreferenceData', 'Application directory not found. Trying to create: ' + PreferenceDirName);
     mkdir(PreferenceDirName);
   end;
   PreferenceFileName := PreferenceDirName + PreferenceFileName;
+  {$IFEND}
   if not fileExists(PreferenceFileName) then
   begin
     Logger.Output('UPreferenceData', 'Preference file not found. Trying to create: ' + PreferenceFileName);
-
-    HeaderStream := TStringStream.Create('<?xml version="1.0" encoding="UTF-8"?>');
-    HeaderStream.WriteString('<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">');
-    HeaderStream.WriteString('<plist version="1.0">');
-    HeaderStream.WriteString('<dict>');
-    HeaderStream.WriteString('  <key>FileVersion</key>');
-    HeaderStream.WriteString('  <string>' + FileVersion + '</string>');
-    HeaderStream.WriteString('  <key>Language</key>');
-    HeaderStream.WriteString('  <string>' + Language + '</string>');
-    HeaderStream.WriteString('  <key>FormsPosition</key>');
-    HeaderStream.WriteString('  <dict>');
-    HeaderStream.WriteString('    <key>Top</key>');
-    HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Top) + '</string>');
-    HeaderStream.WriteString('    <key>Left</key>');
-    HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Left) + '</string>');
-    HeaderStream.WriteString('  </dict>');
-    HeaderStream.WriteString('</dict>');
-    HeaderStream.WriteString('</plist>');
-
-    HeaderStream.Position := 0;  // reset the stream for reading
-
-    ReadXMLFile(PreferenceDoc, HeaderStream);
-
-    HeaderStream.Destroy;
-
-    Logger.Output('UPreferenceData', 'Header Stream created, read as xml and destroyed.');
-
-    WriteXMLFile(PreferenceDoc, PreferenceFileName);
-
     FileVersionBuffer  := '1.0.0';
     LanguageBuffer     := 'en';
     FormsPosition.Top  := 130;
@@ -260,84 +211,28 @@ begin
   end
   else
   begin
-    ReadXMLFile(PreferenceDoc, PreferenceFileName);
+    Preferences := TXMLConfig.Create(nil);
+    Preferences.Filename := 'heatwizard.xml';
 
-    PreferenceList := TStringlist.Create;            // FormsPosition is not yet done
-    Logger.Output('UPreferenceData', 'PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count: ' + IntToStr(PreferenceDoc.DocumentElement.FirstChild.ChildNodes.Count));
-    with PreferenceDoc.DocumentElement.FirstChild do
-      try
-        for i := 0 to (ChildNodes.Count - 1) do
-        begin
-          KeyName := '';
-          KeyValue := '';
-          Logger.Output('UPreferenceData', ChildNodes.Item[i].NodeName + ' ' + ChildNodes.Item[i].FirstChild.NodeValue);
-          if ChildNodes.Item[i].NodeName = 'key' then
-          begin
-            Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue);
-            if (KeyName <> '') then
-              PreferenceList.append(KeyName + '=' +  KeyValue);
-            KeyName := ChildNodes.Item[i].FirstChild.NodeValue;
-          end;
-          if ChildNodes.Item[i].NodeName = 'string' then
-          begin
-            Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[i].FirstChild.NodeValue);
-            KeyValue := ChildNodes.Item[i].FirstChild.NodeValue;
-          end;
-          if ChildNodes.Item[i].NodeName = 'dict' then
-          begin
-            with ChildNodes.Item[i].FirstChild do
-            begin
-              ParentKeyName := KeyName + '.';
-              for j := 0 to (ChildNodes.Count - 1) do
-              begin
-                KeyName := '';
-                KeyValue := '';
- //  kracht noch!             Logger.Output('UPreferenceData', ChildNodes.Item[j].NodeName + ' ' + ChildNodes.Item[j].FirstChild.NodeValue);
-                if ChildNodes.Item[j].NodeName = 'key' then
-                begin
-                  Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[j].FirstChild.NodeValue);
-                  if (KeyName <> '') then
-                    PreferenceList.append(ParentKeyName + KeyName + '=' +  KeyValue);
-                  KeyName := ChildNodes.Item[j].FirstChild.NodeValue;
-                end;
-                if ChildNodes.Item[j].NodeName = 'string' then
-                begin
-                  Logger.Output('UPreferenceData', 'Found Preference Data: ' + ChildNodes.Item[j].FirstChild.NodeValue);
-                  KeyValue := ChildNodes.Item[j].FirstChild.NodeValue;
-                end;
-              end;
-            end;
-          end;
-        end;
-      except
-        Logger.Output('UPreferenceData', 'Something went wrong when reading the preferences.');
-        Logger.Output('UPreferenceData', 'Falling back to defaults.');
-        PreferenceList.Clear;
-        PreferenceList.append('Fileversion=1.0.0');
-        PreferenceList.append('Language=en');
-        PreferenceList.append('FormsPosition.Top=100');
-        PreferenceList.append('FormsPosition.Left=200');
-      end;
-
-    FileVersionBuffer := PreferenceList.Values['FileVersion'];
-    Error.NoFileversion := false;
+    FileVersionBuffer := Preferences.GetValue('FileVersion','1.0.0');
     if FileVersionBuffer = '' then
       Error.NoFileVersion := true;
 
-    LanguageBuffer := PreferenceList.Values['Language'];
+    LanguageBuffer := Preferences.GetValue('Language', 'en');
     Error.NoLanguage := false;
     if LanguageBuffer = '' then
       Error.NoLanguage    := true;
 
-    FormsPositionTopBuffer := PreferenceList.Values['FormsPosition.Top'];
+    FormsPositionTopBuffer := intToStr(Preferences.GetValue('FormsPosition/Top', 130));
     Error.NoFormsTopPosition := false;
     if FormsPositionTopBuffer = '' then
       Error.NoFormsTopPosition    := true;
 
-    FormsPositionLeftBuffer := PreferenceList.Values['FormsPosition.Left'];
+    FormsPositionLeftBuffer := intToStr(Preferences.GetValue('FormsPosition/Left', 400));
     Error.NoFormsLeftPosition := false;
     if FormsPositionLeftBuffer = '' then
       Error.NoFormsLeftPosition    := true;
+    Preferences.Destroy;
   end;
 {$IFEND}
   Logger.Output('UPreferenceData', 'Check: FileversionBuffer: ' + FileversionBuffer + ' LanguageBuffer: ' + LanguageBuffer);
@@ -384,40 +279,21 @@ begin
   CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
 {$ELSE}
 var
-  HeaderStream:    TStringStream;
+  Preferences: TXMLConfig;
 begin
   Logger.Output ('UPreferenceData',  'Enter Save');
   Logger.Output ('UPreferenceData',  'Write FileVersionNode.NodeValue: ' + FileVersion);
   Logger.Output ('UPreferenceData',  'Write LanguageNode.NodeValue: '    + Language);
 
-  HeaderStream := TStringStream.Create('<?xml version="1.0" encoding="UTF-8"?>');
-  HeaderStream.WriteString('<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">');
-  HeaderStream.WriteString('<plist version="1.0">');
-  HeaderStream.WriteString('<dict>');
-  HeaderStream.WriteString('  <key>FileVersion</key>');
-  HeaderStream.WriteString('  <string>' + FileVersion + '</string>');
-  HeaderStream.WriteString('  <key>Language</key>');
-  HeaderStream.WriteString('  <string>' + Language + '</string>');
-  HeaderStream.WriteString('  <key>FormsPosition</key>');
-  HeaderStream.WriteString('  <dict>');
-  HeaderStream.WriteString('    <key>Top</key>');
-  HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Top) + '</string>');
-  HeaderStream.WriteString('    <key>Left</key>');
-  HeaderStream.WriteString('    <string>' + intToStr(FormsPosition.Left) + '</string>');
-  HeaderStream.WriteString('  </dict>');
-  HeaderStream.WriteString('</dict>');
-  HeaderStream.WriteString('</plist>');
+  Preferences := TXMLConfig.Create(nil);
+  Preferences.Filename := PreferenceFileName;
+  Preferences.SetValue('FileVersion', FileVersion);
+  Preferences.SetValue('Language',    Language);
+  Preferences.SetValue('FormsPosition/Top',  intToStr(FormsPosition.Top));
+  Preferences.SetValue('FormsPosition/Left', intToStr(FormsPosition.Left));
 
-  HeaderStream.Position := 0;  // reset the stream for reading
-
-  ReadXMLFile(PreferenceDoc, HeaderStream);
-
-  HeaderStream.Destroy;
-
-  Logger.Output('UPreferenceData', 'Header Stream created, read as xml and destroyed.');
-
-  WriteXMLFile(PreferenceDoc, PreferenceFileName);
-
+  Preferences.Flush;
+  Preferences.Destroy;
 {$IFEND}
 end;
 
