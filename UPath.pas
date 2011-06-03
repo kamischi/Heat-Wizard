@@ -36,14 +36,14 @@ uses
 
 {$IF Defined(MSWINDOWS)}
 const
-  LanguageFileBasePath = 'languages\locale\';
+  LanguageFileBasePath = 'languages';
 var
   PreferenceDirName:    string = '';
   PreferenceFileName:   string = 'heatwizard.xml';
 {$ELSEIF Defined(DARWIN)}
 var
-  PreferenceDirName:    string = '/.heatwizard/';
-  PreferenceFileName:   string = 'heatwizard.xml';
+  PreferenceDirName:    string = '';
+  PreferenceFileName:   string = '';
   LanguageFileBasePath: string;   // path is constructed in Translate
 {$ELSEIF Defined(UNIX)}
 var
