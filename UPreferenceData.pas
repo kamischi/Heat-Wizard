@@ -205,26 +205,22 @@ begin
   else
   begin
     Preferences := TXMLConfig.Create(nil);
-    Preferences.Filename := 'heatwizardTest.xml';
+    Try
+      Preferences.Filename   := PreferenceFileName;
+    except    // probably an errorneous preference file
+      Preferences.StartEmpty := true;
+      Preferences.Clear;
+      Preferences.Filename   := PreferenceFileName;
+    end;
 
-    FileVersionBuffer := Preferences.GetValue('FileVersion','1.0.0');
-    if FileVersionBuffer = '' then
-      Error.NoFileVersion := true;
-
-    LanguageBuffer := Preferences.GetValue('Language', 'en');
+    FileVersionBuffer   := Preferences.GetValue('FileVersion','1.0.0');
+    Error.NoFileVersion := false;
+    LanguageBuffer   := Preferences.GetValue('Language', 'en');
     Error.NoLanguage := false;
-    if LanguageBuffer = '' then
-      Error.NoLanguage    := true;
-
-    FormsPositionTopBuffer := intToStr(Preferences.GetValue('FormsPosition/Top', 130));
+    FormsPositionTopBuffer   := intToStr(Preferences.GetValue('FormsPosition/Top', 130));
     Error.NoFormsTopPosition := false;
-    if FormsPositionTopBuffer = '' then
-      Error.NoFormsTopPosition    := true;
-
-    FormsPositionLeftBuffer := intToStr(Preferences.GetValue('FormsPosition/Left', 400));
+    FormsPositionLeftBuffer   := intToStr(Preferences.GetValue('FormsPosition/Left', 400));
     Error.NoFormsLeftPosition := false;
-    if FormsPositionLeftBuffer = '' then
-      Error.NoFormsLeftPosition    := true;
     Preferences.Destroy;
   end;
 {$IFEND}
