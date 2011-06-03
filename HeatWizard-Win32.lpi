@@ -207,7 +207,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="16" Y="282"/>
-        <FoldState Value=" TL00N T4W02 T3iX03 T6md05 T0jI2FC*"/>
+        <FoldState Value=" TL00N T4W02p"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -315,7 +315,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="34"/>
         <CursorPos X="1" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit30>
