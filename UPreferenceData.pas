@@ -205,7 +205,7 @@ begin
   else
   begin
     Preferences := TXMLConfig.Create(nil);
-    Preferences.Filename := 'heatwizard.xml';
+    Preferences.Filename := 'heatwizardTest.xml';
 
     FileVersionBuffer := Preferences.GetValue('FileVersion','1.0.0');
     if FileVersionBuffer = '' then
@@ -280,10 +280,10 @@ begin
   Logger.Output('UPreferenceData', 'FormsPosition: Top: ' + intToStr(FormsPosition.Top) + ' Left: ' + intToStr(FormsPosition.Left));
 
   Preferences := TXMLConfig.Create(nil);
-  Preferences.Filename   := PreferenceFileName;
   Preferences.StartEmpty := true;
   Preferences.Clear;
-  
+  Preferences.Filename   := PreferenceFileName;
+
   Preferences.SetValue('FileVersion', FileVersion);
   Preferences.SetValue('Language',    Language);
   Preferences.SetValue('FormsPosition/Top',  intToStr(FormsPosition.Top));
