@@ -252,7 +252,7 @@ begin
   LanguageFileBasePath := getApplicationResourcesDirPath + '/languages/';
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
 {$ELSEIF Defined(WINDOWS)}
-  LanguageFileDir := getApplicationResourcesDirPath + 'languages\' + locale + '\LC_MESSAGES\';
+  LanguageFileDir := getApplicationResourcesDirPath + 'languages\'+ locale + '\LC_MESSAGES\';
 {$ELSE}
   LanguageFileBasePath := getApplicationResourcesDirPath + 'languages/';
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
