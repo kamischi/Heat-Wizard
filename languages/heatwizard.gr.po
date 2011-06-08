@@ -28,7 +28,7 @@ msgstr "Thermocouple"
 
 #: AboutForm:AboutText
 msgid "About Text"
-msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages to temperatures and vice versa.\nAuthor: K.-M. Schindler\nLicence: GPL"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages\nto temperatures and vice versa.\nAuthor: K.-M. Schindler\nLicence: GPL"
 
 #: PreferencesForm:AboutText
 msgid "Language:"

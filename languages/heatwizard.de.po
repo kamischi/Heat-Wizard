@@ -28,7 +28,7 @@ msgstr "Thermoelement"
 
 #: AboutForm:AboutText
 msgid "About Text"
-msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard konvertiert die Spannung eines Thermoelements in eine Temperatur und umgekehrt.\nAutor: K.-M. Schindler\nLizenz: GPL"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard konvertiert die Spannung\neines Thermoelements in eine Temperatur\nund umgekehrt.\nAutor: K.-M. Schindler\nLizenz: GPL"
 
 #: PreferencesForm:AboutText
 msgid "Language:"

@@ -28,7 +28,7 @@ msgstr "Thermocouple"
 
 #: AboutForm:AboutText
 msgid "About Text"
-msgstr "Heat Wizard\nVersio: Placeholder\nHeat Wizard muuntaa termoelementin jännitteen lämpötilaksi ja päinvastoin.\nTekijä: K.-M. Schindler\nLisenssi: GPL"
+msgstr "Heat Wizard\nVersio: Placeholder\nHeat Wizard muuntaa termoelementin\njännitteen lämpötilaksi ja päinvastoin.\nTekijä: K.-M. Schindler\nLisenssi: GPL"
 
 #: PreferencesForm:AboutText
 msgid "Language:"
