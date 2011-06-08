@@ -41,7 +41,7 @@ type
   TPreferencesForm = class(TForm)
     LanguageComboBox:   TComboBox;
     DoneButton:         TButton;
-    LanguageStaticText: TStaticText;
+    LanguageLabel:      TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormPaint(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -208,7 +208,7 @@ begin
       end;
       if assigned(MOFile) then
       begin
-        LanguageStaticText.Caption        := MOFile.translate('Language:');
+        LanguageLabel.Caption        := MOFile.translate('Language:');
         for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
         begin
           LanguageComboBox.Items.Strings[index] := MOFile.translate(LanguageLongString[TLanguage(index)]);

@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 397
   Height = 195
   Top = 133
-  Width = 380
+  Width = 480
   HorzScrollBar.Page = 359
   HorzScrollBar.Range = 304
   VertScrollBar.Page = 194
@@ -12,7 +12,7 @@ object MainForm: TMainForm
   BorderStyle = bsDialog
   Caption = 'Heat Wizard'
   ClientHeight = 195
-  ClientWidth = 380
+  ClientWidth = 480
   Color = clNone
   Constraints.MaxHeight = 195
   Constraints.MaxWidth = 480
@@ -52,41 +52,41 @@ object MainForm: TMainForm
   end
   object Label1: TLabel
     Left = 104
-    Height = 17
+    Height = 14
     Top = 32
-    Width = 22
+    Width = 15
     Caption = 'mV'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 104
-    Height = 17
+    Height = 14
     Top = 93
-    Width = 16
+    Width = 13
     Caption = '°C'
     ParentColor = False
   end
   object Label3: TLabel
     Left = 233
-    Height = 17
+    Height = 14
     Top = 93
-    Width = 16
+    Width = 13
     Caption = '°C'
     ParentColor = False
   end
   object Label4: TLabel
     Left = 104
-    Height = 17
+    Height = 14
     Top = 125
-    Width = 9
+    Width = 7
     Caption = 'K'
     ParentColor = False
   end
   object Label5: TLabel
     Left = 233
-    Height = 17
+    Height = 14
     Top = 125
-    Width = 9
+    Width = 7
     Caption = 'K'
     ParentColor = False
   end
@@ -106,9 +106,9 @@ object MainForm: TMainForm
   end
   object PreferenceButton: TLabel
     Left = 365
-    Height = 17
+    Height = 14
     Top = 174
-    Width = 9
+    Width = 7
     Caption = 'p'
     Font.Color = 10611436
     Font.Style = [fsItalic]
@@ -129,7 +129,7 @@ object MainForm: TMainForm
   end
   object TemperatureKelvinEdit: TEdit
     Left = 24
-    Height = 22
+    Height = 21
     Top = 120
     Width = 72
     Color = clNone
@@ -141,7 +141,7 @@ object MainForm: TMainForm
   end
   object ReferenceKelvinEdit: TEdit
     Left = 152
-    Height = 22
+    Height = 21
     Top = 120
     Width = 72
     Color = clNone
@@ -153,16 +153,16 @@ object MainForm: TMainForm
   end
   object VoltageEdit: TLabeledEdit
     Left = 24
-    Height = 22
+    Height = 21
     Top = 30
     Width = 72
     Color = clNone
     EditLabel.AnchorSideLeft.Control = VoltageEdit
     EditLabel.AnchorSideBottom.Control = VoltageEdit
     EditLabel.Left = 24
-    EditLabel.Height = 17
-    EditLabel.Top = 10
-    EditLabel.Width = 49
+    EditLabel.Height = 14
+    EditLabel.Top = 13
+    EditLabel.Width = 37
     EditLabel.Caption = 'Voltage'
     EditLabel.ParentColor = False
     Font.Color = 3168345
@@ -173,16 +173,16 @@ object MainForm: TMainForm
   end
   object TemperatureCelsiusEdit: TLabeledEdit
     Left = 24
-    Height = 22
+    Height = 21
     Top = 88
     Width = 72
     Color = clNone
     EditLabel.AnchorSideLeft.Control = TemperatureCelsiusEdit
     EditLabel.AnchorSideBottom.Control = TemperatureCelsiusEdit
     EditLabel.Left = 24
-    EditLabel.Height = 17
-    EditLabel.Top = 68
-    EditLabel.Width = 82
+    EditLabel.Height = 14
+    EditLabel.Top = 71
+    EditLabel.Width = 63
     EditLabel.Caption = 'Temperature'
     EditLabel.ParentColor = False
     Font.Color = 3168345
@@ -193,16 +193,16 @@ object MainForm: TMainForm
   end
   object ReferenceCelsiusEdit: TLabeledEdit
     Left = 152
-    Height = 22
+    Height = 21
     Top = 88
     Width = 72
     Color = clNone
     EditLabel.AnchorSideLeft.Control = ReferenceCelsiusEdit
     EditLabel.AnchorSideBottom.Control = ReferenceCelsiusEdit
     EditLabel.Left = 152
-    EditLabel.Height = 17
-    EditLabel.Top = 68
-    EditLabel.Width = 148
+    EditLabel.Height = 14
+    EditLabel.Top = 71
+    EditLabel.Width = 116
     EditLabel.Caption = 'Reference Temperature'
     EditLabel.ParentColor = False
     Font.Color = 3168345
@@ -213,10 +213,11 @@ object MainForm: TMainForm
   end
   object TypeBox: TComboBox
     Left = 152
-    Height = 20
+    Height = 21
     Top = 30
     Width = 95
-    ItemHeight = 0
+    Font.Color = 3168345
+    ItemHeight = 13
     Items.Strings = (
       'Type B'
       'Type E'
@@ -229,6 +230,7 @@ object MainForm: TMainForm
     )
     MaxLength = 65535
     OnChange = TypeBoxChange
+    ParentFont = False
     Style = csDropDownList
     TabOrder = 5
     TabStop = False
@@ -247,7 +249,7 @@ object MainForm: TMainForm
   end
   object TemperatureFahrenheitEdit: TEdit
     Left = 24
-    Height = 22
+    Height = 21
     Top = 152
     Width = 72
     Color = clNone
@@ -259,15 +261,15 @@ object MainForm: TMainForm
   end
   object Label6: TLabel
     Left = 104
-    Height = 17
+    Height = 14
     Top = 157
-    Width = 14
+    Width = 12
     Caption = '°F'
     ParentColor = False
   end
   object ReferenceFahrenheitEdit: TEdit
     Left = 152
-    Height = 22
+    Height = 21
     Top = 152
     Width = 72
     Color = clNone
@@ -279,17 +281,17 @@ object MainForm: TMainForm
   end
   object Label7: TLabel
     Left = 233
-    Height = 17
+    Height = 14
     Top = 157
-    Width = 14
+    Width = 12
     Caption = '°F'
     ParentColor = False
   end
   object ThermocoupleLabel: TLabel
     Left = 152
-    Height = 17
+    Height = 14
     Top = 10
-    Width = 92
+    Width = 68
     Caption = 'Thermocouple'
     Font.Color = 10611436
     ParentColor = False

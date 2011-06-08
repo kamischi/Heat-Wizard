@@ -41,6 +41,7 @@ type
   TAboutForm = class(TForm)
     DoneButton: TButton;
     AboutText:  TStaticText;
+    AboutLabel: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure DoneButtonClick(Sender: TObject);
     procedure FormPaint(Sender: TObject);
@@ -76,7 +77,7 @@ procedure TAboutForm.FormCreate(Sender: TObject);
 begin
   TranslateTexts(LanguageShortString[Language]);
   DoneButton.Height := PF_ButtonHeight;
-  AboutText.Font.Size := PF_AboutTextFontSize;
+  AboutLabel.Font.Size := PF_AboutTextFontSize;
   Visible := false;
 end;
 
@@ -178,8 +179,8 @@ begin
   end;
   if assigned(MOFile) then
   begin
-    AboutText.Caption  := MOFile.translate('About Text');
-    AboutText.Caption  := StringReplace(AboutText.Caption, 'Placeholder', Version, []);
+    AboutLabel.Caption  := MOFile.translate('About Text');
+    AboutLabel.Caption  := StringReplace(AboutLabel.Caption, 'Placeholder', Version, []);
     DoneButton.Caption := MOFile.translate('Done');
     MOFile.Destroy;
   end;

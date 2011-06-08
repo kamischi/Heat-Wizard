@@ -174,7 +174,7 @@ begin
 
   TypeBox.Clear;
   for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
-    TypeBox.Items.Add('Type ' + intToStr(index));
+    TypeBox.Items.Add('Type ' + GetEnumName(TypeInfo(TThermoElementType), index));
   TypeBox.ItemIndex := 3;
   ThermoCouple.ThermoElementType := K;
 
