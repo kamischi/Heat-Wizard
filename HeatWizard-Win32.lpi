@@ -33,16 +33,15 @@
         <FormatVersion Value="1"/>
         <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
       </local>
-      <environment>
-        <UserOverrides Count="1">
-          <Variable0 Name="PATH" Value="/usr/bin:/bin:/usr/sbin:/sbin:/sw/bin"/>
-        </UserOverrides>
-      </environment>
     </RunParams>
     <RequiredPackages Count="1">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="32">
       <Unit0>
@@ -72,18 +71,10 @@
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="usr/local/share/lazarus/lcl/lresources.pp"/>
-        <UnitName Value="LResources"/>
-        <TopLine Value="2844"/>
-        <CursorPos X="32" Y="2857"/>
-        <UsageCount Value="7"/>
-      </Unit2>
-      <Unit3>
         <Filename Value="languages/heatwizard.de.po"/>
         <IsPartOfProject Value="True"/>
         <TopLine Value="21"/>
         <CursorPos X="45" Y="36"/>
-        <SyntaxHighlighter Value="None"/>
         <UsageCount Value="222"/>
         <Bookmarks Count="1">
           <Item0 X="20" Y="23" ID="7"/>
@@ -94,7 +85,6 @@
         <IsPartOfProject Value="True"/>
         <TopLine Value="20"/>
         <CursorPos X="45" Y="35"/>
-        <SyntaxHighlighter Value="None"/>
         <UsageCount Value="222"/>
       </Unit4>
       <Unit5>
@@ -507,49 +497,16 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <Watches Count="11">
+    <Exceptions Count="3">
       <Item1>
-        <Expression Value="Language"/>
+        <Name Value="EAbort"/>
       </Item1>
       <Item2>
-        <Expression Value="LanguageShortString[0]"/>
+        <Name Value="ECodetoolError"/>
       </Item2>
       <Item3>
-        <Expression Value="LanguageShortString[1]"/>
-      </Item3>
-      <Item4>
-        <Expression Value="LanguageShortString[2]"/>
-      </Item4>
-      <Item5>
-        <Expression Value="LanguageComboBox.ItemIndex"/>
-      </Item5>
-      <Item6>
-        <Expression Value="PreferenceData.Language"/>
-      </Item6>
-      <Item7>
-        <Expression Value="HereNode"/>
-        <Enabled Value="False"/>
-      </Item7>
-      <Item8>
-        <Expression Value="PreferenceFileName"/>
-      </Item8>
-      <Item9>
-        <Expression Value="PreferenceDirName"/>
-      </Item9>
-      <Item10>
-        <Expression Value="Preferences"/>
-      </Item10>
-      <Item11>
-        <Expression Value="Preferences.Filename "/>
-      </Item11>
-    </Watches>
-    <Exceptions Count="2">
-      <Item1>
-        <Name Value="ECodetoolError"/>
-      </Item1>
-      <Item2>
         <Name Value="EFOpenError"/>
-      </Item2>
+      </Item3>
     </Exceptions>
   </Debugging>
 </CONFIG>

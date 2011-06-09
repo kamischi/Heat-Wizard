@@ -3,6 +3,9 @@
   <ProjectOptions>
     <Version Value="9"/>
     <General>
+      <Flags>
+        <LRSInOutputDirectory Value="False"/>
+      </Flags>
       <MainUnit Value="0"/>
       <Title Value="Heat Wizard"/>
       <ActiveWindowIndexAtStart Value="0"/>
@@ -28,12 +31,16 @@
         <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
-    <Units Count="29">
+    <Units Count="30">
       <Unit0>
         <Filename Value="HeatWizard.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -41,7 +48,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="41"/>
         <CursorPos X="1" Y="67"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -55,9 +61,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="134"/>
-        <CursorPos X="3" Y="139"/>
-        <FoldState Value=" TL00Np"/>
+        <TopLine Value="288"/>
+        <CursorPos X="24" Y="288"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -88,9 +93,8 @@
         <UnitName Value="UAbout"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="87"/>
+        <TopLine Value="168"/>
         <CursorPos X="1" Y="108"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -106,7 +110,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="92"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="242"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -155,8 +158,8 @@
         <UnitName Value="UPreferenceData"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="354"/>
+        <TopLine Value="195"/>
+        <CursorPos X="6" Y="204"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -248,170 +251,174 @@
       <Unit21>
         <Filename Value="Temp2Volt.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
       </Unit21>
       <Unit22>
         <Filename Value="Parametervariable.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
       </Unit22>
       <Unit23>
         <Filename Value="Volt2Temp.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
       </Unit23>
       <Unit24>
         <Filename Value="languages/heatwizard.es.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit24>
       <Unit25>
         <Filename Value="languages/heatwizard.fi.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit25>
       <Unit26>
         <Filename Value="languages/heatwizard.fr.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit26>
       <Unit27>
         <Filename Value="languages/heatwizard.gr.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit27>
       <Unit28>
         <Filename Value="languages/heatwizard.it.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit28>
+      <Unit29>
+        <Filename Value="/sw/share/fpcsrc/packages/fcl-xml/src/xmlcfg.pp"/>
+        <UnitName Value="XMLCfg"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="147"/>
+        <CursorPos X="3" Y="48"/>
+        <UsageCount Value="10"/>
+      </Unit29>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="UPreferences.pas"/>
-        <Caret Line="181" Column="11" TopLine="173"/>
+        <Caret Line="84" Column="57" TopLine="71"/>
       </Position1>
       <Position2>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="317" Column="1" TopLine="192"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="190" Column="1" TopLine="170"/>
       </Position2>
       <Position3>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="137" Column="3" TopLine="133"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="186" Column="36" TopLine="173"/>
       </Position3>
       <Position4>
         <Filename Value="UPreferences.pas"/>
-        <Caret Line="82" Column="17" TopLine="61"/>
+        <Caret Line="195" Column="104" TopLine="177"/>
       </Position4>
       <Position5>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="84" Column="57" TopLine="71"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="276" Column="131" TopLine="268"/>
       </Position5>
       <Position6>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="190" Column="1" TopLine="170"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="277" Column="98" TopLine="253"/>
       </Position6>
       <Position7>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="186" Column="36" TopLine="173"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="117" Column="14" TopLine="99"/>
       </Position7>
       <Position8>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="195" Column="104" TopLine="177"/>
+        <Filename Value="UConverter.pas"/>
+        <Caret Line="38" Column="5" TopLine="1"/>
       </Position8>
       <Position9>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="131" TopLine="268"/>
+        <Caret Line="117" Column="5" TopLine="104"/>
       </Position9>
       <Position10>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="277" Column="98" TopLine="253"/>
+        <Caret Line="175" Column="3" TopLine="150"/>
       </Position10>
       <Position11>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="117" Column="14" TopLine="99"/>
+        <Caret Line="276" Column="9" TopLine="263"/>
       </Position11>
       <Position12>
-        <Filename Value="UConverter.pas"/>
-        <Caret Line="38" Column="5" TopLine="1"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="295" Column="3" TopLine="282"/>
       </Position12>
       <Position13>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="117" Column="5" TopLine="104"/>
+        <Caret Line="356" Column="3" TopLine="334"/>
       </Position13>
       <Position14>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="175" Column="3" TopLine="150"/>
+        <Caret Line="408" Column="6" TopLine="390"/>
       </Position14>
       <Position15>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="276" Column="9" TopLine="263"/>
+        <Caret Line="439" Column="5" TopLine="421"/>
       </Position15>
       <Position16>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="295" Column="3" TopLine="282"/>
+        <Caret Line="470" Column="4" TopLine="452"/>
       </Position16>
       <Position17>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="356" Column="3" TopLine="334"/>
+        <Caret Line="493" Column="6" TopLine="480"/>
       </Position17>
       <Position18>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="408" Column="6" TopLine="390"/>
+        <Caret Line="516" Column="3" TopLine="503"/>
       </Position18>
       <Position19>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="439" Column="5" TopLine="421"/>
+        <Filename Value="UConverter.pas"/>
+        <Caret Line="38" Column="14" TopLine="1"/>
       </Position19>
       <Position20>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="470" Column="4" TopLine="452"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="62" Column="1" TopLine="1"/>
       </Position20>
       <Position21>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="493" Column="6" TopLine="480"/>
+        <Caret Line="117" Column="3" TopLine="110"/>
       </Position21>
       <Position22>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="516" Column="3" TopLine="503"/>
+        <Caret Line="286" Column="124" TopLine="270"/>
       </Position22>
       <Position23>
-        <Filename Value="UConverter.pas"/>
-        <Caret Line="38" Column="14" TopLine="1"/>
+        <Filename Value="UAbout.pas"/>
+        <Caret Line="28" Column="15" TopLine="1"/>
       </Position23>
       <Position24>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="62" Column="1" TopLine="1"/>
+        <Filename Value="UAbout.pas"/>
+        <Caret Line="104" Column="1" TopLine="92"/>
       </Position24>
       <Position25>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="117" Column="3" TopLine="110"/>
+        <Filename Value="UPreferences.pas"/>
+        <Caret Line="201" Column="48" TopLine="186"/>
       </Position25>
       <Position26>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="286" Column="124" TopLine="270"/>
+        <Caret Line="384" Column="1" TopLine="369"/>
       </Position26>
       <Position27>
-        <Filename Value="UAbout.pas"/>
-        <Caret Line="28" Column="15" TopLine="1"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="139" Column="3" TopLine="134"/>
       </Position27>
       <Position28>
-        <Filename Value="UAbout.pas"/>
-        <Caret Line="104" Column="1" TopLine="92"/>
+        <Filename Value="HeatWizardPanel.pas"/>
+        <Caret Line="140" Column="3" TopLine="135"/>
       </Position28>
       <Position29>
-        <Filename Value="UPreferences.pas"/>
-        <Caret Line="201" Column="48" TopLine="186"/>
-      </Position29>
-      <Position30>
         <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="384" Column="1" TopLine="369"/>
-      </Position30>
+        <Caret Line="139" Column="3" TopLine="134"/>
+      </Position29>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
@@ -425,6 +432,9 @@
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>
+        <CStyleOperator Value="False"/>
+        <AllowLabel Value="False"/>
+        <CPPInline Value="False"/>
         <UseAnsiStrings Value="False"/>
       </SyntaxOptions>
     </Parsing>
@@ -436,9 +446,6 @@
         <StackChecks Value="True"/>
       </Checks>
       <VerifyObjMethodCallValidity Value="True"/>
-      <Optimizations>
-        <OptimizationLevel Value="0"/>
-      </Optimizations>
     </CodeGeneration>
     <Linking>
       <Debugging>
@@ -453,16 +460,12 @@
     </Linking>
     <Other>
       <Verbosity>
-        <ShowGenInfo Value="False"/>
         <ShoLineNum Value="True"/>
       </Verbosity>
       <WriteFPCLogo Value="False"/>
       <ConfigFile>
         <StopAfterErrCount Value="5"/>
       </ConfigFile>
-      <CompilerMessages>
-        <UseMsgFile Value="True"/>
-      </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
   </CompilerOptions>
