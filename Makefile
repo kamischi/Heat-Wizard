@@ -17,7 +17,7 @@ endif
 all: cli gui
 
 cli: heatwizard.pp
-	fpc -O3 -CX -XX -OWall -FWheatwizard.wpo heatwizard.pp
+	fpc -O3 -CX -XX -OWall -FWheatwizard.wpo -Xs- heatwizard.pp
 	fpc -O3 -CX -XX -Owall -Fwheatwizard.wpo heatwizard.pp
 	strip heatwizard
 
