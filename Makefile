@@ -76,8 +76,9 @@ macosx-app: all
 	  install -v languages/heatwizard.$$language.mo Heat\ Wizard.app/Contents/Resources/languages/$$language/LC_MESSAGES/heatwizard.mo ; \
 	done
 
+DISKIMAGESIZE = $(shell expr `stat -f "%z" Heat\ Wizard` / 300000)
 macosx-dmg: Heat\ Wizard.app
-	hdiutil create -type SPARSE -size 20m -fs HFS+ -volname Heat\ Wizard -ov Heat\ Wizard.sparseimage
+	hdiutil create -type SPARSE -size $(DISKIMAGESIZE)m -fs HFS+ -volname Heat\ Wizard -ov Heat\ Wizard.sparseimage
 	hdiutil attach Heat\ Wizard.sparseimage
 
 	cp -fR Heat\ Wizard.app /Volumes/Heat\ Wizard
