@@ -21,7 +21,7 @@ UninstPage instfiles
 Section ""
   SetOutPath $INSTDIR
   File "${name}.exe"
-  File "Heat Wizard Release Notes 0.3.0.txt"
+  File "Heat Wizard Release Notes 0.3.1.txt"
   CreateDirectory "$LOCALAPPDATA\${name}\languages\de\LC_MESSAGES"
   CreateDirectory "$LOCALAPPDATA\${name}\languages\en\LC_MESSAGES"
   CreateDirectory "$LOCALAPPDATA\${name}\languages\fr\LC_MESSAGES"
@@ -34,7 +34,7 @@ Section ""
   CreateDirectory "$SMPROGRAMS\${name}"
   CreateShortCut  "$SMPROGRAMS\${name}\${name}.lnk"           "$INSTDIR\${name}.exe"
   CreateShortCut  "$SMPROGRAMS\${name}\Uninstall ${name}.lnk" "$INSTDIR\uninstall.exe"
-  CreateShortCut  "$SMPROGRAMS\${name}\Heat Wizard Release Notes 0.3.0.lnk" "$INSTDIR\Heat Wizard Release Notes 0.3.0.txt"
+  CreateShortCut  "$SMPROGRAMS\${name}\Heat Wizard Release Notes 0.3.1.lnk" "$INSTDIR\Heat Wizard Release Notes 0.3.1.txt"
   WriteUninstaller $INSTDIR\uninstall.exe
 SectionEnd
 
@@ -42,10 +42,10 @@ Section "Uninstall"
   RMDir /r "$LOCALAPPDATA\${name}"
   Delete   "$SMPROGRAMS\${name}\${name}.lnk"
   Delete   "$SMPROGRAMS\${name}\Uninstall ${name}.lnk"
-  Delete   "$SMPROGRAMS\${name}\Heat Wizard Release Notes 0.3.0.lnk"
+  Delete   "$SMPROGRAMS\${name}\Heat Wizard Release Notes 0.3.1.lnk"
   RMDir    "$SMPROGRAMS\${name}"
   Delete   "$INSTDIR\${name}.exe"
-  Delete   "$INSTDIR\Heat Wizard Release Notes 0.3.0.txt"
+  Delete   "$INSTDIR\Heat Wizard Release Notes 0.3.1.txt"
   Delete    $INSTDIR\uninstall.exe
   RMDir     $INSTDIR
 SectionEnd

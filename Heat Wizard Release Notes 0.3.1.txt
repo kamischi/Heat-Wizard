@@ -1,0 +1,10 @@
+For now (30/Dec/2009), version 0.3.1 is for Windows, Mac OS X and Linux.
+The linux tarball may also work on unixoides, such as FreeBSD.
+
+Usage related changes in version 0.3.1:
+
+New:
+* 
+
+Have fun - Karl-Michael Schindler
+karl-michael.schindler@web.de

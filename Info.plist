@@ -19,9 +19,9 @@
 	<key>CFBundleSignature</key>
 	<string>HEAT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3.0</string>
+	<string>0.3.1</string>
 	<key>CFBundleVersion</key>
-	<string>0.3.0</string>
+	<string>0.3.1</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Heat Wizard, a thermocouple voltage - temperature converter</string>
 	<key>CSResourcesFileMapped</key>
