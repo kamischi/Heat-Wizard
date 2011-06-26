@@ -1,0 +1,62 @@
+#: Form1:VoltageEdit
+msgid "Voltage"
+msgstr "Voltaggio"
+
+#: Form1:TemperatureCelsiusEdit
+msgid "Temperature"
+msgstr "Temperatura:"
+
+#: Form1:ReferenceCelsiusEdit
+msgid "Reference Temperature"
+msgstr "Unità di _temperatura:"
+
+#: Form1:QuitButton
+msgid "Quit"
+msgstr "Chiudi"
+
+#: Form1:TypeBox.Text
+msgid "Type"
+msgstr "Tipo"
+
+#: Form1:Warning
+msgid "illegal input try again"
+msgstr "Passphrase non valida; riprova"
+
+#: Form1:Thermocouple
+msgid "Thermocouple"
+msgstr "Thermocouple"
+
+#: AboutForm:AboutText
+msgid "About Text"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages\na temperatures e vice versa.\nAuteur: K.-M. Schindler\nLicence: GPL"
+
+#: PreferencesForm:AboutText
+msgid "Language:"
+msgstr "Lingua"
+
+#: DoneButton
+msgid "Done"
+msgstr "fatto"
+
+#: Languages
+msgid "English"
+msgstr "Inglese"
+
+msgid "German"
+msgstr "Tedesco"
+
+msgid "Finnish"
+msgstr "Finlandese"
+
+msgid "Spanish"
+msgstr "Spagnolo"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "Greek"
+msgstr "Greco"
+
+msgid "French"
+msgstr "Francese"
+

@@ -1,0 +1,300 @@
+object MainForm: TMainForm
+  Left = 397
+  Height = 195
+  Top = 134
+  Width = 380
+  HorzScrollBar.Page = 359
+  HorzScrollBar.Range = 304
+  VertScrollBar.Page = 194
+  VertScrollBar.Range = 167
+  ActiveControl = VoltageEdit
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Heat Wizard'
+  ClientHeight = 195
+  ClientWidth = 380
+  Color = clNone
+  Constraints.MaxHeight = 195
+  Constraints.MaxWidth = 480
+  Constraints.MinHeight = 195
+  Constraints.MinWidth = 380
+  Font.Color = 10611436
+  OnChangeBounds = FormResize
+  OnCreate = FormCreate
+  OnMouseMove = FormMouseMove
+  OnPaint = FormPaint
+  OnResize = FormResize
+  LCLVersion = '0.9.30'
+  Visible = True
+  object PreferenceCircle: TShape
+    Left = 361
+    Height = 16
+    Top = 176
+    Width = 16
+    Brush.Color = 6249937
+    Brush.Style = bsClear
+    Pen.Color = clNone
+    Pen.Style = psClear
+    OnMouseMove = PreferenceCircleMouseMove
+    Shape = stCircle
+  end
+  object InfoCircle: TShape
+    Left = 360
+    Height = 16
+    Top = 6
+    Width = 16
+    Brush.Color = 6249937
+    Brush.Style = bsClear
+    Pen.Color = clNone
+    Pen.Style = psClear
+    OnMouseMove = InfoCircleMouseMove
+    Shape = stCircle
+  end
+  object Label1: TLabel
+    Left = 104
+    Height = 17
+    Top = 32
+    Width = 22
+    Caption = 'mV'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 104
+    Height = 17
+    Top = 93
+    Width = 16
+    Caption = '°C'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 233
+    Height = 17
+    Top = 93
+    Width = 16
+    Caption = '°C'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 104
+    Height = 17
+    Top = 125
+    Width = 9
+    Caption = 'K'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 233
+    Height = 17
+    Top = 125
+    Width = 9
+    Caption = 'K'
+    ParentColor = False
+  end
+  object InfoButton: TLabel
+    Left = 365
+    Height = 14
+    Top = 6
+    Width = 15
+    AutoSize = False
+    Caption = 'i'
+    Font.Color = 10611436
+    Font.Style = [fsItalic]
+    ParentColor = False
+    ParentFont = False
+    OnClick = InfoButtonClick
+    OnMouseMove = InfoCircleMouseMove
+  end
+  object PreferenceButton: TLabel
+    Left = 365
+    Height = 17
+    Top = 174
+    Width = 9
+    Caption = 'p'
+    Font.Color = 10611436
+    Font.Style = [fsItalic]
+    ParentColor = False
+    ParentFont = False
+    OnClick = PreferenceButtonClick
+    OnMouseMove = PreferenceCircleMouseMove
+  end
+  object Warning: TLabel
+    Left = 304
+    Height = 80
+    Top = 30
+    Width = 75
+    AutoSize = False
+    Caption = 'illegal input! try again! '
+    ParentColor = False
+    Visible = False
+  end
+  object TemperatureKelvinEdit: TEdit
+    Left = 24
+    Height = 22
+    Top = 120
+    Width = 72
+    Color = clNone
+    Font.Color = 3168345
+    OnKeyDown = TemperatureKelvinEditKeyDown
+    ParentFont = False
+    TabOrder = 2
+    Text = '298.15'
+  end
+  object ReferenceKelvinEdit: TEdit
+    Left = 152
+    Height = 22
+    Top = 120
+    Width = 72
+    Color = clNone
+    Font.Color = 3168345
+    OnKeyDown = ReferenceKelvinEditKeyDown
+    ParentFont = False
+    TabOrder = 7
+    Text = '298.15'
+  end
+  object VoltageEdit: TLabeledEdit
+    Left = 24
+    Height = 22
+    Top = 30
+    Width = 72
+    Color = clNone
+    EditLabel.AnchorSideLeft.Control = VoltageEdit
+    EditLabel.AnchorSideBottom.Control = VoltageEdit
+    EditLabel.Left = 24
+    EditLabel.Height = 17
+    EditLabel.Top = 10
+    EditLabel.Width = 49
+    EditLabel.Caption = 'Voltage'
+    EditLabel.ParentColor = False
+    Font.Color = 3168345
+    ParentFont = False
+    TabOrder = 0
+    Text = '0.000'
+    OnKeyDown = VoltageEditKeyDown
+  end
+  object TemperatureCelsiusEdit: TLabeledEdit
+    Left = 24
+    Height = 22
+    Top = 88
+    Width = 72
+    Color = clNone
+    EditLabel.AnchorSideLeft.Control = TemperatureCelsiusEdit
+    EditLabel.AnchorSideBottom.Control = TemperatureCelsiusEdit
+    EditLabel.Left = 24
+    EditLabel.Height = 17
+    EditLabel.Top = 68
+    EditLabel.Width = 82
+    EditLabel.Caption = 'Temperature'
+    EditLabel.ParentColor = False
+    Font.Color = 3168345
+    ParentFont = False
+    TabOrder = 1
+    Text = '25.00'
+    OnKeyDown = TemperatureCelsiusEditKeyDown
+  end
+  object ReferenceCelsiusEdit: TLabeledEdit
+    Left = 152
+    Height = 22
+    Top = 88
+    Width = 72
+    Color = clNone
+    EditLabel.AnchorSideLeft.Control = ReferenceCelsiusEdit
+    EditLabel.AnchorSideBottom.Control = ReferenceCelsiusEdit
+    EditLabel.Left = 152
+    EditLabel.Height = 17
+    EditLabel.Top = 68
+    EditLabel.Width = 148
+    EditLabel.Caption = 'Reference Temperature'
+    EditLabel.ParentColor = False
+    Font.Color = 3168345
+    ParentFont = False
+    TabOrder = 4
+    Text = '25.00'
+    OnKeyDown = ReferenceCelsiusEditKeyDown
+  end
+  object TypeBox: TComboBox
+    Left = 152
+    Height = 20
+    Top = 30
+    Width = 95
+    Font.Color = 3168345
+    ItemHeight = 0
+    Items.Strings = (
+      'Type B'
+      'Type E'
+      'Type J'
+      'Type K'
+      'Type N'
+      'Type R'
+      'Type S'
+      'Type T'
+    )
+    MaxLength = 65535
+    OnChange = TypeBoxChange
+    ParentFont = False
+    Style = csDropDownList
+    TabOrder = 5
+    TabStop = False
+  end
+  object QuitButton: TButton
+    Left = 280
+    Height = 20
+    Top = 152
+    Width = 75
+    Caption = 'Quit'
+    Font.Color = 3168345
+    OnClick = QuitButtonClick
+    ParentFont = False
+    TabOrder = 6
+    TabStop = False
+  end
+  object TemperatureFahrenheitEdit: TEdit
+    Left = 24
+    Height = 22
+    Top = 152
+    Width = 72
+    Color = clNone
+    Font.Color = 3168345
+    OnKeyDown = TemperatureFahrenheitEditKeyDown
+    ParentFont = False
+    TabOrder = 3
+    Text = '77.00'
+  end
+  object Label6: TLabel
+    Left = 104
+    Height = 17
+    Top = 157
+    Width = 14
+    Caption = '°F'
+    ParentColor = False
+  end
+  object ReferenceFahrenheitEdit: TEdit
+    Left = 152
+    Height = 22
+    Top = 152
+    Width = 72
+    Color = clNone
+    Font.Color = 3168345
+    OnKeyDown = ReferenceFahrenheitEditKeyDown
+    ParentFont = False
+    TabOrder = 8
+    Text = '77.00'
+  end
+  object Label7: TLabel
+    Left = 233
+    Height = 17
+    Top = 157
+    Width = 14
+    Caption = '°F'
+    ParentColor = False
+  end
+  object ThermocoupleLabel: TLabel
+    Left = 152
+    Height = 17
+    Top = 10
+    Width = 92
+    Caption = 'Thermocouple'
+    Font.Color = 10611436
+    ParentColor = False
+    ParentFont = False
+  end
+end

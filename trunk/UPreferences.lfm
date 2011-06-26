@@ -1,0 +1,59 @@
+object PreferencesForm: TPreferencesForm
+  Left = 397
+  Height = 195
+  Top = 134
+  Width = 380
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Heat Wizard Preferences'
+  ClientHeight = 195
+  ClientWidth = 380
+  Font.Color = 10611436
+  OnChangeBounds = FormResize
+  OnCreate = FormCreate
+  OnPaint = FormPaint
+  OnResize = FormResize
+  LCLVersion = '0.9.30'
+  Visible = True
+  object DoneButton: TButton
+    Left = 152
+    Height = 20
+    Top = 144
+    Width = 75
+    Caption = 'Done'
+    Font.Color = 3168345
+    Font.Height = -12
+    OnClick = DoneButtonClick
+    ParentFont = False
+    TabOrder = 0
+  end
+  object LanguageComboBox: TComboBox
+    Left = 88
+    Height = 21
+    Top = 14
+    Width = 119
+    Font.Color = 3168345
+    ItemHeight = 13
+    Items.Strings = (
+      'English'
+      'German'
+      'Finnish'
+      'French'
+    )
+    MaxLength = 65535
+    OnSelect = LanguageComboBoxSelect
+    ParentFont = False
+    Style = csDropDownList
+    TabOrder = 1
+  end
+  object LanguageLabel: TLabel
+    Left = 16
+    Height = 14
+    Top = 16
+    Width = 52
+    Caption = 'Language:'
+    Font.Color = 10611436
+    ParentColor = False
+    ParentFont = False
+  end
+end

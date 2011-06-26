@@ -1,0 +1,55 @@
+.TH "heatwizard" "1" "Version 0.3.0" "heatwizard(1)" "User Manuals"
+.SH "NAME"
+.LP 
+\fBheatwizard\fR \- converts a themocouple voltage to a temperature and vice versa
+.SH "SYNTAX"
+.LP 
+\fBheatwizard\fR [\fIoptions\fP]
+.SH "DESCRIPTION"
+.LP 
+\fBheatwizard\fR is a tool to convert the voltage from a thermocouple to the temperature and vice versa.
+.SH "OPTIONS"
+.LP 
+.TP 
+\fB\-h -\-help -?\fR
+display the usage text.
+.TP 
+\fB\-v -\-version\fR
+Version of heatwizard.
+.TP 
+\fB\-s -\-short\fR
+short version of result: Value only without unit nor echo of input.
+.TP 
+\fB\-t -\-temperature\fR
+the temperature of the thermocouple.
+.TP 
+\fB\-r -\-reference\fR
+the temperature of the reference junction.
+.TP 
+\fB\-u -\-unit\fR
+the unit of the temperature (K, C or F).
+.TP 
+\fB\-v -\-voltage\fR
+the voltage in mV.
+.TP 
+\fB\-T -\-type\fR
+the type of the thermocouple (B, E, J, K, N, R, S or T).
+.SH "EXAMPLES"
+.LP 
+To convert the voltage to a temperature type:
+.LP 
+     heatwizard --reference=298 --voltage=-6.82 --unit=K
+.LP 
+To obtain the voltage for a given temperature type (short options work 
+with positive temperatures only.):
+.LP 
+     heatwizard -t 550 -r 21
+.SH "NOTES"
+.LP 
+The conversion functions are taken from NIST.
+.SH "AUTHOR"
+.LP 
+Karl\-Michael Schindler <karl\-michael.schindler AT web DOT de>>
+.SH "COPYRIGHT"
+.LP 
+GPLv3

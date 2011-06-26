@@ -1,0 +1,61 @@
+#: Form1:VoltageEdit
+msgid "Voltage"
+msgstr "Spannung"
+
+#: Form1:TemperatureCelsiusEdit
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: Form1:ReferenceCelsiusEdit
+msgid "Reference Temperature"
+msgstr "Referenz-Temperatur"
+
+#: Form1:QuitButton
+msgid "Quit"
+msgstr "Beenden"
+
+#: Form1:TypeBox.Text
+msgid "Type"
+msgstr "Typ"
+
+#: Form1:Warning
+msgid "illegal input try again"
+msgstr "Unzulässige\nEingabe!\nNoch\neinmal\nprobieren."
+
+#: Form1:Thermocouple
+msgid "Thermocouple"
+msgstr "Thermoelement"
+
+#: AboutForm:AboutText
+msgid "About Text"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard konvertiert die Spannung\neines Thermoelements in eine Temperatur\nund umgekehrt.\nAutor: K.-M. Schindler\nLizenz: GPL"
+
+#: PreferencesForm:AboutText
+msgid "Language:"
+msgstr "Sprache:"
+
+#: DoneButton
+msgid "Done"
+msgstr "Zurück"
+
+#: Languages
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Finnish"
+msgstr "Finnisch"
+
+msgid "Spanish"
+msgstr "Spanisch"
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Greek"
+msgstr "Griechisch"
+
+msgid "French"
+msgstr "Französisch"
