@@ -1,6 +1,5 @@
-For now (30/Dec/2009), version 0.3.0 is Windows, 
-Mac OS X and Linux. The linux tarball may also  
-work on unixoides, such as FreeBSD.
+For now (30/Dec/2009), version 0.3.0 is for Windows, Mac OS X and Linux.
+The linux tarball may also work on unixoides, such as FreeBSD.
 
 Usage related changes in version 0.3.0:
 
@@ -13,3 +12,4 @@ New:
 * gradient background in about and preference forms
 
 Have fun - Karl-Michael Schindler
+karl-michael.schindler@web.de
