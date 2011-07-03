@@ -171,20 +171,20 @@ begin
     end
     else
     begin
-  try
-    MOFile := TMOFile.Create(LanguageFilePath);
-  except
-   on EMOFileError do
-     Logger.Output ('AboutForm', 'Invalid .mo file header');
-  end;
-  if assigned(MOFile) then
-  begin
-    AboutLabel.Caption  := MOFile.translate('About Text');
-    AboutLabel.Caption  := StringReplace(AboutLabel.Caption, 'Placeholder', Version, []);
-    DoneButton.Caption := MOFile.translate('Done');
-    MOFile.Destroy;
-  end;
-  end;
+      try
+        MOFile := TMOFile.Create(LanguageFilePath);
+      except
+       on EMOFileError do
+         Logger.Output ('AboutForm', 'Invalid .mo file header');
+      end;
+      if assigned(MOFile) then
+      begin
+        AboutLabel.Caption  := MOFile.translate('About Text');
+        AboutLabel.Caption  := StringReplace(AboutLabel.Caption, 'Placeholder', Version, []);
+        DoneButton.Caption := MOFile.translate('Done');
+        MOFile.Destroy;
+      end;
+    end;
   end;
 end;
 
