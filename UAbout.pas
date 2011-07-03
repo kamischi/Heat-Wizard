@@ -116,8 +116,10 @@ begin
 end;
 
 procedure TAboutForm.TranslateTexts(const locale: string);
+{$IF Defined(Windows)}
 const
   NonGlobalDirectory = false;
+{$IFEND}
 var
   MOFile:           TMOFile;
   LanguageFileDir:  string;

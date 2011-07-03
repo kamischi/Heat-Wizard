@@ -38,7 +38,7 @@ type
   TLogger = class
   public
     constructor Create;
-    destructor Destroy;
+    destructor Destroy; override;
     procedure Output(const Position, Message: string);
   end;
 
@@ -85,7 +85,7 @@ function GetPathToUserLibraryFolder: string;
     begin
       writeln ('FSRefMakePath Error (check MacErrors.h): ', Error);
       if Error = -2110 then
-        writeln ('Length of path name is to short. Increase PathNameLength.');
+        writeln ('Length of path name is to short. Increase PathNameLength in function GetPathToUserLibraryFolder of unit ULog.');
       exit;
     end;
     writeln (Path);
@@ -94,7 +94,7 @@ function GetPathToUserLibraryFolder: string;
 {$IFEND}
 
 {$IF Defined(WINDOWS)}
-  function SetApplicationName: string;
+function SetApplicationName: string;
   begin
     SetApplicationName := 'Heat Wizard';
   end;
@@ -151,8 +151,8 @@ procedure TLogger.Output(const Position, Message: string);
 
 destructor TLogger.Destroy;
   begin
-    Inherited;
     Close(LogFile);
+    Inherited Destroy;
   end;
 
 end.

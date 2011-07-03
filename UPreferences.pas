@@ -137,9 +137,9 @@ end;
 procedure TPreferencesForm.TranslateTexts(const locale: string);
 var
   MOFile:           TMOFile;
-  LanguageFileDir:  string;
-  LanguageFilePath: string;
-  CurrentPath:      string;
+  LanguageFileDir:  string = '';
+  LanguageFilePath: string = '';
+  CurrentPath:      string = '';
   index:            integer;
 {$IF Defined(DARWIN)}
 function getApplicationResourcesDirPath: string;

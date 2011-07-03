@@ -42,7 +42,6 @@ type
       Top, Left: integer
     end;
     constructor Create;
-    destructor Destroy;
     procedure Save;
     procedure Read;
   end;
@@ -66,11 +65,6 @@ constructor TPreferenceData.Create;
 begin
   Inherited;
   Logger.Output('UPreferenceData', 'Create');
-end;
-
-destructor TPreferenceData.Destroy;
-begin
-  Inherited;
 end;
 
 procedure TPreferenceData.Read;
