@@ -71,7 +71,9 @@ type
     PreferenceCircle:          TShape;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
+    procedure LayoutClick(Sender: TObject);
     procedure TypeBoxChange(Sender: TObject);
     procedure VoltageEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ReferenceCelsiusEditKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -188,6 +190,11 @@ begin
   PreferenceData.Save;
 end;
 
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+    ApplicationMenu.Caption := '';
+end;
+
 procedure TMainForm.UpdateDisplay;
 begin
   VoltageEdit.Text               := FormatFloat('0.000', Voltage);
@@ -281,10 +288,10 @@ begin
         TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
         ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
         ThermocoupleLabel.Caption                := MOFile.translate('Thermocouple');
-        QuitButton.Caption := MOFile.translate('Quit');
+        QuitButton.Caption                       := MOFile.translate('Quit');
         for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
           TypeBox.Items.Strings[index] := MOFile.translate('Type') + ' ' + GetEnumName(TypeInfo(TThermoElementType), index);
-        Warning.Caption    := MOFile.translate('illegal input try again');
+        Warning.Caption                          := MOFile.translate('illegal input try again');
         MOFile.Destroy;
       end;
     end;
@@ -352,6 +359,14 @@ begin
   InfoCircle.Brush.Style := bsClear;
 end;
 
+procedure TMainForm.LayoutClick(Sender: TObject);
+begin
+  AboutForm.Left         := MainForm.Left;
+  AboutForm.Top          := MainForm.Top;
+  AboutForm.Visible      := true;
+  MainForm.Visible       := false;
+end;
+
 procedure TMainForm.TypeBoxChange(Sender: TObject);
 begin
   ThermoCouple.ThermoElementType := TThermoElementType(TypeBox.ItemIndex);
@@ -376,7 +391,7 @@ begin
   InfoCircle.Brush.Style       := bsClear;
 end;
 
-function RGB(const R, G, B: Word): Integer;
+function RGB(const R, G, B: Word): integer; inline;
 begin
   RGB := R*256*256 + G*256 + B;
 end;

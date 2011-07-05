@@ -90,7 +90,7 @@ begin
   Visible := false;
 end;
 
-function RGB(const R, G, B: Word): Integer;
+function RGB(const R, G, B: Word): integer; inline;
 begin
   RGB := R*256*256 + G*256 + B;
 end;

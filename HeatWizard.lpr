@@ -35,7 +35,7 @@ uses
   {$ENDIF}
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,
+  Forms, Classes, Menus,
   { you can add units after this }
   HeatWizardPanel,
   UAbout,
@@ -50,6 +50,8 @@ uses
 {$R HeatWizard.rc}
 {$R Icon.rc}
 {$ENDIF}
+
+{$R *.res}
 
 begin
   Application.Title:='Heat Wizard';

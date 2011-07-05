@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 397
+  Left = 369
   Height = 195
-  Top = 134
+  Top = 143
   Width = 380
   HorzScrollBar.Page = 359
   HorzScrollBar.Range = 304
@@ -24,6 +24,7 @@ object MainForm: TMainForm
   OnMouseMove = FormMouseMove
   OnPaint = FormPaint
   OnResize = FormResize
+  OnShow = FormShow
   LCLVersion = '0.9.30'
   Visible = True
   object PreferenceCircle: TShape
@@ -168,7 +169,6 @@ object MainForm: TMainForm
     Font.Color = 3168345
     ParentFont = False
     TabOrder = 0
-    Text = '0.000'
     OnKeyDown = VoltageEditKeyDown
   end
   object TemperatureCelsiusEdit: TLabeledEdit

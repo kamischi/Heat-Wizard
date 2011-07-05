@@ -29,11 +29,11 @@ object PreferencesForm: TPreferencesForm
   end
   object LanguageComboBox: TComboBox
     Left = 88
-    Height = 21
+    Height = 20
     Top = 14
     Width = 119
     Font.Color = 3168345
-    ItemHeight = 13
+    ItemHeight = 0
     Items.Strings = (
       'English'
       'German'
@@ -48,9 +48,9 @@ object PreferencesForm: TPreferencesForm
   end
   object LanguageLabel: TLabel
     Left = 16
-    Height = 14
+    Height = 17
     Top = 16
-    Width = 52
+    Width = 66
     Caption = 'Language:'
     Font.Color = 10611436
     ParentColor = False

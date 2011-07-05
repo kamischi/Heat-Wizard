@@ -76,7 +76,7 @@ uses
 procedure TAboutForm.FormCreate(Sender: TObject);
 begin
   TranslateTexts(LanguageShortString[Language]);
-  DoneButton.Height := PF_ButtonHeight;
+  DoneButton.Height    := PF_ButtonHeight;
   AboutLabel.Font.Size := PF_AboutTextFontSize;
   Visible := false;
 end;
@@ -90,7 +90,7 @@ begin
   AboutForm.Visible := false;
 end;
 
-function RGB(const R, G, B: Word): Integer;
+function RGB(const R, G, B: Word): integer; inline;
 begin
   RGB := R*256*256 + G*256 + B;
 end;
