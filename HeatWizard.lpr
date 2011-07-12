@@ -42,7 +42,6 @@ uses
   ULog,
   UPreferences,
   UPreferenceData,
-  UPlatform,
   UThermoCouple;
 
 {$IFDEF WINDOWS}
