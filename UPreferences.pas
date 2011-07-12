@@ -171,7 +171,7 @@ const
 begin
   {$IF Defined(WINDOWS)}
   getApplicationResourcesDirPath := GetAppConfigDir(NonGlobalDirectory);
-  {$ELSE}
+  {$ELSEIF Defined(UNIX)}
   getApplicationResourcesDirPath := GetEnvironmentVariable('HOME') + '/.heatwizard/';
   {$IFEND}
 end;
@@ -179,7 +179,7 @@ end;
 begin
 {$IF Defined(WINDOWS)}
   LanguageFileDir := getApplicationResourcesDirPath + 'languages\' + locale + '\LC_MESSAGES\';
-{$ELSE}
+{$ELSEIF Defined(UNIX)}
   LanguageFileDir := getApplicationResourcesDirPath + 'languages/' + locale + '/LC_MESSAGES/';
 {$IFEND}
   if not DirectoryExists(LanguageFileDir) then

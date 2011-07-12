@@ -154,7 +154,7 @@ begin
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
 {$ELSEIF Defined(Windows)}
   LanguageFileDir := GetAppConfigDir(NonGlobalDirectory) + 'languages\' + locale + '\LC_MESSAGES\';
-{$ELSE}
+{$ELSEIF Defined(UNIX)}
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
 {$IFEND}
   if not DirectoryExists(LanguageFileDir) then

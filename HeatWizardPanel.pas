@@ -244,7 +244,7 @@ const
 begin
   getApplicationResourcesDirPath := GetAppConfigDir(NonGlobalDirectory);
 end;
-{$ELSE}
+{$ELSEIF Defined(UNIX)}
 function getApplicationResourcesDirPath: string;
 const
   NonGlobalDirectory = true;
@@ -259,7 +259,7 @@ begin
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
 {$ELSEIF Defined(WINDOWS)}
   LanguageFileDir := getApplicationResourcesDirPath + 'languages\'+ locale + '\LC_MESSAGES\';
-{$ELSE}
+{$ELSEIF Defined(UNIX)}
   LanguageFileBasePath := getApplicationResourcesDirPath + 'languages/';
   LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
 {$IFEND}

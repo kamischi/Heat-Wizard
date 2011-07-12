@@ -47,11 +47,10 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="29"/>
+        <TopLine Value="42"/>
         <CursorPos X="1" Y="43"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="HeatWizardPanel.pas"/>
@@ -59,11 +58,10 @@
         <ComponentName Value="MainForm"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HeatWizardPanel"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="108"/>
-        <CursorPos X="3" Y="121"/>
+        <TopLine Value="550"/>
+        <CursorPos X="23" Y="262"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
@@ -95,10 +93,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="53"/>
-        <CursorPos X="1" Y="70"/>
+        <TopLine Value="169"/>
+        <CursorPos X="23" Y="157"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="243"/>
         <Loaded Value="True"/>
@@ -111,11 +110,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPreferences"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="59"/>
-        <CursorPos X="3" Y="72"/>
+        <TopLine Value="199"/>
+        <CursorPos X="23" Y="182"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="242"/>
         <Loaded Value="True"/>
@@ -146,7 +144,7 @@
         <UnitName Value="ULog"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="32"/>
+        <TopLine Value="128"/>
         <CursorPos X="49" Y="108"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="231"/>
@@ -165,7 +163,7 @@
         <UnitName Value="UPreferenceData"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="47"/>
+        <TopLine Value="262"/>
         <CursorPos X="7" Y="61"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="206"/>
@@ -192,8 +190,8 @@
         <UnitName Value="UPlatform"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="54"/>
+        <TopLine Value="31"/>
+        <CursorPos X="23" Y="53"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
@@ -204,8 +202,9 @@
         <UnitName Value="UThermoCouple"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="27"/>
+        <TopLine Value="117"/>
         <CursorPos X="21" Y="38"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -231,8 +230,9 @@
         <UnitName Value="UConverter"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="77"/>
         <CursorPos X="1" Y="1"/>
+        <FoldState Value=" TL00Np"/>
         <UsageCount Value="212"/>
         <Loaded Value="True"/>
       </Unit17>
@@ -260,46 +260,46 @@
       <Unit21>
         <Filename Value="Temp2Volt.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
       </Unit21>
       <Unit22>
         <Filename Value="Parametervariable.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
       </Unit22>
       <Unit23>
         <Filename Value="Volt2Temp.inc"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
       </Unit23>
       <Unit24>
         <Filename Value="languages/heatwizard.es.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit24>
       <Unit25>
         <Filename Value="languages/heatwizard.fi.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit25>
       <Unit26>
         <Filename Value="languages/heatwizard.fr.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit26>
       <Unit27>
         <Filename Value="languages/heatwizard.gr.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit27>
       <Unit28>
         <Filename Value="languages/heatwizard.it.po"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit28>
       <Unit29>
