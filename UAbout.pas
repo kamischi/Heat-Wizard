@@ -180,8 +180,8 @@ begin
       end;
       if assigned(MOFile) then
       begin
-        AboutLabel.Caption  := MOFile.translate('About Text');
-        AboutLabel.Caption  := StringReplace(AboutLabel.Caption, 'Placeholder', Version, []);
+        AboutLabel.Caption := MOFile.translate('About Text');
+        AboutLabel.Caption := StringReplace(AboutLabel.Caption, 'Placeholder', Version, []);
         DoneButton.Caption := MOFile.translate('Done');
         MOFile.Destroy;
       end;

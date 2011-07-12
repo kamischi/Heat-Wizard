@@ -91,7 +91,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="108"/>
@@ -107,7 +107,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPreferences"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="92"/>
@@ -117,14 +117,11 @@
       </Unit5>
       <Unit6>
         <Filename Value="UPath.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UPath"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="234"/>
-        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="ULanguage.pas"/>
@@ -139,7 +136,7 @@
         <Filename Value="ULog.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ULog"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -181,6 +178,7 @@
       </Unit12>
       <Unit13>
         <Filename Value="UPlatform.pas"/>
+        <IsPartOfProject Value="True"/>
         <UnitName Value="UPlatform"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
@@ -219,7 +217,7 @@
         <Filename Value="UConverter.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UConverter"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>

@@ -1,4 +1,4 @@
-{* Copyright (C) 2009-2011 Karl-Michael Schindler
+{* Copyright (C) 2011 Karl-Michael Schindler
  *
  * This file is part of Heat Wizard.
  *
@@ -23,7 +23,7 @@
  * $Id$
  *}
 
-unit UPath;
+unit UPlatform;
 
 {$mode objfpc}
 {$H+}
@@ -31,21 +31,28 @@ unit UPath;
 interface
 
 uses
-  Classes,
-  SysUtils;
+  Classes, SysUtils; 
 
-{$IF Defined(MSWINDOWS)}
+{$IF Defined(WINDOWS)}
 const
+  PF_ButtonHeight = 20;
+  PF_AboutTextFontSize = 0;
   LanguageFileBasePath = 'languages';
 var
   PreferenceDirName:    string = '';
   PreferenceFileName:   string = 'heatwizard.xml';
 {$ELSEIF Defined(DARWIN)}
+const
+  PF_ButtonHeight = 20;
+  PF_AboutTextFontSize = 0;
 var
   PreferenceDirName:    string = '';
   PreferenceFileName:   string = '';
   LanguageFileBasePath: string;   // path is constructed in Translate
 {$ELSEIF Defined(UNIX)}
+const
+  PF_ButtonHeight = 22;
+  PF_AboutTextFontSize = -7;
 var
   PreferenceDirName:    string = '/.heatwizard/';     // GetEnvironmentVariable('HOME') added where used
   PreferenceFileName:   string = 'heatwizard.xml';
@@ -55,4 +62,3 @@ var
 implementation
 
 end.
-

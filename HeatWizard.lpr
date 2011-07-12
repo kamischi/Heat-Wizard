@@ -42,7 +42,7 @@ uses
   ULog,
   UPreferences,
   UPreferenceData,
-  UThermoCouple;
+  UThermoCouple, UPlatform;
 
 {$IFDEF WINDOWS}
 {$R HeatWizard.rc}

@@ -92,8 +92,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="169"/>
         <CursorPos X="23" Y="157"/>
@@ -109,7 +108,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UPreferences"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="199"/>
         <CursorPos X="23" Y="182"/>
@@ -119,7 +118,6 @@
       </Unit5>
       <Unit6>
         <Filename Value="UPath.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UPath"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
@@ -182,12 +180,16 @@
       </Unit12>
       <Unit13>
         <Filename Value="UPlatform.pas"/>
+        <IsPartOfProject Value="True"/>
         <UnitName Value="UPlatform"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="31"/>
-        <CursorPos X="23" Y="53"/>
+        <TopLine Value="1"/>
+        <CursorPos X="6" Y="53"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="207"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="UThermoCouple.pas"/>

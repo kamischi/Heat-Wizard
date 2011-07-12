@@ -62,7 +62,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="550"/>
         <CursorPos X="23" Y="262"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -93,7 +92,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="169"/>
@@ -114,14 +112,12 @@
         <WindowIndex Value="0"/>
         <TopLine Value="199"/>
         <CursorPos X="23" Y="182"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="242"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="UPath.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UPath"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
@@ -142,11 +138,10 @@
         <Filename Value="ULog.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ULog"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="128"/>
         <CursorPos X="49" Y="108"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="231"/>
         <Loaded Value="True"/>
       </Unit8>
@@ -165,7 +160,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="262"/>
         <CursorPos X="7" Y="61"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -188,10 +182,11 @@
         <Filename Value="UPlatform.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPlatform"/>
-        <EditorIndex Value="4"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="31"/>
-        <CursorPos X="23" Y="53"/>
+        <TopLine Value="1"/>
+        <CursorPos X="6" Y="53"/>
         <FoldState Value=" TL00Np"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
@@ -204,7 +199,6 @@
         <WindowIndex Value="0"/>
         <TopLine Value="117"/>
         <CursorPos X="21" Y="38"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -228,11 +222,10 @@
         <Filename Value="UConverter.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UConverter"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="77"/>
         <CursorPos X="1" Y="1"/>
-        <FoldState Value=" TL00Np"/>
         <UsageCount Value="212"/>
         <Loaded Value="True"/>
       </Unit17>
@@ -311,7 +304,7 @@
         <UsageCount Value="8"/>
       </Unit29>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="HeatWizardPanel.pas"/>
         <Caret Line="162" Column="1" TopLine="154"/>
@@ -409,29 +402,21 @@
         <Caret Line="67" Column="26" TopLine="43"/>
       </Position24>
       <Position25>
-        <Filename Value="UPreferenceData.pas"/>
-        <Caret Line="1" Column="1" TopLine="68"/>
-      </Position25>
-      <Position26>
-        <Filename Value="HeatWizardPanel.pas"/>
-        <Caret Line="171" Column="1" TopLine="551"/>
-      </Position26>
-      <Position27>
         <Filename Value="UAbout.pas"/>
         <Caret Line="47" Column="1" TopLine="34"/>
-      </Position27>
-      <Position28>
+      </Position25>
+      <Position26>
         <Filename Value="UPreferenceData.pas"/>
         <Caret Line="35" Column="3" TopLine="1"/>
-      </Position28>
-      <Position29>
+      </Position26>
+      <Position27>
         <Filename Value="HeatWizardPanel.pas"/>
         <Caret Line="1" Column="1" TopLine="1"/>
-      </Position29>
-      <Position30>
+      </Position27>
+      <Position28>
         <Filename Value="UPreferences.pas"/>
         <Caret Line="48" Column="1" TopLine="1"/>
-      </Position30>
+      </Position28>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

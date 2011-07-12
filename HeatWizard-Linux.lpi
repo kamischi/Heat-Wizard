@@ -16,7 +16,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="1"/>
-      <StringTable LegalCopyright="GPL v3"/>
+      <StringTable LegalCopyright="GPL v3" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="default" Default="True"/>
@@ -43,7 +43,7 @@
       <Unit0>
         <Filename Value="HeatWizard.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -57,7 +57,7 @@
         <ComponentName Value="MainForm"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HeatWizardPanel"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="528"/>
         <CursorPos X="1" Y="549"/>
@@ -148,14 +148,11 @@
       </Unit9>
       <Unit10>
         <Filename Value="UPath.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UPath"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="23"/>
         <CursorPos X="49" Y="42"/>
         <UsageCount Value="234"/>
-        <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="ULanguage.pas"/>
@@ -169,7 +166,7 @@
         <Filename Value="ULog.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ULog"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -179,7 +176,7 @@
       <Unit13>
         <Filename Value="version.inc"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="21" Y="2"/>
@@ -303,12 +300,12 @@
       </Unit29>
       <Unit30>
         <Filename Value="UPlatform.pas"/>
+        <IsPartOfProject Value="True"/>
         <UnitName Value="UPlatform"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="49" Y="19"/>
         <UsageCount Value="36"/>
-        <LoadedDesigner Value="True"/>
       </Unit30>
       <Unit31>
         <Filename Value="../../../../usr/lib/lazarus/lcl/interfaces/gtk/gtkwidgetset.inc"/>
