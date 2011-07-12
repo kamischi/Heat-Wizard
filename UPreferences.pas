@@ -69,7 +69,6 @@ uses
   HeatWizardPanel,
   UAbout,
   ULog,
-  UPath,
   UPlatform,
   UPreferenceData;
 

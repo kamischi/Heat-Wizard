@@ -118,7 +118,6 @@ uses
 {$IFEND}
   UAbout,
   ULog,
-  UPath,
   UPlatform,
   UPreferences,
   UPreferenceData;

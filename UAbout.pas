@@ -67,7 +67,6 @@ uses
 {$IFEND}
   HeatWizardPanel,
   ULog,
-  UPath,
   UPlatform,
   UPreferenceData;
 

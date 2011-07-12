@@ -58,8 +58,7 @@ uses
   {$ELSE}
   XMLConf,
   {$IFEND}
-  Ulog,
-  UPath;
+  Ulog;
 
 constructor TPreferenceData.Create;
 begin

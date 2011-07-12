@@ -40,7 +40,6 @@ uses
   HeatWizardPanel,
   UAbout,
   ULog,
-  UPath,
   UPreferences,
   UPreferenceData,
   UPlatform,

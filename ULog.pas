@@ -45,10 +45,6 @@ type
 var
   Logger: TLogger;
 
-{$IF Defined(DARWIN)}
-function GetPathToUserLibraryFolder: string;
-{$IFEND}
-
 implementation
 
 {$IF Defined(DARWIN)}
