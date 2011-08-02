@@ -1,61 +1,61 @@
 #: Form1:VoltageEdit
 msgid "Voltage"
-msgstr "Voltage"
+msgstr "Voltaje"
 
 #: Form1:TemperatureCelsiusEdit
 msgid "Temperature"
-msgstr "Temperature"
+msgstr "Temperatura"
 
 #: Form1:ReferenceCelsiusEdit
 msgid "Reference Temperature"
-msgstr "Reference Temperature"
+msgstr "Temperatura de Referencia"
 
 #: Form1:QuitButton
 msgid "Quit"
-msgstr "Quit"
+msgstr "Dejar"
 
 #: Form1:TypeBox.Text
 msgid "Type"
-msgstr "Type"
+msgstr "Tipo"
 
 #: Form1:Warning
 msgid "illegal input try again"
-msgstr "illegal\ninput!\ntry again!"
+msgstr "entrada\nilegal!\ninténtalo de nuevo!"
 
 #: Form1:Thermocouple
 msgid "Thermocouple"
-msgstr "Thermocouple"
+msgstr "Termopar"
 
 #: AboutForm:AboutText
 msgid "About Text"
-msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard converts thermocouple voltages\nto temperatures and vice versa.\nAuthor: K.-M. Schindler\nLicence: GPL"
+msgstr "Heat Wizard\nVersion: Placeholder\nHeat Wizard convierte los voltajes\nde termopares a temperaturas y viceversa.\nAutor: K.-M. Schindler\nLicencia: GPL"
 
 #: PreferencesForm:AboutText
 msgid "Language:"
-msgstr "Language:"
+msgstr "Lengua:"
 
 #: DoneButton
 msgid "Done"
-msgstr "Done"
+msgstr "Hecho"
 
 #: Languages
 msgid "English"
-msgstr "English"
+msgstr "Inglés"
 
 msgid "German"
-msgstr "German"
+msgstr "Alemán"
 
 msgid "Finnish"
-msgstr "Finnish"
+msgstr "Finlandés"
 
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Español"
 
 msgid "Italian"
-msgstr "Italian"
+msgstr "Italiano"
 
 msgid "Greek"
-msgstr "Greek"
+msgstr "Griego"
 
 msgid "French"
-msgstr "French"
+msgstr "Francés"

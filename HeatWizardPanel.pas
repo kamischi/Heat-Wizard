@@ -97,13 +97,13 @@ type
   end; 
 
 type
-  TLanguage = (en, de, fi, fr);
+  TLanguage = (en, de, es, fi, fr);
 
 var
   MainForm: TMainForm;
   Language: TLanguage;
-  LanguageLongString:  array[TLanguage] of string = ('English', 'German', 'Finnish', 'French');
-  LanguageShortString: array[TLanguage] of string = ('en', 'de', 'fi', 'fr');
+  LanguageLongString:  array[TLanguage] of string = ('English', 'German', 'Spanish', 'Finnish', 'French');
+  LanguageShortString: array[TLanguage] of string = ('en', 'de', 'es', 'fi', 'fr');
   ThermoCouple: TThermoCouple;
 
 implementation
@@ -151,14 +151,15 @@ begin
   Top  := PreferenceData.FormsPosition.Top;
   Left := PreferenceData.FormsPosition.Left;
 {$IF Defined(DARWIN)}
-  MainMenu := TMainMenu.Create(MainForm);
+  MainMenu := TMainMenu.Create(Self);
 
-  ApplicationMenu := TMenuItem.Create(MainMenu);
+//  ApplicationMenu := TMenuItem.Create(MainMenu);
+  ApplicationMenu := TMenuItem.Create(Self);
   ApplicationMenu.Caption := '';
   MainMenu.Items.add(ApplicationMenu);
 
   AboutMenu := TMenuItem.Create(ApplicationMenu);
-  AboutMenu.Caption := 'About Heat Wizard';
+  AboutMenu.Caption := 'About ' + Application.Title;
   ApplicationMenu.add(AboutMenu);
 
   LayoutLine := TMenuItem.Create(ApplicationMenu);
@@ -169,6 +170,7 @@ begin
   PreferencesMenu.Caption  := 'Preferences ...';
   PreferencesMenu.Shortcut := shortcut($BC, [ssMeta]);
   ApplicationMenu.add(PreferencesMenu);
+
 {$IFEND}
 
   ThermoCouple := TThermoCouple.Create;

@@ -2,7 +2,7 @@ PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
 MANDIR ?= $(PREFIX)/share/man
 
-LANGUAGES = en de fi fr
+LANGUAGES = en de es fi fr
 
 .PHONY: cli gui all clean install uninstall release
 

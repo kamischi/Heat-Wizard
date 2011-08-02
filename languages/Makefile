@@ -1,9 +1,9 @@
 #
-# Makefile to make the internationalization files for the resstr example
-# Add a 2 letter code when adding a language to DEMOLANGUAGES
+# Makefile to make the internationalization files for Heat Wizard
+# Add a 2 letter code when adding a language
 #
 
-LANGUAGES=en de fi fr
+LANGUAGES=en de fi fr es
 
 #
 # No need to add after this line.

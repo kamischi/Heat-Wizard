@@ -40,22 +40,22 @@ msgstr "OK"
 
 #: Languages
 msgid "English"
-msgstr "englanti"
+msgstr "Englanti"
 
 msgid "German"
-msgstr "saksa"
+msgstr "Saksa"
 
 msgid "Finnish"
-msgstr "suomi"
+msgstr "Suomi"
 
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Espanjalainen"
 
 msgid "Italian"
 msgstr "Italian"
 
 msgid "Greek"
-msgstr "Greek"
+msgstr "Kreikkalainen"
 
 msgid "French"
-msgstr "French"
+msgstr "Ranskan"
