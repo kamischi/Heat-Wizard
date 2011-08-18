@@ -11,7 +11,7 @@ LazarusResources.Add('TMainForm','FORMDATA',[
   +'raints.MinWidth'#3'|'#1#10'Font.Color'#4#236#234#161#0#14'OnChangeBounds'#7
   +#10'FormResize'#8'OnCreate'#7#10'FormCreate'#11'OnMouseMove'#7#13'FormMouseM'
   +'ove'#7'OnPaint'#7#9'FormPaint'#8'OnResize'#7#10'FormResize'#6'OnShow'#7#8'F'
-  +'ormShow'#10'LCLVersion'#6#6'0.9.30'#7'Visible'#9#0#6'TShape'#16'PreferenceC'
+  +'ormShow'#10'LCLVersion'#6#6'0.9.31'#7'Visible'#9#0#6'TShape'#16'PreferenceC'
   +'ircle'#4'Left'#3'i'#1#6'Height'#2#16#3'Top'#3#176#0#5'Width'#2#16#11'Brush.'
   +'Color'#4#209']_'#0#11'Brush.Style'#7#7'bsClear'#9'Pen.Color'#7#6'clNone'#9
   +'Pen.Style'#7#7'psClear'#11'OnMouseMove'#7#25'PreferenceCircleMouseMove'#5'S'

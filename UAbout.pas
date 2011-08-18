@@ -189,7 +189,7 @@ begin
   end;
 end;
 
-initialization
-  {$I UAbout.lrs}
+{$R *.lfm}
+
 end.
 

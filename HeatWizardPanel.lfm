@@ -9,7 +9,7 @@ object MainForm: TMainForm
   VertScrollBar.Range = 167
   ActiveControl = VoltageEdit
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsDialog
+  BorderStyle = bsToolWindow
   Caption = 'Heat Wizard'
   ClientHeight = 195
   ClientWidth = 380
@@ -24,7 +24,6 @@ object MainForm: TMainForm
   OnMouseMove = FormMouseMove
   OnPaint = FormPaint
   OnResize = FormResize
-  OnShow = FormShow
   LCLVersion = '0.9.30'
   Visible = True
   object PreferenceCircle: TShape

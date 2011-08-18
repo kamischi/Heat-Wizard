@@ -52,6 +52,7 @@ uses
 {$R *.res}
 
 begin
+//  RequireDerivedFormResource := True;
   Application.Title:='Heat Wizard';
   Logger := TLogger.Create;
 

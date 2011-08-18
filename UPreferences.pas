@@ -219,7 +219,7 @@ begin
   end;
 end;
 
-initialization
-  {$I UPreferences.lrs}
+{$R *.lfm}
+
 end.
 

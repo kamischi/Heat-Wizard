@@ -71,7 +71,6 @@ type
     PreferenceCircle:          TShape;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure InfoButtonClick(Sender: TObject);
     procedure LayoutClick(Sender: TObject);
     procedure TypeBoxChange(Sender: TObject);
@@ -153,8 +152,7 @@ begin
 {$IF Defined(DARWIN)}
   MainMenu := TMainMenu.Create(Self);
 
-//  ApplicationMenu := TMenuItem.Create(MainMenu);
-  ApplicationMenu := TMenuItem.Create(Self);
+  ApplicationMenu := TMenuItem.Create(MainMenu);
   ApplicationMenu.Caption := '';
   MainMenu.Items.add(ApplicationMenu);
 
@@ -189,11 +187,6 @@ begin
   PreferenceData.FormsPosition.Top  := Top;
   PreferenceData.FormsPosition.Left := Left;
   PreferenceData.Save;
-end;
-
-procedure TMainForm.FormShow(Sender: TObject);
-begin
-    ApplicationMenu.Caption := '';
 end;
 
 procedure TMainForm.UpdateDisplay;
@@ -572,7 +565,7 @@ begin
   end;
 end;
 
-initialization
-  {$I HeatWizardPanel.lrs}
+{$R *.lfm}
+
 end.
 
