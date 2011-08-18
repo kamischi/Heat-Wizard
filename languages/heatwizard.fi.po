@@ -1,3 +1,11 @@
+#: MainMenu:About
+msgid "About "
+msgstr "Noin "
+
+#: MainMenu:Preferences
+msgid "Preferences ..."
+msgstr "Asetukset ..."
+
 #: Form1:VoltageEdit
 msgid "Voltage"
 msgstr "Jännite"

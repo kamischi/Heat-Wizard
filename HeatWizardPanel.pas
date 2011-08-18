@@ -292,6 +292,10 @@ begin
         for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
           TypeBox.Items.Strings[index] := MOFile.translate('Type') + ' ' + GetEnumName(TypeInfo(TThermoElementType), index);
         Warning.Caption                          := MOFile.translate('illegal input try again');
+        {$IF Defined(DARWIN)}
+        AboutMenu.Caption := MOFile.translate('About ') + Application.Title;
+        PreferencesMenu.Caption  := MOFile.translate('Preferences ...');
+        {$IFEND}
         MOFile.Destroy;
       end;
     end;

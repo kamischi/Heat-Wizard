@@ -1,3 +1,11 @@
+#: MainMenu:About
+msgid "About "
+msgstr "Περίπου "
+
+#: MainMenu:Preferences
+msgid "Preferences ..."
+msgstr "Προτιμήσεις ..."
+
 #: Form1:VoltageEdit
 msgid "Voltage"
 msgstr "Voltage"
