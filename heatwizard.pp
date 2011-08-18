@@ -49,15 +49,15 @@ procedure writeUsage;
 begin
   writeln ('heatwizard: converts a themocouple voltage to a temperature and vice versa.');
   writeln ('Version: ', version);
-  writeln ('Usage: heatwizard [-hrstuvTV]');
+  writeln ('Usage: heatwizard [-hTRUVtsv]');
   writeln ('         [--help]');
-  writeln ('         [--version]');
-  writeln ('         [--short]');
   writeln ('         [--temperature=<temperature>]');
   writeln ('         [--reference=<reference temperature>]');
-  writeln ('         [--voltage=<thermovoltage>]');
   writeln ('         [--unit=<temperature unit (C, K, F)>]');
+  writeln ('         [--voltage=<thermovoltage>]');
   writeln ('         [--type=<thermocouple type (B, E, J, K, N, R, S, T)>]');
+  writeln ('         [--short]');
+  writeln ('         [--version]');
 end;
 
 begin
@@ -65,13 +65,13 @@ begin
   CommandlineHandler.Debug := false;
   CommandlineHandler.AddOption('-h', '--help', TNone);
   CommandlineHandler.AddOption('-?', TNone);
-  CommandlineHandler.AddOption('-t', '--temperature', '', TRealOptional);
-  CommandlineHandler.AddOption('-r', '--reference',   '', TRealOptional);
-  CommandlineHandler.AddOption('-u', '--unit',        '', TCharOptional);
-  CommandlineHandler.AddOption('-v', '--voltage',     '', TRealOptional);
-  CommandlineHandler.AddOption('-T', '--type',        '', TCharOptional);
+  CommandlineHandler.AddOption('-T', '--temperature', '', TRealOptional);
+  CommandlineHandler.AddOption('-R', '--reference',   '', TRealOptional);
+  CommandlineHandler.AddOption('-U', '--unit',        '', TCharOptional);
+  CommandlineHandler.AddOption('-V', '--voltage',     '', TRealOptional);
+  CommandlineHandler.AddOption('-t', '--type',        '', TCharOptional);
   CommandlineHandler.AddOption('-s', '--short', TNone);
-  CommandlineHandler.AddOption('-V', '--version', TNone);
+  CommandlineHandler.AddOption('-v', '--version', TNone);
   temperature := 25.0;
   reference   := 25.0;
   tempUnit    :=  'C';
@@ -85,14 +85,14 @@ begin
      and not ( CommandlineHandler.GetOptionIsSet('?') ) then
   begin
     Evaluate := [Ttemperature, Treference, Tvoltage];
-    if CommandlineHandler.GetOptionIsSet('V', 'version') then
+    if CommandlineHandler.GetOptionIsSet('v', 'version') then
     begin
       writeln ('Version: ', version);
       exit;
     end;
-    if CommandlineHandler.GetOptionIsSet('u', 'unit') then
+    if CommandlineHandler.GetOptionIsSet('U', 'unit') then
     begin
-      optionValueString :=  CommandlineHandler.GetOptionValue('u', 'unit');
+      optionValueString :=  CommandlineHandler.GetOptionValue('U', 'unit');
       if length (optionValueString) >= 1 then
         tempUnit :=  optionValueString[1];
       case tempUnit of
@@ -107,26 +107,27 @@ begin
                temperature    := temperature * double(1.8) + double(32.0);
               end;
         'C' : tempUnitString := '°C';
+	else  tempUnitString := '°C';
       end;
     end;
-    if CommandlineHandler.GetOptionIsSet('t', 'temperature') then
+    if CommandlineHandler.GetOptionIsSet('T', 'temperature') then
     begin
-      temperature := strToFloat(CommandlineHandler.GetOptionValue('t', 'temperature'));
-      Evaluate    := Evaluate - [Ttemperature];
+      if TryStrToFloat(CommandlineHandler.GetOptionValue('T', 'temperature'), temperature) then
+        Evaluate := Evaluate - [Ttemperature];
     end;
-    if CommandlineHandler.GetOptionIsSet('r', 'reference') then
+    if CommandlineHandler.GetOptionIsSet('R', 'reference') then
     begin
-      reference   := strToFloat(CommandlineHandler.GetOptionValue('r', 'reference'));
-      Evaluate    := Evaluate - [Treference];
+      if TryStrToFloat(CommandlineHandler.GetOptionValue('R', 'reference'), reference) then
+        Evaluate := Evaluate - [Treference];
     end;
-    if CommandlineHandler.GetOptionIsSet('v', 'voltage') then
+    if CommandlineHandler.GetOptionIsSet('V', 'voltage') then
     begin
-      voltage     := strToFloat(CommandlineHandler.GetOptionValue('v', 'voltage'));
-      Evaluate    := Evaluate - [Tvoltage];
+      if TrystrToFloat(CommandlineHandler.GetOptionValue('V', 'voltage'), voltage) then
+        Evaluate := Evaluate - [Tvoltage];
     end;
-    if CommandlineHandler.GetOptionIsSet('T', 'type') then
+    if CommandlineHandler.GetOptionIsSet('t', 'type') then
     begin
-      optionValueString :=  CommandlineHandler.GetOptionValue('T', 'type');
+      optionValueString :=  CommandlineHandler.GetOptionValue('t', 'type');
       if length (optionValueString) >= 1 then
         coupleType :=  optionValueString[1];
     end;

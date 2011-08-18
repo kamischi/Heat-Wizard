@@ -20,19 +20,19 @@ Version of heatwizard.
 \fB\-s -\-short\fR
 short version of result: Value only without unit nor echo of input.
 .TP 
-\fB\-t -\-temperature\fR
+\fB\-T -\-temperature\fR
 the temperature of the thermocouple.
 .TP 
-\fB\-r -\-reference\fR
+\fB\-R -\-reference\fR
 the temperature of the reference junction.
 .TP 
-\fB\-u -\-unit\fR
+\fB\-U -\-unit\fR
 the unit of the temperature (K, C or F).
 .TP 
-\fB\-v -\-voltage\fR
+\fB\-V -\-voltage\fR
 the voltage in mV.
 .TP 
-\fB\-T -\-type\fR
+\fB\-t -\-type\fR
 the type of the thermocouple (B, E, J, K, N, R, S or T).
 .SH "EXAMPLES"
 .LP 
@@ -43,7 +43,7 @@ To convert the voltage to a temperature type:
 To obtain the voltage for a given temperature type (short options work 
 with positive temperatures only.):
 .LP 
-     heatwizard -t 550 -r 21
+     heatwizard -T 550 -R 21
 .SH "NOTES"
 .LP 
 The conversion functions are taken from NIST.
