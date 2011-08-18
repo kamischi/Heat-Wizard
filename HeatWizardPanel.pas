@@ -89,6 +89,10 @@ type
     procedure UpdateDisplay;
     procedure FormPaint(Sender: TObject);
     procedure TranslateTexts(const locale: string);
+    {$IF Defined(DARWIN)}
+    procedure AboutMenuClick(Sender: TObject);
+    procedure PreferencesMenuClick(Sender: TObject);
+    {$IFEND}
   private
     { private declarations }
   public
@@ -158,6 +162,7 @@ begin
 
   AboutMenu := TMenuItem.Create(ApplicationMenu);
   AboutMenu.Caption := 'About ' + Application.Title;
+  AboutMenu.OnClick := @AboutMenuClick;
   ApplicationMenu.add(AboutMenu);
 
   LayoutLine := TMenuItem.Create(ApplicationMenu);
@@ -167,6 +172,7 @@ begin
   PreferencesMenu := TMenuItem.Create(ApplicationMenu);
   PreferencesMenu.Caption  := 'Preferences ...';
   PreferencesMenu.Shortcut := shortcut($BC, [ssMeta]);
+  PreferencesMenu.OnClick  := @PreferencesMenuClick;
   ApplicationMenu.add(PreferencesMenu);
 
 {$IFEND}
@@ -359,6 +365,7 @@ begin
   AboutForm.Top          := MainForm.Top;
   AboutForm.Visible      := true;
   MainForm.Visible       := false;
+  InfoCircle.Brush.Style := bsClear;
 end;
 
 procedure TMainForm.TypeBoxChange(Sender: TObject);
@@ -563,6 +570,24 @@ begin
       Warning.Visible       := true;
     UpdateDisplay;
   end;
+end;
+
+procedure TMainForm.AboutMenuClick(Sender: TObject);
+begin
+  AboutForm.Left          := MainForm.Left;
+  AboutForm.Top           := MainForm.Top;
+  AboutForm.Visible       := true;
+  MainForm.Visible        := false;
+  PreferencesForm.Visible := false;
+end;
+
+procedure TMainForm.PreferencesMenuClick(Sender: TObject);
+begin
+  PreferencesForm.Left         := MainForm.Left;
+  PreferencesForm.Top          := MainForm.Top;
+  PreferencesForm.Visible      := true;
+  AboutForm.Visible            := false;
+  MainForm.Visible             := false;
 end;
 
 {$R *.lfm}
