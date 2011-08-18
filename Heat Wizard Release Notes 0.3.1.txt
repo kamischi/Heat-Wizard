@@ -1,10 +1,14 @@
-For now (30/Dec/2009), version 0.3.1 is for Windows, Mac OS X and Linux.
-The linux tarball may also work on unixoides, such as FreeBSD.
+For now (18/Aug/2011), version 0.3.1 is for Windows, Mac OS X and Linux.
+The linux tarball may also work on other unixoides, such as FreeBSD.
 
 Usage related changes in version 0.3.1:
 
 New:
-* About and Preferences Menus in Mac OS X
+* GUI program: About and Preferences Menus in Mac OS X
+* Commandline tool: case change of most options
+
+Fixed:
+* Commandline tool: catch missing numbers in input more graceful.
 
 Have fun - Karl-Michael Schindler
 karl-michael.schindler@web.de
