@@ -4,7 +4,7 @@ The linux tarball may also work on unixoides, such as FreeBSD.
 Usage related changes in version 0.3.1:
 
 New:
-* 
+* About and Preferences Menus in Mac OS X
 
 Have fun - Karl-Michael Schindler
 karl-michael.schindler@web.de
