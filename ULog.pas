@@ -61,6 +61,8 @@ var
 
 {$IF Defined(DARWIN)}
 // This is carbon and should be replaced by cocoa as soon as it is a default part of fpc
+// Hint:
+// To get the path to this directory use the NSLibraryDirectory search path key with the NSUserDomainMask domain.
 function GetPathToUserLibraryFolder: string;
   const
     PathNameLength = 200;
