@@ -31,7 +31,6 @@ unit ULog;
 interface
 
 uses
-  Classes,
   SysUtils;
 
 type

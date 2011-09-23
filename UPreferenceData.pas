@@ -31,7 +31,6 @@ unit UPreferenceData;
 interface
 
 uses
-  Classes,
   SysUtils;
 
 type

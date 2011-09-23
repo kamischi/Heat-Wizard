@@ -30,10 +30,6 @@ unit UThermoCouple;
 
 interface
 
-uses
-  Classes,
-  SysUtils;
-
 type
   TThermoElementType = (B, E, J, K, N, R, S, T);
   TThermoElementError = (NoError, ValueTooLow, ValueTooHigh);

@@ -31,7 +31,6 @@ unit UConverter;
 interface
 
 uses
-  Classes,
   UThermoCouple;
 
 type

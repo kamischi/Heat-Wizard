@@ -31,7 +31,7 @@ unit UPlatform;
 interface
 
 uses
-  Classes, SysUtils;
+  SysUtils;
 
 {$IF Defined(WINDOWS)}
 const
@@ -70,7 +70,6 @@ function getLanguageFilePath(language: string): string;
 implementation
 
 uses
-  FileUtil,
 {$IF Defined(DARWIN)}
   MacOSAll,
 {$IFEND}
