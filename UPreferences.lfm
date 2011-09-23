@@ -13,7 +13,7 @@ object PreferencesForm: TPreferencesForm
   OnCreate = FormCreate
   OnPaint = FormPaint
   OnResize = FormResize
-  LCLVersion = '0.9.31'
+  LCLVersion = '0.9.30'
   Visible = True
   object DoneButton: TButton
     Left = 152

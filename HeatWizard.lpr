@@ -41,8 +41,7 @@ uses
   UAbout,
   ULog,
   UPreferences,
-  UPreferenceData,
-  UThermoCouple, UPlatform;
+  UPreferenceData;
 
 {$IFDEF WINDOWS}
 {$R HeatWizard.rc}

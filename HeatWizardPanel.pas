@@ -116,9 +116,6 @@ implementation
 uses
   gettext,
   typinfo,
-{$IF Defined(DARWIN)}
-  MacOSAll,
-{$IFEND}
   UAbout,
   ULog,
   UPlatform,
@@ -174,7 +171,6 @@ begin
   PreferencesMenu.Shortcut := shortcut($BC, [ssMeta]);
   PreferencesMenu.OnClick  := @PreferencesMenuClick;
   ApplicationMenu.add(PreferencesMenu);
-
 {$IFEND}
 
   ThermoCouple := TThermoCouple.Create;
@@ -209,95 +205,40 @@ end;
 
 procedure TMainForm.TranslateTexts(const locale: string);
 var
-  MOFile          : TMOFile;
-  LanguageFileDir : string;
   LanguageFilePath: string;
+  MOFile          : TMOFile;
   index           : integer;
 
-{$IF Defined(DARWIN)}
-function getApplicationResourcesDirPath: string;
-const
-  PathNameLength = 2000;
-var
-  MainBundle:  CFBundleRef;
-  ResourceDir: CFURLRef;
-  Path:        PChar;
 begin
-  Path        := StrAlloc(PathNameLength);
-  MainBundle  := CFBundleGetMainBundle;
-  ResourceDir := CFBundleCopyResourcesDirectoryURL(MainBundle);
-  if ResourceDir = NIL then
+  LanguageFilePath := getLanguageFilePath(locale);
+  if not FileExists(LanguageFilePath) then
   begin
-    getApplicationResourcesDirPath := '';
-    Logger.Output ('MainForm', 'Could not find the Resources directory in the application bundle.');
+    Logger.Output ('MainForm', 'File ' + LanguageFilePath + ' not found!');
+    Logger.Output ('MainForm', 'Continuing with default language, i.e. English!');
   end
   else
   begin
-    CFURLGetFileSystemRepresentation(ResourceDir, true, Path, PathNameLength);
-    getApplicationResourcesDirPath := Path;
-    Logger.Output ('MainForm', 'Resources directory found as: ' + Path);
-  end;
-end;
-{$ELSEIF Defined(WINDOWS)}
-function getApplicationResourcesDirPath: string;
-const
-  NonGlobalDirectory = false;
-begin
-  getApplicationResourcesDirPath := GetAppConfigDir(NonGlobalDirectory);
-end;
-{$ELSEIF Defined(UNIX)}
-function getApplicationResourcesDirPath: string;
-const
-  NonGlobalDirectory = true;
-begin
-  getApplicationResourcesDirPath := GetEnvironmentVariable('HOME') + '/.heatwizard/';
-end;
-{$ENDIF}
-
-begin
-{$IF Defined(DARWIN)}
-  LanguageFileBasePath := getApplicationResourcesDirPath + '/languages/';
-  LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
-{$ELSEIF Defined(WINDOWS)}
-  LanguageFileDir := getApplicationResourcesDirPath + 'languages\'+ locale + '\LC_MESSAGES\';
-{$ELSEIF Defined(UNIX)}
-  LanguageFileBasePath := getApplicationResourcesDirPath + 'languages/';
-  LanguageFileDir := LanguageFileBasePath + locale + '/LC_MESSAGES/';
-{$IFEND}
-  if not DirectoryExists(LanguageFileDir) then
-    Logger.Output ('MainForm', 'Directory ' + LanguageFileDir + ' not found!')
-  else
-  begin
-    LanguageFilePath := LanguageFileDir + 'heatwizard.mo';
-    if not FileExists(LanguageFilePath) then
+    try
+      MOFile := TMOFile.Create(LanguageFilePath);
+    except
+     on EMOFileError do
+       Logger.Output ('MainForm', 'Invalid .mo file header');
+    end;
+    if assigned(MOFile) then
     begin
-      Logger.Output ('MainForm', 'File ' + LanguageFilePath + ' not found!');
-      Logger.Output ('MainForm', 'Continuing with default language, i.e. English!');
-    end
-    else
-    begin
-      try
-        MOFile := TMOFile.Create(LanguageFilePath);
-      except
-       on EMOFileError do
-         Logger.Output ('MainForm', 'Invalid .mo file header');
-      end;
-      if assigned(MOFile) then
-      begin
-        VoltageEdit.EditLabel.Caption            := MOFile.translate('Voltage');
-        TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
-        ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
-        ThermocoupleLabel.Caption                := MOFile.translate('Thermocouple');
-        QuitButton.Caption                       := MOFile.translate('Quit');
-        for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
-          TypeBox.Items.Strings[index] := MOFile.translate('Type') + ' ' + GetEnumName(TypeInfo(TThermoElementType), index);
-        Warning.Caption                          := MOFile.translate('illegal input try again');
-        {$IF Defined(DARWIN)}
-        AboutMenu.Caption := MOFile.translate('About ') + Application.Title;
-        PreferencesMenu.Caption  := MOFile.translate('Preferences ...');
-        {$IFEND}
-        MOFile.Destroy;
-      end;
+      VoltageEdit.EditLabel.Caption            := MOFile.translate('Voltage');
+      TemperatureCelsiusEdit.EditLabel.Caption := MOFile.translate('Temperature');
+      ReferenceCelsiusEdit.EditLabel.Caption   := MOFile.translate('Reference Temperature');
+      ThermocoupleLabel.Caption                := MOFile.translate('Thermocouple');
+      QuitButton.Caption                       := MOFile.translate('Quit');
+      for index := ord(low(TThermoElementType)) to ord(high(TThermoElementType)) do
+        TypeBox.Items.Strings[index] := MOFile.translate('Type') + ' ' + GetEnumName(TypeInfo(TThermoElementType), index);
+      Warning.Caption                          := MOFile.translate('illegal input try again');
+      {$IF Defined(DARWIN)}
+      AboutMenu.Caption := MOFile.translate('About ') + Application.Title;
+      PreferencesMenu.Caption  := MOFile.translate('Preferences ...');
+      {$IFEND}
+      MOFile.Destroy;
     end;
   end;
 end;

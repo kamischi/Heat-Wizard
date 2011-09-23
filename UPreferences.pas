@@ -63,9 +63,6 @@ implementation
 
 uses
   gettext,
-{$IF Defined(DARWIN)}
-  MacOSAll,
-{$IFEND}
   HeatWizardPanel,
   UAbout,
   ULog,
@@ -135,86 +132,33 @@ end;
 
 procedure TPreferencesForm.TranslateTexts(const locale: string);
 var
+  LanguageFilePath: string;
   MOFile:           TMOFile;
-  LanguageFileDir:  string = '';
-  LanguageFilePath: string = '';
-  CurrentPath:      string = '';
   index:            integer;
-{$IF Defined(DARWIN)}
-function getApplicationResourcesDirPath: string;
-const
-  PathNameLength = 2000;
-var
-  MainBundle:  CFBundleRef;
-  ResourceDir: CFURLRef;
-  Path:        PChar;
 begin
-  Path        := StrAlloc(PathNameLength);
-  MainBundle  := CFBundleGetMainBundle;
-  ResourceDir := CFBundleCopyResourcesDirectoryURL(MainBundle);
-  if ResourceDir = NIL then
+  LanguageFilePath := getLanguageFilePath(locale);
+  if not FileExists(LanguageFilePath) then
   begin
-    getApplicationResourcesDirPath := '';
-    Logger.Output ('UPreferencesForm', 'Could not find the Resources directory in the application bundle.');
+    Logger.Output ('PreferencesForm', 'File ' + LanguageFilePath + ' not found!');
+    Logger.Output ('PreferencesForm', 'Continuing with default language, i.e. English!');
   end
   else
   begin
-    CFURLGetFileSystemRepresentation(ResourceDir, true, Path, PathNameLength);
-    getApplicationResourcesDirPath := Path + '/';
-    Logger.Output ('UPreferencesForm', 'Resources directory found as: ' + Path);
-  end;
-end;
-{$ELSE}
-function getApplicationResourcesDirPath: string;
-const
-  NonGlobalDirectory = false;
-begin
-  {$IF Defined(WINDOWS)}
-  getApplicationResourcesDirPath := GetAppConfigDir(NonGlobalDirectory);
-  {$ELSEIF Defined(UNIX)}
-  getApplicationResourcesDirPath := GetEnvironmentVariable('HOME') + '/.heatwizard/';
-  {$IFEND}
-end;
-{$IFEND}
-begin
-{$IF Defined(WINDOWS)}
-  LanguageFileDir := getApplicationResourcesDirPath + 'languages\' + locale + '\LC_MESSAGES\';
-{$ELSEIF Defined(UNIX)}
-  LanguageFileDir := getApplicationResourcesDirPath + 'languages/' + locale + '/LC_MESSAGES/';
-{$IFEND}
-  if not DirectoryExists(LanguageFileDir) then
-  begin
-    Logger.Output ('PreferencesForm', 'Directory ' + LanguageFileDir + ' not found!');
-    GetDir(0, CurrentPath);
-    Logger.Output ('PreferencesForm', 'Current Directory: ' + CurrentPath);
-    Logger.Output ('PreferencesForm', 'Current Directory2: ' + GetCurrentDir);
-  end
-  else
-  begin
-    LanguageFilePath := LanguageFileDir + 'heatwizard.mo';
-    if not FileExists(LanguageFilePath) then
+    try
+      MOFile := TMOFile.Create(LanguageFilePath);
+    except
+     on EMOFileError do
+       Logger.Output ('PreferencesForm', 'Invalid .mo file header');
+    end;
+    if assigned(MOFile) then
     begin
-      Logger.Output ('PreferencesForm', 'File ' + LanguageFilePath + ' not found!');
-      Logger.Output ('PreferencesForm', 'Continuing with default language, i.e. English!');
-    end
-    else
-    begin
-      try
-        MOFile := TMOFile.Create(LanguageFilePath);
-      except
-       on EMOFileError do
-         Logger.Output ('PreferencesForm', 'Invalid .mo file header');
-      end;
-      if assigned(MOFile) then
+      LanguageLabel.Caption        := MOFile.translate('Language:');
+      for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
       begin
-        LanguageLabel.Caption        := MOFile.translate('Language:');
-        for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
-        begin
-          LanguageComboBox.Items.Strings[index] := MOFile.translate(LanguageLongString[TLanguage(index)]);
-        end;
-        DoneButton.Caption                := MOFile.translate('Done');
-        MOFile.Destroy;
+        LanguageComboBox.Items.Strings[index] := MOFile.translate(LanguageLongString[TLanguage(index)]);
       end;
+      DoneButton.Caption                := MOFile.translate('Done');
+      MOFile.Destroy;
     end;
   end;
 end;
