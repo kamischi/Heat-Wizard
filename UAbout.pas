@@ -63,6 +63,7 @@ implementation
 uses
   gettext,
   HeatWizardPanel,
+  UFormPainter,
   ULog,
   UPlatform,
   UPreferenceData;
@@ -86,22 +87,9 @@ begin
   AboutForm.Visible := false;
 end;
 
-function RGB(const R, G, B: Word): integer; inline;
-begin
-  RGB := R*256*256 + G*256 + B;
-end;
-
 procedure TAboutForm.FormPaint(Sender: TObject);
-var
-  Row, LocalHeight: word;
 begin
-  LocalHeight := (ClientHeight + 255) div 256;
-  for Row := 0 to 255 do
-    with Canvas do
-    begin
-      Brush.Color := RGB(0, 0, 96 + Row div 2);
-      FillRect(0, Row * LocalHeight, ClientWidth, (Row + 1) * LocalHeight);
-    end;
+  PaintBackground(Self)
 end;
 
 procedure TAboutForm.FormResize(Sender: TObject);

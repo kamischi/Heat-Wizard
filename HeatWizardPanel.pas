@@ -33,6 +33,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ExtCtrls, Menus,
+  UFormPainter,
   UThermoCouple;
 
 type
@@ -337,22 +338,9 @@ begin
   InfoCircle.Brush.Style       := bsClear;
 end;
 
-function RGB(const R, G, B: Word): integer; inline;
-begin
-  RGB := R*256*256 + G*256 + B;
-end;
-
 procedure TMainForm.FormPaint(Sender: TObject);
-var
-  Row, LocalHeight: word;
 begin
-  LocalHeight := (ClientHeight + 255) div 256;
-  for Row := 0 to 255 do
-    with Canvas do
-    begin
-      Brush.Color := RGB(0, 0, 96 + Row div 2);
-      FillRect(0, Row * LocalHeight, ClientWidth, (Row + 1) * LocalHeight);
-    end;
+  PaintBackground(Self)
 end;
 
 procedure TMainForm.ReferenceCelsiusEditKeyDown(Sender:  TObject;
