@@ -33,7 +33,6 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ExtCtrls, Menus,
-  UFormPainter,
   UThermoCouple;
 
 type
@@ -118,6 +117,7 @@ uses
   gettext,
   typinfo,
   UAbout,
+  UFormPainter,
   ULog,
   UPlatform,
   UPreferences,
