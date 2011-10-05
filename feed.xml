@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <id>urn:iweb:05BDD6B7-34A3-4DD1-B8A9-4B944DCD855C</id>
+ <id>urn:iweb:D53DFC7E-C7A4-4C86-9990-40804905742B</id>
  <title>Page list Atom feed</title>
- <updated>2011-08-02T12:45:28+02:00</updated>
+ <updated>2011-10-05T23:09:27+02:00</updated>
  <link rel="self" href="feed.xml"/>
  <generator>iWeb</generator>
  <author>
   <name>iWeb</name>
  </author>
+ <entry>
+  <id>urn:iweb:AFAE4682-32B7-4FD7-A825-B2321296A1E8</id>
+  <title>Heat Wizard</title>
+  <title xmlns="urn:iweb:">Heat Wizard</title>
+  <in-navbar xmlns="urn:iweb:">AFAE4682-32B7-4FD7-A825-B2321296A1E8</in-navbar>
+  <link rel="alternate" href="Heat_Wizard.html"/>
+  <updated>2011-10-05T23:09:27.001+02:00</updated>
+  <content>Heat Wizard</content>
+ </entry>
 </feed>
