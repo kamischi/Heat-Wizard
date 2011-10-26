@@ -116,6 +116,7 @@ implementation
 uses
   gettext,
   typinfo,
+  AppKit, lobjc, foundation,
   UAbout,
   UFormPainter,
   ULog,
@@ -209,6 +210,10 @@ var
   LanguageFilePath: string;
   MOFile          : TMOFile;
   index           : integer;
+//  CocoaMenu: Pobjc_object;
+  CocoaMenu: NSMenu;
+  CocoaApp: NSApplication;
+  pool: NSAutoreleasePool;
 
 begin
   LanguageFilePath := getLanguageFilePath(locale);
@@ -238,6 +243,28 @@ begin
       {$IF Defined(DARWIN)}
       AboutMenu.Caption := MOFile.translate('About ') + Application.Title;
       PreferencesMenu.Caption  := MOFile.translate('Preferences ...');
+//      pool := NSAutoreleasePool.Create;
+//      NSApp := NSApplication.sharedApplication;
+//      NSApplicationLoad();
+      CocoaApp := NSApplication.sharedApplication;
+//      CocoaApp.hideOtherApplications(Nil); //works
+//      CocoaMenu := NSMenu(CocoaApp.mainMenu);
+      CocoaMenu := NSMenu(CocoaApp.servicesMenu);
+//      MainMenu.Items[0].Items[3].Caption := MOFile.translate('Services');;
+{
+      if MOFile.translate('Hide ')[1] = ' ' then
+        MainMenu.Items[0].Items[4].Caption := Application.Title + MOFile.translate('Hide ')
+      else
+        MainMenu.Items[0].Items[4].Caption := MOFile.translate('Hide ') + Application.Title;
+}
+//      MainMenu.Items[0].Items[5].Caption := MOFile.translate('Hide others');
+//      MainMenu.Items[0].Items[6].Caption := MOFile.translate('Show all');
+{
+      if MOFile.translate('Quit ')[1] = ' ' then
+        MainMenu.Items[0].Items[7].Caption := Application.Title + MOFile.translate('Quit ')
+      else
+        MainMenu.Items[0].Items[7].Caption := MOFile.translate('Quit ') + Application.Title;
+}
       {$IFEND}
       MOFile.Destroy;
     end;

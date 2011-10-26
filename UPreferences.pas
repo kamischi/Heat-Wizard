@@ -140,12 +140,16 @@ begin
     end;
     if assigned(MOFile) then
     begin
-      LanguageLabel.Caption        := MOFile.translate('Language:');
+      LanguageLabel.Caption := MOFile.translate('Language:');
       for index := ord(low(Tlanguage)) to ord(high(Tlanguage)) do
       begin
         LanguageComboBox.Items.Strings[index] := MOFile.translate(LanguageLongString[TLanguage(index)]);
       end;
-      DoneButton.Caption                := MOFile.translate('Done');
+      DoneButton.Caption := MOFile.translate('Done');
+{$IF Defined(DARWIN)}
+      MainForm.AboutMenu.Caption       := MOFile.translate('About ') + Application.Title;
+      MainForm.PreferencesMenu.Caption := MOFile.translate('Preferences ...');
+{$IFEND}
       MOFile.Destroy;
     end;
   end;

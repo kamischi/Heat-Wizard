@@ -5,6 +5,7 @@ Usage related changes in version 0.3.1:
 
 New:
 * GUI program: About and Preferences Menus in Mac OS X
+* Spanish translation
 
 Changed:
 * Commandline tool: case change of most options

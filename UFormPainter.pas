@@ -52,7 +52,6 @@ procedure PaintBackground(Form: TForm);
         Brush.Color := RGB(0, 0, 96 + Row div 2);
         FillRect(0, Row * LocalHeight, Form.ClientWidth, (Row + 1) * LocalHeight);
       end;
-
   end;
 
 end.

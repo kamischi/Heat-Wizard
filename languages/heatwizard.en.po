@@ -4,7 +4,27 @@ msgstr "About "
 
 #: MainMenu:Preferences
 msgid "Preferences ..."
-msgstr "Preferences ..."
+msgstr "Preferences …"
+
+#: MainMenu:Services
+msgid "Services"
+msgstr "Services"
+
+#: MainMenu:Hide
+msgid "Hide"
+msgstr "Hide"
+
+#: MainMenu:HideOthers
+msgid "Hide others"
+msgstr "Hide others"
+
+#: MainMenu:ShowAll
+msgid "Show all"
+msgstr "Show all"
+
+#: MainMenu:Quit
+msgid "Quit "
+msgstr "Quit "
 
 #: Form1:VoltageEdit
 msgid "Voltage"
